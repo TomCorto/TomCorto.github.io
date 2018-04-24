@@ -1,3 +1,24 @@
+@font-face {
+ font-family: "Open Sans";
+ src: url("./assets/fonts/SourceSansPro-Regular.ttf") format("ttf"),
+        url("./assets/fonts/SourceSansPro-SemiBold.ttf") format("ttf");
+}
+
+:root {
+  /* Colors */
+  --color-primary-white: #ffffff;
+  --color-primary-grey: #4E4E4E;
+  --color-primary-red: #DE0019;
+
+  /* Fonts */
+  --ft-source-pro: 'Source Sans Pro', sans-serif;
+  --ft-weight-reg: 400;
+  --ft-weight-semi: 500;
+
+  /* Media queries */
+  --mq-sm: 480px;
+}
+
 body {
   margin: 0;
   padding: 0;

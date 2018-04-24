@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Styled from 'styled-components';
 
 export default class HomePage extends Component {
   constructor(props) {
