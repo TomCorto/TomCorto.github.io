@@ -21,8 +21,10 @@ export default class Header extends Component {
   }
 
   componentDidMount() {
+    const { windowWidthFunct } = this.props.NavigationStore;
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
+    windowWidthFunct(this.state.width);
   }
 
   componentWillUnmount() {
@@ -30,8 +32,10 @@ export default class Header extends Component {
   }
 
   updateWindowDimensions() {
+  const { windowWidthFunct } = this.props.NavigationStore;
   this.setState({ width: window.innerWidth, height: window.innerHeight });
-  console.log(this.state.width);
+  /*console.log(this.state.width);*/
+  windowWidthFunct(this.state.width);
 }
 
   render() {

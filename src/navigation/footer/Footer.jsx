@@ -15,9 +15,10 @@ export default class Footer extends Component {
   }
 
   render() {
+    const { FooterItemsList, WindowWidthProps } = this.props.NavigationStore;
     return(
       <FooterStyled>
-        <FooterComp />
+        <FooterComp propListItem={FooterItemsList} displaySubscribeComp={WindowWidthProps}/>
       </FooterStyled>
     )
   }
