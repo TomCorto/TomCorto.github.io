@@ -4,14 +4,19 @@
         url("./assets/fonts/SourceSansPro-SemiBold.ttf") format("ttf");
 }
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 :root {
   /* Colors */
   --color-primary-white: #ffffff;
   --color-primary-grey: #4E4E4E;
   --color-primary-red: #DE0019;
+  --color-primary-black: #222222;
 
   /* Fonts */
   --ft-source-pro: 'Source Sans Pro', sans-serif;
+  --ft-weight-lt: 300;
   --ft-weight-reg: 400;
   --ft-weight-semi: 500;
 
@@ -23,4 +28,28 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.customStyleLeft {
+  zIndex: 100;
+  position: absolute;
+  width: 3vh;
+  height: 3vh;
+  left: 2vw;
+  top: 372;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+
+.customStyleRight {
+  zIndex: 100;
+  position: absolute;
+  width: 3vh;
+  height: 3vh;
+  right: 2vw;
+  top: 372;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(180deg);
 }

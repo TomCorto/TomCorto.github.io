@@ -7,8 +7,14 @@ import imgLogo from '../../../assets/icons/wilier-logo-light.png';
 import FooterSubscribeComp from './FooterSubscribeComp';
 
 const FooterContainer = styled.div`
+  position: relative;
   display: grid;
-  width: 100vw;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
   background-color: var(--color-primary-grey);
   @media all and (min-width: 480px) {
     grid-template-rows: repeat(3, auto);

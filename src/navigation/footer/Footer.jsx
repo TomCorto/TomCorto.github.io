@@ -4,8 +4,12 @@ import styled from 'styled-components';
 import FooterComp from './components/FooterComp';
 
 const FooterStyled = styled.footer`
-  position: fixed;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   bottom: 0;
+  background-color: green;
 `
 @inject('NavigationStore')
 @observer

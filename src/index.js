@@ -16,6 +16,7 @@ import Footer from './navigation/footer/Footer';
 // Mobx Stores
 import UiStore from './stores/UiStore';
 import NavigationStore from './stores/NavigationStore';
+import HomeStore from './stores/HomeStore';
 
 // Routes
 import HomePage from './pages/HomePage';
@@ -29,7 +30,8 @@ import ErrorPage from './pages/ErrorPage';
 
 const stores = {
   UiStore,
-  NavigationStore
+  NavigationStore,
+  HomeStore
 }
 
 const ApplicationDivStyled = styled.div`
