@@ -16,6 +16,7 @@ const ContainerStyled = styled.div`
   margin: 0;
   padding: 0;
   padding: 1vw 2em 1vw;
+  overflow: hidden;
   @media (max-width: 1024px) { display: none; }
   @media (min-width: 1024px) { display: display: grid; }
 `

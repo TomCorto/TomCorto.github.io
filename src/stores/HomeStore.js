@@ -14,6 +14,7 @@ class HomeStore {
     { backgroundImgProps: 'landing_category-fitness.jpg', linkProps: './bikes/fitness/', h2Props: 'Fitness', h5Props: 'Vélos Fitness', textProps: 'Restez en forme ou promenez vous en ville avec nos vélos Fitness' },
     { backgroundImgProps: 'landing_category-gravel.jpg', linkProps: './bikes/gravel/', h2Props: 'Gravel', h5Props: 'Vélo Gravel', textProps: 'Nos vélos E-Bikes sont loin d’être communs, ils sont juste comme devrait être …' }
   ];
+  @observable LandingLocator = "Trouvez un magasin";
 
   @action.bound windowWidthFunct(el) {
     this.WindowWidthProps = el;

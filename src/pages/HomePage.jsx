@@ -3,6 +3,7 @@ import MediaQuery from 'react-responsive';
 import HomeLandingComp from '../components/home/landing/HomeLandingComp';
 import HomeNewsComp from '../components/home/news/HomeNewsComp';
 import HomeCategoryComp from '../components/home/category/HomeCategoryComp';
+import HomeDistributorComp from '../components/home/distributor/HomeDistributorComp';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export default class HomePage extends Component {
           <HomeNewsComp />
           <HomeCategoryComp />
         </MediaQuery>
+        <HomeDistributorComp />
       </div>
     )
   }

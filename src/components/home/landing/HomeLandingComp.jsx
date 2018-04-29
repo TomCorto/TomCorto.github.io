@@ -17,7 +17,7 @@ const LandingStyled = styled.div`
   @media all and (min-width: 480px) { height: 22.6em; }
   @media all and (min-width: 768px) { height: 28.4em; }
   @media all and (min-width: 1024px) { height: 41.1em; }
-  @media all and (min-width: 1366px) { height: 58em; }
+  @media all and (min-width: 1366px) { height: 50em; }
 `
 
 const H3styled = styled.h3`
@@ -70,6 +70,7 @@ const TextGroupStyled = styled.div`
   @media all and (min-width: 768px) { margin: 15% 0 0 8vw; }
   @media all and (min-width: 1024px) { margin: 20% 0 0 4vw; width: 30em; }
   @media all and (min-width: 1280px) { margin: 20% 0 0 10vw; width: 30em; }
+  @media all and (min-width: 1366px) { margin: 15% 0 0 10vw; width: 30em; }
 `
 
 const ButtonTestStyled = styled.button`
