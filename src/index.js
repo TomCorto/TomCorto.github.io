@@ -17,6 +17,7 @@ import Footer from './navigation/footer/Footer';
 import UiStore from './stores/UiStore';
 import NavigationStore from './stores/NavigationStore';
 import HomeStore from './stores/HomeStore';
+import BikeStore from './stores/BikeStore';
 
 // Routes
 import HomePage from './pages/HomePage';
@@ -31,7 +32,8 @@ import ErrorPage from './pages/ErrorPage';
 const stores = {
   UiStore,
   NavigationStore,
-  HomeStore
+  HomeStore,
+  BikeStore
 }
 
 const ApplicationDivStyled = styled.div`

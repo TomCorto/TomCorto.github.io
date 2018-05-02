@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BikeLandingComp from '../components/bikes/Landing/BikesLandingComp';
 
 export default class BikePage extends Component {
   constructor() {
@@ -11,7 +12,7 @@ export default class BikePage extends Component {
   render() {
     return (
       <div>
-        {this.state.msg}
+        <BikeLandingComp />
       </div>
     )
   }
