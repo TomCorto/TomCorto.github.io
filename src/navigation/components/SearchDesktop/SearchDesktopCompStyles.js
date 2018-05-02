@@ -1,9 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
-import logoSearch from '../../assets/icons/icons-search-dark-lg.png';
+import transition from "styled-transition-group";
 
-
-const DivContainerStyled = styled.div`
+export const DivContainerStyled = transition.div`
   position: absolute;
   display: flex;
   flex-flow: row nowrap;
@@ -13,19 +11,38 @@ const DivContainerStyled = styled.div`
   margin: 0;
   padding: 0;
   width: 100%;
-  /*border: 1px solid black;*/
   background-color: var(--color-primary-white);
+  z-index: 100000;
   @media all and (max-width: 1024px) { display: flex; }
   & > * {
     @media all and (max-width: 1024px) { display: none; }
   }
+
+  &:enter {
+    opacity: 0.01;
+    transform: translateY(-50%);
+  }
+  &:enter-active {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all 150ms ease-in;
+  }
+  &:exit {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  &:exit-active {
+    opacity: 0.01;
+    transform: translateY(-50%);
+    transition: all 150ms ease-in;
+  }
 `
 
-const SearchIconStyled = styled.img`
+export const SearchIconStyled = styled.img`
   margin-right: 10px;
 `
 
-const SearchLabelStyled = styled.label`
+export const SearchLabelStyled = styled.label`
   height: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -33,7 +50,7 @@ const SearchLabelStyled = styled.label`
   align-items: center;
 `
 
-const SearchInputStyled = styled.input`
+export const SearchInputStyled = styled.input`
   font-family: var(--ft-source-pro);
   font-weight: 400;
   font-size: 18px;
@@ -44,7 +61,7 @@ const SearchInputStyled = styled.input`
   @media all and (min-width: 1024px) { width: 30em; }
 `
 
-const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button`
   font-family: var(--ft-source-pro);
   font-weight: 400;
   background: transparent;
@@ -60,15 +77,3 @@ const ButtonStyled = styled.button`
     box-shadow: 1px 1px 1px var(--color-primary-grey);
   }
 `
-
-const SearchDesktopComp = ({msg, nameInput}) => (
-    <DivContainerStyled>
-      <SearchLabelStyled>
-        <SearchIconStyled src={logoSearch} alt={"Search"} />
-        <SearchInputStyled placeholder={"Chercher des articles, VTT, Maillot…"}  ref={(input) => { this.nameInput = input; }}  />
-        <ButtonStyled>Rechercher</ButtonStyled>
-      </SearchLabelStyled>
-    </DivContainerStyled>
-  );
-
-export default SearchDesktopComp;

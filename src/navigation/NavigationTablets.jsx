@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import NavigationTabletsComp from './components/NavigationTabletsComp';
-import SearchDesktop from './components/SearchDesktopComp';
+import SearchDesktop from './components/SearchDesktop/SearchDesktopComp';
 
 
 @inject('NavigationStore')

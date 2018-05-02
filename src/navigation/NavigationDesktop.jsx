@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import { Transition } from 'react-transition-group';
+import NavigationDesktopComp from './components/MenuDesktop/NavigationDesktopComp';
+import NavigationDesktopOpen from './components/MenuOpenDesktop/NavigationDesktopOpen';
 
-import NavigationDesktopComp from './components/NavigationDesktopComp';
+const styles = {
+  transition: 'all 1s ease-in',
+};
 
 @inject('NavigationStore')
 @observer
@@ -9,6 +14,7 @@ export default class NavigationDesktop extends Component {
   constructor() {
     super();
     this.toggleSearchBar = this.toggleSearchBar.bind(this);
+    this.toggleMenuDesktop = this.toggleMenuDesktop.bind(this);
   }
 
   toggleSearchBar() {
@@ -16,12 +22,28 @@ export default class NavigationDesktop extends Component {
     toggleSearch();
   }
 
+  toggleMenuDesktop() {
+    const { toggleMenuDesktop } = this.props.NavigationStore;
+    toggleMenuDesktop();
+  }
+
   render()   {
-    const { MenuItemsList } = this.props.NavigationStore;
+    const { MenuItemsList, MenuToggleDesktop } = this.props.NavigationStore;
     return (
       <nav>
-        <NavigationDesktopComp props={MenuItemsList} onClick={this.toggleSearchBar} />
+        <NavigationDesktopComp
+          props={MenuItemsList}
+          onClick={this.toggleSearchBar}
+          onHoverBikes={this.toggleMenuDesktop}
+        />
+        <NavigationDesktopOpen onMouseEnter={this.toggleMenuDesktop} onMouseLeave={this.toggleMenuDesktop} />
       </nav>
     )
   }
 }
+
+/*
+{ MenuToggleDesktop ?
+  <NavigationDesktopOpen />
+  : null }
+ */
