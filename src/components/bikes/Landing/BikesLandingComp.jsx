@@ -6,12 +6,12 @@ import { Container, H2Styled, ButtonBikeFinder, ButtonBikeLink } from './BikesLa
 @observer
 export default class BikeLandingComp extends Component {
   render() {
-    const { h2Text } = this.props.BikeStore;
+    const { landingBikeObject } = this.props.BikeStore;
     return (
       <Container>
-        <H2Styled>{h2Text}</H2Styled>
-        <ButtonBikeLink>Trouvez votre vélo</ButtonBikeLink>
-        <ButtonBikeFinder>Guide Vélos</ButtonBikeFinder>
+        <H2Styled>{landingBikeObject.h2Text}</H2Styled>
+        <ButtonBikeLink>{landingBikeObject.buttonLink}</ButtonBikeLink>
+        <ButtonBikeFinder>{landingBikeObject.buttonFinder}</ButtonBikeFinder>
       </Container>
     )
   }

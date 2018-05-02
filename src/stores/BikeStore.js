@@ -1,10 +1,11 @@
 import { observable, action, computed } from 'mobx';
 
 class BikeStore {
-  @observable h2Text = "Vélos Route";
+  @observable landingBikeObject = {h2Text: "Vélos Route",buttonLink: "Trouvez votre vélo", buttonFinder: "Guide Vélos"};
   @observable MenuToggle = false;
   @observable SearchToggle = false;
   @observable WindowWidthProps = 0;
+
 
   @observable MenuItemsList = [{route: '/bikes', text: 'Vélos'},  {route: '/equipment', text: 'Équipements'}, {route: '/accessories', text: 'Accessoires'}, {route: '/shop', text: 'Magasins'}];
   @observable LandingLocator = "Trouvez un magasin";
