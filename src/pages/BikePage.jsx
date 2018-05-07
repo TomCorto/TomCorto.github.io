@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BikeLandingComp from '../components/bikes/Landing/BikesLandingComp';
+import BikeMainComp from '../components/bikes/main/BikeMainComp';
 
 export default class BikePage extends Component {
   constructor() {
@@ -13,6 +14,7 @@ export default class BikePage extends Component {
     return (
       <div>
         <BikeLandingComp />
+        <BikeMainComp />
       </div>
     )
   }

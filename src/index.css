@@ -1,7 +1,8 @@
 @font-face {
  font-family: "Open Sans";
  src: url("./assets/fonts/SourceSansPro-Regular.ttf") format("ttf"),
-        url("./assets/fonts/SourceSansPro-SemiBold.ttf") format("ttf");
+        url("./assets/fonts/SourceSansPro-SemiBold.ttf") format("ttf"),
+        url("./assets/fonts/SourceSansPro-Light.ttf") format("ttf");
 }
 
 @import "~slick-carousel/slick/slick.css";
