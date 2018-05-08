@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import { Container, BikeProductContainer } from './BikeMainCompStyle';
+import styled from 'styled-components';
+import { Container, BikeProductContainer, BikeDisplayContainer } from './BikeMainCompStyle';
 import BikeProductThumbComp from './components/BikeProductThumb/BikeProductThumbComp';
 import BikeSelectorComp from './components/Selector/BikeSelectorComp';
 import BikeTextComp from './components/TextComp/BikeTextComp';
@@ -31,10 +32,12 @@ export default class BikeMainComp extends Component {
       <Container>
         <BikeTextComp textProps={bikesPresentationText} />
         <FilterComp />
-        <BikeSelectorComp />
-        <BikeProductContainer>
-          {ProductList.map((el, index) => <BikeProductThumbComp key={index} propsObject={el} onMouseEnter={uiProductAnim} />)}
-        </BikeProductContainer>
+        <BikeDisplayContainer>
+          <BikeSelectorComp />
+          <BikeProductContainer>
+            {ProductList.map((el, index) => <BikeProductThumbComp key={index} propsObject={el} onMouseEnter={uiProductAnim} />)}
+          </BikeProductContainer>
+        </BikeDisplayContainer>
       </Container>
     )
   }

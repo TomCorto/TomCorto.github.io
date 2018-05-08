@@ -10,7 +10,6 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid black;
   cursor: pointer;
 `
 

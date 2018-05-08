@@ -30,6 +30,9 @@
   },
   "devDependencies": {
     "file-loader": "^1.1.11",
-    "img-loader": "^2.0.1"
+    "img-loader": "^2.0.1",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "webpack": "^4.8.1"
   }
 }

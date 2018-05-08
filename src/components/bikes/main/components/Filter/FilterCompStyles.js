@@ -5,12 +5,11 @@ export const Container = styled.div`
   margin: 0;
   padding: 0;
   width: 100%;
-
   @media all and (min-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    justify-items: flex-end;
+    justify-items: end;
     align-items: center;
   }
   @media all and (max-width: 1024px) { display: none; }
@@ -30,6 +29,13 @@ export const SelectorSelect = styled.select`
   }
 `
 
+export const SelectorItemsBg = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+`
+
 export const SelectorOption = styled.option`
   background-color: white;
   appearance: none;
@@ -39,7 +45,7 @@ export const SelectorOption = styled.option`
 `
 
 export const ItemsCount = styled.h6`
-  grid-area: 1 / 4 / 1 / -1;
+  grid-area: 1 / 3 / 1 / -1;
   font-family: var(--ft-primary);
   color: var(--color-primary-grey);
   font-size: 1rem;
