@@ -2,7 +2,8 @@
  font-family: "Open Sans";
  src: url("./assets/fonts/SourceSansPro-Regular.ttf") format("ttf"),
         url("./assets/fonts/SourceSansPro-SemiBold.ttf") format("ttf"),
-        url("./assets/fonts/SourceSansPro-Light.ttf") format("ttf");
+        url("./assets/fonts/SourceSansPro-Light.ttf") format("ttf"),
+        url("./assets/fonts/SourceSansPro-Italic.ttf") format("ttf");
 }
 
 @import "~slick-carousel/slick/slick.css";
@@ -16,10 +17,12 @@
   --color-primary-black: #222222;
 
   /* Fonts */
+  --ft-primary: 'Source Sans Pro', sans-serif;
   --ft-source-pro: 'Source Sans Pro', sans-serif;
   --ft-weight-lt: 300;
   --ft-weight-reg: 400;
   --ft-weight-semi: 500;
+  --ft-style-itl: italic;
 
   /* Media queries */
   --mq-sm: 480px;

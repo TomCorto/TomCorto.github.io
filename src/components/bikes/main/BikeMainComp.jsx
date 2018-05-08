@@ -4,6 +4,7 @@ import { Container, BikeProductContainer } from './BikeMainCompStyle';
 import BikeProductThumbComp from './components/BikeProductThumb/BikeProductThumbComp';
 import BikeSelectorComp from './components/Selector/BikeSelectorComp';
 import BikeTextComp from './components/TextComp/BikeTextComp';
+import FilterComp from './components/Filter/FilterComp';
 
 
 @inject('BikeStore')
@@ -21,6 +22,7 @@ export default class BikeMainComp extends Component {
     const { toggleAnimProductFunc, uiProductAnim } = this.props.BikeStore;
     toggleAnimProductFunc();
     /*alert(uiProductAnim);*/
+    // <button onClick={this.toggleAnimationProduct}>Launch Animation</button>
   }
 
   render() {
@@ -28,8 +30,8 @@ export default class BikeMainComp extends Component {
     return (
       <Container>
         <BikeTextComp textProps={bikesPresentationText} />
+        <FilterComp />
         <BikeSelectorComp />
-        <button onClick={this.toggleAnimationProduct}>Launch Animation</button>
         <BikeProductContainer>
           {ProductList.map((el, index) => <BikeProductThumbComp key={index} propsObject={el} onMouseEnter={uiProductAnim} />)}
         </BikeProductContainer>
