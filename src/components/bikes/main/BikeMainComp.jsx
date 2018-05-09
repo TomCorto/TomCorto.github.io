@@ -27,7 +27,7 @@ export default class BikeMainComp extends Component {
   }
 
   render() {
-    const { ProductList, uiProductAnim, bikesPresentationText } = this.props.BikeStore;
+    const { ProductList, uiProductAnim, bikesPresentationText, filterProductList } = this.props.BikeStore;
     return (
       <Container>
         <BikeTextComp textProps={bikesPresentationText} />
@@ -42,3 +42,4 @@ export default class BikeMainComp extends Component {
     )
   }
 }
+/* {ProductList.filter((el) => el !== "Route Performance" ).map((el, index) => <BikeProductThumbComp key={index} propsObject={el} onMouseEnter={uiProductAnim} />)}*/

@@ -2,15 +2,16 @@ import styled from 'styled-components';
 import transition from 'styled-transition-group';
 
 export const Container = styled.div`
-  width: 362px;
+  width: auto;
   height: auto;
   margin: 0;
-  padding: 10px;
+  padding: 0;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: 1px solid black;
 `
 
 export const TitleProduct = styled.h5`
@@ -18,14 +19,18 @@ export const TitleProduct = styled.h5`
   padding: 0;
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-semi);
-  @media all and (min-width: 1024px) { font-size: 1.3rem; }
+  @media all and (min-width: 480px) { font-size: 1rem; }
+  @media all and (min-width: 768px) { font-size: 1.1rem; }
+  @media all and (min-width: 1024px) { font-size: 1.2rem; }
+  @media all and (min-width: 1280px) { font-size: 1.3rem; }
 `
 
 export const ImgContainer = styled.div`
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  width: 100%;
+  height: auto;
+  width: auto;
+  border: 1px solid black;
   /*
   &:enter { transform: scale(1); }
   &:enter-active {
@@ -42,12 +47,17 @@ export const ImgContainer = styled.div`
 export const ImgProduct = styled.img`
   margin: 0;
   padding: 0;
+  height: auto;
+  max-width: 100%;
 `
 
 const H6 = TitleProduct.withComponent('h6')
 export const PriceProduct = H6.extend`
   font-weight: var(--ft-weight-lt);
-  @media all and (min-width: 1024px) { font-size: 1.1rem; }
+  @media all and (min-width: 480px) { font-size: 0.8rem; }
+  @media all and (min-width: 768px) { font-size: 0.9rem; }
+  @media all and (min-width: 1024px) { font-size: 1rem; }
+  @media all and (min-width: 1280px) { font-size: 1.1rem; }
 `
 
 export const ColorGroup = styled.div`

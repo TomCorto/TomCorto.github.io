@@ -4,15 +4,19 @@ import imgSrc from '../../../../../assets/icons/icons-select-arrows-down.png';
 export const Container = styled.div`
   margin: 0;
   padding: 0;
-  width: 100%;
+
+  border: 1px solid red;
+
+  @media all and (max-width: 1024px) { display: none; }
   @media all and (min-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    justify-items: end;
+    justify-items: center;
     align-items: center;
+    width: 100%;
+    /*padding: 0 5% 0;*/
   }
-  @media all and (max-width: 1024px) { display: none; }
 `
 
 export const SelectorSelect = styled.select`
@@ -51,4 +55,5 @@ export const ItemsCount = styled.h6`
   font-size: 1rem;
   font-weight: var(--ft-weight-reg);
   font-style: var(--ft-style-itl);
+  justify-self: end;
 `

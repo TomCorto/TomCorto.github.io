@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import styled from 'styled-components';
-import './styles.css';
-import { Container, SelectorItems, SelectorTitle, SelectorIcon, SelectorItemsBg, CheckboxStyled, LabelStyled, Checkmark } from './BikeSelectorCompStyle';
+import { Container, SelectorItems, SelectorTitle, SelectorIcon, SelectorItemsBg, ListCheckboxItems, HrStyled } from './BikeSelectorCompStyle';
 import CheckboxItems from './CheckboxItems/CheckboxItems';
 import iconOpen from '../../../../../assets/icons/icons-selector-open.png';
 import iconClosed from '../../../../../assets/icons/icons-selector-closed.png';
 
-
+@inject('BikeStore')
+@observer
 export default class BikeSelectorComp extends Component {
   constructor(props) {
     super(props);
@@ -19,8 +18,11 @@ export default class BikeSelectorComp extends Component {
     this.toggleCheck = this.toggleCheck.bind(this);
   }
 
-  toggleDropdown() {
-    this.setState({dropDownToggle: !this.state.dropDownToggle});
+  toggleDropdown(indicator) {
+    const { toggleSelectorCategories, filterUiRoad } = this.props.BikeStore;
+    toggleSelectorCategories(indicator);
+    //alert(indicator + "");
+    /*this.setState({dropDownToggle: !this.state.dropDownToggle});*/
   }
 
   toggleCheck() {
@@ -28,46 +30,50 @@ export default class BikeSelectorComp extends Component {
   }
 
   render() {
+    const { ProductList, filterUiRoad, toggleSelectorCategories } = this.props.BikeStore;
     return (
       <Container>
-        <SelectorItems>
-          <SelectorTitle onClick={this.toggleDropdown}>
-            Categories <SelectorIcon src={this.state.dropDownToggle ? iconOpen : iconClosed} alt={"Not defined"} />
-          </SelectorTitle>
-          {this.state.dropDownToggle ?
-            <div>
-              <CheckboxItems onClick={this.toggleCheck} checked={this.state.isChecked} textProps={"Cross-Country"} />
-              <CheckboxItems onClick={this.toggleCheck} checked={this.state.isChecked} textProps={"Cross-Country"} />
-              <CheckboxItems onClick={this.toggleCheck} checked={false} textProps={"Cross-Country"} />
-              <CheckboxItems onClick={this.toggleCheck} checked={false} textProps={"Cross-Country"} />
-            </div>
-          : null }
-        </SelectorItems>
+          { filterUiRoad.map((el, index) =>
+            <SelectorItems key={index}>
+            <SelectorTitle key={index} onClick={this.toggleDropdown(index)}>
+              {el.title} <SelectorIcon src={el.displayDropdown ? iconOpen : iconClosed} alt={"Not defined"} />
+            </SelectorTitle>
+            { el.displayDropdown ?
+              <ListCheckboxItems>
+                { el.list.map((el) =>
+                  <CheckboxItems onClick={this.toggleCheck} checked={this.state.isChecked} textProps={el} />
+                )}
+              </ListCheckboxItems>
+              : null
+            }
+            { index <= filterUiRoad.length  ? <HrStyled /> : null }
+            </SelectorItems>
+          )
+        }
+
+
       </Container>
     )
   }
 }
-
-/* Orignal and works
-<div className="SelectorItemBg">
-    <span className="text-styles" onClick={this.toggleCheck}>
-      <input type="checkbox" checked={this.state.isChecked} />
-      <span></span>
-      Cross-Country
-    </span>
-</div>
- */
-
 /*
-<LabelStyled onClick={this.toggleCheck}>Cross-Country
-  <CheckboxStyled type="checkbox" checked={this.state.isChecked} />
-  <Checkmark>Hello</Checkmark>
-</LabelStyled>
-*/
+<SelectorIcon src={this.state.dropDownToggle ? iconOpen : iconClosed} alt={"Not defined"} />
 
-/*
-<label className="container" onClick={this.toggleCheck}>
-  <input type="checkbox" checked={this.state.isChecked} />Cross-Country
-  <span class="checkmark"></span>
-</label>
+{this.state.dropDownToggle ?
+  <ListCheckboxItems>
+    <CheckboxItems onClick={this.toggleCheck} checked={this.state.isChecked} textProps={"Cross-Country"} />
+    <CheckboxItems onClick={this.toggleCheck} checked={this.state.isChecked} textProps={"Cross-Country"} />
+  </ListCheckboxItems>
+: null }*/
+
+/* Original
+<SelectorTitle onClick={this.toggleDropdown}>
+  Categories <SelectorIcon src={this.state.dropDownToggle ? iconOpen : iconClosed} alt={"Not defined"} />
+</SelectorTitle>
+{this.state.dropDownToggle ?
+  <ListCheckboxItems>
+    <CheckboxItems onClick={this.toggleCheck} checked={this.state.isChecked} textProps={"Cross-Country"} />
+    <CheckboxItems onClick={this.toggleCheck} checked={this.state.isChecked} textProps={"Cross-Country"} />
+  </ListCheckboxItems>
+: null }
  */

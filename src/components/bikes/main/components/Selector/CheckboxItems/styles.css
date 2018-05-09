@@ -23,8 +23,14 @@ input[type="checkbox"] + span {
 
 .text-styles {
   font-family: var(--ft-primary);
-  font-weight: 400;
-  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media all and (min-width: 1024px) {
+  .text-styles { font-size: 1rem; }
+}
+@media all and (min-width: 1280px) {
+  .text-styles { font-size: 1.1rem; }
 }
 
 .SelectorItemBg {
@@ -36,11 +42,14 @@ input[type="checkbox"] + span {
 }
 
 .SelectorItemBg:first-child {
-  margin: 0.5em 0 0.3em 0;
-  color: blue;
+  margin: 0.3em 0 0.3em 0;
 }
 
 .SelectorItemBg:last-child {
-  margin: 0 0 0 0;
-  color: red;
+  margin: 0.3em 0 0 0;
+}
+
+.ListCheckboxItems {
+  margin: 0;
+  padding: 0;
 }
