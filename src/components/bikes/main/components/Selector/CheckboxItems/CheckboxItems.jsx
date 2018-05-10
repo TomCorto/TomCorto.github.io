@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 
@@ -12,5 +12,11 @@ const CheckboxItems = ({checked, onClick, textProps}) => (
       </span>
   </div>
 );
+
+CheckboxItems.propTypes = {
+  checked: PropTypes.bool,
+  onClick: PropTypes.func,
+  textProps: PropTypes.string
+}
 
 export default CheckboxItems;

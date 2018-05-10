@@ -6,9 +6,8 @@ export const Container = styled.div`
   top: 0;
   background-color: var(--color-primary-white);
   border: 1px solid yellow;
-  @media all and (max-width: 1024px) { display: none;}
+  @media all and (max-width: 1024px) { display: none; }
   @media all and (min-width: 1024px) {
-    /*width: 10em; Original */
     width: 10em;
     padding: 1em 0.5em 4em 0.5em;
   }
@@ -42,12 +41,10 @@ export const SelectorTitle = styled.div`
 export const SelectorIcon = styled.img``
 
 export const SelectorItemsBg = styled.div`
-  //margin: 5px 10px 5px;
   background-color: transparent;
 `
 
 export const ListCheckboxItems = styled.div`
-  //margin: 0.4em 0 0.3em 0;
   margin: 0;
   padding: 0;
 `

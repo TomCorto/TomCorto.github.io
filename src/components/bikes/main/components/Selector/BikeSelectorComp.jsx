@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import { Container, SelectorItems, SelectorTitle, SelectorIcon, SelectorItemsBg, ListCheckboxItems, HrStyled } from './BikeSelectorCompStyle';
+import { Container, SelectorItems, SelectorTitle, SelectorIcon, ListCheckboxItems, HrStyled } from './BikeSelectorCompStyle';
 import CheckboxItems from './CheckboxItems/CheckboxItems';
 import iconOpen from '../../../../../assets/icons/icons-selector-open.png';
 import iconClosed from '../../../../../assets/icons/icons-selector-closed.png';
@@ -19,7 +19,7 @@ export default class BikeSelectorComp extends Component {
   }
 
   toggleDropdown(indicator) {
-    const { toggleSelectorCategories, filterUiRoad } = this.props.BikeStore;
+    const { toggleSelectorCategories } = this.props.BikeStore;
     toggleSelectorCategories(indicator);
     //alert(indicator + "");
     /*this.setState({dropDownToggle: !this.state.dropDownToggle});*/
@@ -30,7 +30,7 @@ export default class BikeSelectorComp extends Component {
   }
 
   render() {
-    const { ProductList, filterUiRoad, toggleSelectorCategories } = this.props.BikeStore;
+    const { filterUiRoad } = this.props.BikeStore;
     return (
       <Container>
           { filterUiRoad.map((el, index) =>
@@ -50,8 +50,6 @@ export default class BikeSelectorComp extends Component {
             </SelectorItems>
           )
         }
-
-
       </Container>
     )
   }

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import transition from 'styled-transition-group';
 import imgSrc from '../../../assets/img/bikes-landing.jpg';
 
 export const Container = styled.section`

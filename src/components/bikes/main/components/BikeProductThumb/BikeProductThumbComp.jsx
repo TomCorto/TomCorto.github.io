@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, TitleProduct, ImgContainer, ImgProduct, PriceProduct, ColorGroup, ColorItem } from './BikeProductThumbCompStyle';
-import iconArrow from '../../../../../assets/icons/icons-buttons.png';
 
 function importAll(r) {
   let images = {};

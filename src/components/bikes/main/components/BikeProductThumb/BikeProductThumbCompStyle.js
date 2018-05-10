@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import transition from 'styled-transition-group';
 
 export const Container = styled.div`
   width: auto;

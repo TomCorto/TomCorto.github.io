@@ -8,6 +8,7 @@ import { Provider } from 'mobx-react';
 
 // Styled Component
 import styled from 'styled-components';
+import 'font-awesome/css/font-awesome.min.css';
 
 // Navigation
 import Header from './navigation/Header';

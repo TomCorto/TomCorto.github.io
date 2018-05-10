@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import styled from 'styled-components';
 import { Container, BikeProductContainer, BikeDisplayContainer } from './BikeMainCompStyle';
 import BikeProductThumbComp from './components/BikeProductThumb/BikeProductThumbComp';
 import BikeSelectorComp from './components/Selector/BikeSelectorComp';
 import BikeTextComp from './components/TextComp/BikeTextComp';
 import FilterComp from './components/Filter/FilterComp';
+import BikeSelectorMobileComp from './components/Selector/SelectorMobileTablets/BikeSelectorMobileComp';
 
 
 @inject('BikeStore')
@@ -20,18 +20,19 @@ export default class BikeMainComp extends Component {
   }
 
   toggleAnimationProduct() {
-    const { toggleAnimProductFunc, uiProductAnim } = this.props.BikeStore;
+    const { toggleAnimProductFunc } = this.props.BikeStore;
     toggleAnimProductFunc();
     /*alert(uiProductAnim);*/
     // <button onClick={this.toggleAnimationProduct}>Launch Animation</button>
   }
 
   render() {
-    const { ProductList, uiProductAnim, bikesPresentationText, filterProductList } = this.props.BikeStore;
+    const { ProductList, uiProductAnim, bikesPresentationText } = this.props.BikeStore;
     return (
       <Container>
         <BikeTextComp textProps={bikesPresentationText} />
         <FilterComp />
+        <BikeSelectorMobileComp />
         <BikeDisplayContainer>
           <BikeSelectorComp />
           <BikeProductContainer>
