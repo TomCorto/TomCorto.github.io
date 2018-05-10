@@ -36,14 +36,19 @@ export default class NavigationDesktop extends Component {
           onClick={this.toggleSearchBar}
           onHoverBikes={this.toggleMenuDesktop}
         />
-        <NavigationDesktopOpen onMouseEnter={this.toggleMenuDesktop} onMouseLeave={this.toggleMenuDesktop} />
+        <NavigationDesktopOpen />
       </nav>
     )
   }
 }
 
 /*
-{ MenuToggleDesktop ?
+// Original
+<NavigationDesktopOpen onMouseEnter={this.toggleMenuDesktop} onMouseLeave={this.toggleMenuDesktop} />
+
+{
+
+MenuToggleDesktop ?
   <NavigationDesktopOpen />
   : null }
  */

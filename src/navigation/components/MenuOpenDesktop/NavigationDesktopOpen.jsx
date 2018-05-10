@@ -12,14 +12,14 @@ export default class NavigationDesktopOpen extends Component {
   }
 
   toggleMenu() {
-    const { toggleMenuDesktop } = this.props.NavigationStore;
+    const { toggleMenuDesktop, MenuToggleDesktop } = this.props.NavigationStore;
     toggleMenuDesktop();
   }
 
   render() {
     const { MenuToggleDesktop } = this.props.NavigationStore;
     return (
-      <Container onMouseEnter={this.toggleMenu} unmountOnExit in={MenuToggleDesktop}>
+      <Container onClick={this.toggleMenu} onMouseLeave={this.toggleMenu} unmountOnExit in={MenuToggleDesktop}>
         <ButtonSelectBike type="button">Trouver votre vélo</ButtonSelectBike>
         <MenuContainer>
           <MenuListItems>

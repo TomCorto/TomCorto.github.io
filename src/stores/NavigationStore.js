@@ -17,8 +17,9 @@ class NavigationStore {
   }
 
   @action.bound toggleMenuDesktop() { // @toggleMenuDesktop Boolean toggle menu
+    /*this.MenuToggleDesktop = !this.MenuToggleDesktop;*/
     if (this.SearchToggle === true) {
-      this.MenuToggleDesktop = !this.MenuToggleDesktop;
+      this.MenuToggleDesktop = false;
       this.SearchToggle = !this.SearchToggle;
     }else {
       this.MenuToggleDesktop = !this.MenuToggleDesktop;

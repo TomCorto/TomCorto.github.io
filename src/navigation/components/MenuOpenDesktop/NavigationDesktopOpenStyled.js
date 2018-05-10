@@ -2,11 +2,15 @@ import styled from 'styled-components';
 import transition from "styled-transition-group"
 import imgRoad from '../../../assets/img/menu-background_road.jpg';
 
-export const Container = transition.menu` /* Container General */
+export const Container = transition.menu.attrs({
+  unmountOnExit: true,
+  timeout: 100
+  }) `
   margin: 0;
   padding: 0;
   width: 100%;
   position: absolute;
+  overflow:hidden;
   background-color: var(--color-primary-white);
   z-index: 1000;
   @media all and (min-width: 1024px) {  }
@@ -15,25 +19,24 @@ export const Container = transition.menu` /* Container General */
   grid-template-columns: repeat(3, auto);
   grid-template-rows: 1fr;
 
-  /*
   &:enter {
     opacity: 0.01;
     transform: translateY(-50%);
   }
   &:enter-active {
     opacity: 1;
-    transform: translateY(0%);
-    transition: all 150ms ease-in;
+    transform: translateY(0);
+    transition: all 300ms ease-in;
   }
   &:exit {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(0);
   }
   &:exit-active {
     opacity: 0.01;
     transform: translateY(-50%);
-    transition: all 150ms ease-in;
-  }*/
+    transition: all 10000ms ease-in;
+  }
 `
 
 export const ButtonSelectBike = styled.button`
