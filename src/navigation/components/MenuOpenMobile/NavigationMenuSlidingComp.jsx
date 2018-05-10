@@ -38,7 +38,8 @@ export default class NavigationMenuSlidingComp extends Component {
     this.toggleSideMenu = this.toggleSideMenu.bind(this);
   }
 
-  toggleSideMenu() {
+  toggleSideMenu(e) {
+    e.preventDefault();
     const { toggleMenuMobile } = this.props.NavigationStore;
     toggleMenuMobile();
   }

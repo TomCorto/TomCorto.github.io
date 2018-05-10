@@ -1,5 +1,6 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container, HamburgerMenuContainer, HamburgerMenuSpan, MenuLogo, MenuSearchLogo, MenuShoppingCartLogo, MenuSearchCardGroupStyled } from './NavigationTabletsCompStyles';
 import logoDark from '../../../assets/icons/wilier-logo-dark.png';
@@ -26,7 +27,7 @@ const MenuSearchCardGroup = ({onClick}) => (
 const NavigationTabletsComp = ({props, onClick, onClickMenu}) => (
   <Container>
     <HamburgerMenu onClick={onClickMenu}/>
-    <MenuLogo src={logoDark} alt={"logo-willier"}/>
+    <Link to={"/home"}><MenuLogo src={logoDark} alt={"logo-willier"}/></Link>
     <MenuSearchCardGroup onClick={onClick} />
   </Container>
 );
