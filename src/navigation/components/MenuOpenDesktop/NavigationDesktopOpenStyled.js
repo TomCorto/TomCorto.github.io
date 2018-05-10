@@ -12,7 +12,7 @@ export const Container = transition.menu.attrs({
   position: absolute;
   overflow:hidden;
   background-color: var(--color-primary-white);
-  z-index: 1000;
+  z-index: 100;
   @media all and (min-width: 1024px) {  }
   @media all and (min-width: 1280px) { height: 200px; }
   display: grid;

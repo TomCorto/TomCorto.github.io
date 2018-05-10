@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import BikeLandingComp from '../components/bikes/Landing/BikesLandingComp';
 import BikeMainComp from '../components/bikes/main/BikeMainComp';
+
+const Container = styled.div`
+  //margin-top: 3.75em;
+`
 
 export default class BikePage extends Component {
   constructor() {
@@ -12,10 +17,10 @@ export default class BikePage extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <BikeLandingComp />
         <BikeMainComp />
-      </div>
+      </Container>
     )
   }
 }

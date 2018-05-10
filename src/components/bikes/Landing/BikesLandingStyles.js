@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import imgSrc from '../../../assets/img/bikes-landing.jpg';
 
 export const Container = styled.section`
+  position: relative;
+  z-index: 100;
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);

@@ -8,6 +8,8 @@ export const MenuStyled = styled.menu` /* Container General */
   margin: 0;
   padding: 0;
   width: 100%;
+  /*position: fixed;
+  z-index: 1000;*/
   background-color: var(--color-primary-white);
   @media (max-width: 1024px) { display: none; }
   @media (min-width: 1024px) { display: flex; }

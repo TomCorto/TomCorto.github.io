@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import MediaQuery from 'react-responsive';
+import styled from 'styled-components';
 import NavigationDesktop from './NavigationDesktop';
 import NavigationTablets from './NavigationTablets';
 import SearchDesktopContainer from './SearchDesktopContainer';
 import NavigationMenuSlidingComp from './components/MenuOpenMobile/NavigationMenuSlidingComp';
 
+const HeaderStyled = styled.header`
+  position: sticky;
+  z-index: 1000000;
+`
 
 @inject('NavigationStore')
 @observer
@@ -26,7 +31,7 @@ export default class Header extends Component {
     const { SearchToggle, MenuToggle, MenuItemsList, MenuToggleMobile } = this.props.NavigationStore;
 
     return (
-      <header>
+      <HeaderStyled>
         <MediaQuery minDeviceWidth={768}>
           <NavigationTablets />
         </MediaQuery>
@@ -35,7 +40,7 @@ export default class Header extends Component {
         </MediaQuery>
         <SearchDesktopContainer />
         <NavigationMenuSlidingComp />
-      </header>
+      </HeaderStyled>
     )
   }
 }

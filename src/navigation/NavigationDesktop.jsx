@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { Transition } from 'react-transition-group';
+import styled from 'styled-components';
 import NavigationDesktopComp from './components/MenuDesktop/NavigationDesktopComp';
 import NavigationDesktopOpen from './components/MenuOpenDesktop/NavigationDesktopOpen';
 
-const styles = {
-  transition: 'all 1s ease-in',
-};
+const NavContainer = styled.nav`
+  //@media all and (min-width: 1024px) { padding-top: 3.75em; }
+`
 
 @inject('NavigationStore')
 @observer
@@ -30,14 +31,14 @@ export default class NavigationDesktop extends Component {
   render()   {
     const { MenuItemsList, MenuToggleDesktop } = this.props.NavigationStore;
     return (
-      <nav>
+      <NavContainer>
         <NavigationDesktopComp
           props={MenuItemsList}
           onClick={this.toggleSearchBar}
           onHoverBikes={this.toggleMenuDesktop}
         />
         <NavigationDesktopOpen />
-      </nav>
+      </NavContainer>
     )
   }
 }
