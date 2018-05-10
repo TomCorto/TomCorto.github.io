@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { inject, observer } from 'mobx-react';
 import { NavLink } from 'react-router-dom';
+import { MenuContainer, ItemStyled, ClosedItems } from './NavigationMenuSlidingCompStyles';
 //import { slide as Menu } from 'react-burger-menu';
+import FontAwesome from 'react-fontawesome';
 
-import iconArrow from  '../../assets/icons/icons-menu-arrow-grey.png';
+import iconArrow from  '../../../assets/icons/icons-menu-arrow-grey.png';
 
-const MenuContainer = styled.div`
-  position: absolute;
-  color: white;
-  background-color: white;
-  width: 300px;
-  height: 90vh;
-  border: 1px solid grey;
-`
+
 
 const Link = ({ className, children, toLink }) => (
   <NavLink to={toLink} className={className}>{children}</NavLink>
@@ -33,22 +29,34 @@ const NavLinkStyled = styled(Link)`
   @media all and (min-width: 768px) and (max-width: 1024px){ padding: 0 2vw 0; }
 `
 
-const ItemStyled = styled.span`
-  font-family: var(--ft-source-pro);
-  font-weight: var(--ft-weight-semi);
-  font-size: 1.25rem;
-  color: var(--color-primary-grey);
-`
 
+@inject('NavigationStore')
+@observer
 export default class NavigationMenuSlidingComp extends Component {
   constructor(props) {
     super(props);
-    this.state = { msg: 'Test'}
+    this.toggleSideMenu = this.toggleSideMenu.bind(this);
   }
+
+  toggleSideMenu() {
+    const { toggleMenuMobile } = this.props.NavigationStore;
+    toggleMenuMobile();
+  }
+
   render() {
+    const { MenuToggleMobile, MenuItemsList } = this.props.NavigationStore;
     return (
-      <MenuContainer>
-        {this.props.propsMenu.map((el, index) =>
+      <MenuContainer in={MenuToggleMobile}>
+        <ClosedItems onClick={this.toggleSideMenu} >
+          <FontAwesome
+            className='super-crazy-colors'
+            name='times'
+            size='lg'
+            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+          />
+          <ItemStyled colorProps="white">Fermer</ItemStyled>
+        </ClosedItems>
+        {MenuItemsList.map((el, index) =>
           <NavLinkStyled toLink={el.route} key={index}>
           <ItemStyled>{el.text}</ItemStyled>
           <img src={iconArrow} alt=""/>

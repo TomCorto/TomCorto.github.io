@@ -4,8 +4,7 @@ import MediaQuery from 'react-responsive';
 import NavigationDesktop from './NavigationDesktop';
 import NavigationTablets from './NavigationTablets';
 import SearchDesktopContainer from './SearchDesktopContainer';
-import NavigationMenuSlidingComp from './components/NavigationMenuSlidingComp';
-
+import NavigationMenuSlidingComp from './components/MenuOpenMobile/NavigationMenuSlidingComp';
 
 
 @inject('NavigationStore')
@@ -24,7 +23,7 @@ export default class Header extends Component {
 
 
   render() {
-    const { SearchToggle, MenuToggle, MenuItemsList } = this.props.NavigationStore;
+    const { SearchToggle, MenuToggle, MenuItemsList, MenuToggleMobile } = this.props.NavigationStore;
 
     return (
       <header>
@@ -35,7 +34,7 @@ export default class Header extends Component {
           <NavigationDesktop />
         </MediaQuery>
         <SearchDesktopContainer />
-        { MenuToggle ? <NavigationMenuSlidingComp propsMenu={MenuItemsList} /> : null }
+        <NavigationMenuSlidingComp />
       </header>
     )
   }

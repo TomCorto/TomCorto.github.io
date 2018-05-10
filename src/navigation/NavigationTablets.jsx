@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import NavigationTabletsComp from './components/NavigationTabletsComp';
+import NavigationTabletsComp from './components/MenuMobile/NavigationTabletsComp';
 import SearchDesktop from './components/SearchDesktop/SearchDesktopComp';
 
 
@@ -19,8 +19,8 @@ export default class NavigationTablets extends Component {
   }
 
   toggleSideMenu() {
-    const { toggleMenu, MenuToggle } = this.props.NavigationStore;
-    toggleMenu();
+    const { toggleMenuMobile } = this.props.NavigationStore;
+    toggleMenuMobile();
   }
 
   render()   {
