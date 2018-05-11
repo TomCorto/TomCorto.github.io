@@ -5,6 +5,7 @@ class NavigationStore {
   @observable MenuToggleDesktop = false;
   @observable MenuToggleMobile = false;
   @observable SearchToggle = false;
+  @observable ScrollListener = false;
   @observable MenuItemsList = [{route: '/bikes', text: 'Vélos'},  {route: '/equipment', text: 'Équipements'}, {route: '/accessories', text: 'Accessoires'}, {route: '/shop', text: 'Magasins'}];
   @observable FooterItemsList = [{route: '/bikes', text: 'Vélos'},  {route: '/equipment', text: 'Équipements'}, {route: '/about', text: 'À propos'}, {route: '/shop', text: 'Contact'}, {route: '/shop', text: 'Trouver un magasin'}];
 
@@ -25,6 +26,10 @@ class NavigationStore {
     }else {
       this.MenuToggleDesktop = !this.MenuToggleDesktop;
     }
+  }
+
+  @action.bound toggleMenuScroll() { // @toggleMenuScroll Toggle Menu Store
+    this.ScrollListener = !this.ScrollListener;
   }
 
   @action.bound toggleMenuMobile() { // @toggleMenuMobile Boolean Toogle Mobile Menu

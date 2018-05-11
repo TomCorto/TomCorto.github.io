@@ -24,13 +24,14 @@ export default class NavigationDesktop extends Component {
   }
 
   render()   {
-    const { MenuItemsList } = this.props.NavigationStore;
+    const { MenuItemsList, ScrollListener, toggleMenuScroll } = this.props.NavigationStore;
     return (
       <nav>
         <NavigationDesktopComp
           props={MenuItemsList}
           onClick={this.toggleSearchBar}
           onHoverBikes={this.toggleMenuDesktop}
+          menuDesktopStateBool={ScrollListener}
         />
         <NavigationDesktopOpen />
       </nav>

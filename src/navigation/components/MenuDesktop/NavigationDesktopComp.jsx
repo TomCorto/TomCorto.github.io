@@ -22,19 +22,19 @@ const MenuLogo = styled(Link)`
   @media all and (min-width: 1280px) { margin-left: 2.7vw; }
 `;
 
-const NavigationDesktopComp = ({props, onHoverBikes, onClick}) => (
-  <Container>
+const NavigationDesktopComp = ({props, onHoverBikes, onClick, menuDesktopStateBool }) => (
+  <Container heightProps={menuDesktopStateBool}>
     <MenuLogo imgSrc={logoDark} />
-    <MenuListItems>
-    <MenuSpanItems onMouseEnter={onHoverBikes}>Vélos</MenuSpanItems>
-    <MenuSpanItems>Équipements</MenuSpanItems>
-    <MenuSpanItems>Accessoires</MenuSpanItems>
-    <MenuSpanItems>Magasins</MenuSpanItems>
-    </MenuListItems>
-    <MenuSearchShoppingGroup>
-      <MenuSearchLogo src={searchIcon} alt={"Search Logo"} onClick={onClick}/>
-      <MenuShoppingCartLogo src={shoppingCardIcon} alt={"Shopping Card Logo"} />
-    </MenuSearchShoppingGroup>
+        <MenuListItems in={menuDesktopStateBool == false}>
+        <MenuSpanItems onMouseEnter={onHoverBikes}>Vélos</MenuSpanItems>
+        <MenuSpanItems>Équipements</MenuSpanItems>
+        <MenuSpanItems>Accessoires</MenuSpanItems>
+        <MenuSpanItems>Magasins</MenuSpanItems>
+        </MenuListItems>
+      <MenuSearchShoppingGroup>
+        <MenuSearchLogo src={searchIcon} alt={"Search Logo"} onClick={onClick} />
+        <MenuShoppingCartLogo src={shoppingCardIcon} alt={"Shopping Card Logo"} />
+      </MenuSearchShoppingGroup>
   </Container>
 );
 

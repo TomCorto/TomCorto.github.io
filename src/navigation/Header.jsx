@@ -16,8 +16,8 @@ export default class Header extends Component {
   render() {
     return (
       <HeaderStyled>
-          <NavigationTablets />
-          <NavigationDesktop />
+        <NavigationDesktop />
+        <NavigationTablets />
         <SearchDesktopContainer />
         <NavigationMenuSlidingComp />
       </HeaderStyled>

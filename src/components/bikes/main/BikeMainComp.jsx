@@ -8,12 +8,45 @@ import FilterComp from './components/Filter/FilterComp';
 import BikeSelectorMobileComp from './components/Selector/SelectorMobileTablets/BikeSelectorMobileComp';
 
 
-@inject('BikeStore')
+@inject('BikeStore', 'UiStore', 'NavigationStore')
 @observer
 export default class BikeMainComp extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      countLaunch: 0,
+      offsetValue: 0,
+      toggleLaunch: false
+    }
     this.toggleAnimationProduct = this.toggleAnimationProduct.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(event) {
+    const { toggleMenuScroll, ScrollListener } = this.props.NavigationStore;
+
+
+    this.setState({ offsetValue: window.pageYOffset });
+
+    if (this.state.offsetValue >= 179 && this.state.countLaunch == 0) {
+      this.setState({ toggleLaunch: !this.state.toggleLaunch });
+      toggleMenuScroll();
+      this.setState({ countLaunch: this.state.countLaunch + 1 });
+      //alert(this.state.toggleLaunch + " " + this.state.countLaunch + " " + ScrollListener);
+    }else if (this.state.offsetValue <= 180 && this.state.countLaunch >= 1){
+      toggleMenuScroll();
+      this.setState({ toggleLaunch: !this.state.toggleLaunch });
+      this.setState({ countLaunch: this.state.countLaunch - 1 });
+      //alert(this.state.toggleLaunch + " " + this.state.countLaunch + " " + ScrollListener);
+    }
   }
 
   toggleAnimationProduct() {
@@ -21,10 +54,11 @@ export default class BikeMainComp extends Component {
     toggleAnimProductFunc();
   }
 
+
   render() {
     const { ProductList, uiProductAnim, bikesPresentationText } = this.props.BikeStore;
     return (
-      <Container>
+      <Container onScroll={this.handleScroll}>
         <BikeTextComp textProps={bikesPresentationText} />
         <FilterComp />
         <BikeSelectorMobileComp />
