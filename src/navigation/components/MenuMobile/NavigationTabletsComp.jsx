@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container, HamburgerMenuContainer, HamburgerMenuSpan, MenuLogo, MenuSearchLogo, MenuShoppingCartLogo, MenuSearchCardGroupStyled } from './NavigationTabletsCompStyles';
@@ -23,7 +23,6 @@ const MenuSearchCardGroup = ({onClick}) => (
   </MenuSearchCardGroupStyled>
 );
 
-// Components Exported
 const NavigationTabletsComp = ({props, onClick, onClickMenu}) => (
   <Container>
     <HamburgerMenu onClick={onClickMenu}/>
@@ -31,5 +30,11 @@ const NavigationTabletsComp = ({props, onClick, onClickMenu}) => (
     <MenuSearchCardGroup onClick={onClick} />
   </Container>
 );
+
+NavigationTabletsComp.propTypes = {
+  props: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
+  onClickMenu: PropTypes.func.isRequired
+}
 
 export default NavigationTabletsComp;

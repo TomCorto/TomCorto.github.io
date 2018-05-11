@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import transition from "styled-transition-group";
 
-export const DivContainerStyled = transition.div`
+export const Container = transition.div`
   position: absolute;
   display: flex;
   flex-flow: row nowrap;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MenuStyled = styled.menu` /* Container General */
+export const Container = styled.menu`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
@@ -88,6 +88,7 @@ font-family: var(--ft-source-pro);
 font-weight: var(--ft-weight-reg);
 height: 100%;
 cursor: pointer;
+user-select: none;
 text-decoration: none;
 color: var(--color-primary-grey);
 @media all and (max-width: : 1024px) { display: none; }

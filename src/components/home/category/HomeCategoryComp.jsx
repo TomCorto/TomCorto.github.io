@@ -29,5 +29,3 @@ export default class HomeCategoryComp extends Component {
     )
   }
 }
-
-// { backgroundImgProps: 'landing_category-mtb.jpg', linkProps: './bikes/mtb/', h2Props: 'VTT', h5Props: 'VTT', textProps: 'XC, DH, Trail - Nos VTT sont adaptés à chacune des pratiques' }

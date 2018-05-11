@@ -13,17 +13,12 @@ import BikeSelectorMobileComp from './components/Selector/SelectorMobileTablets/
 export default class BikeMainComp extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      animStatus: false
-    }
     this.toggleAnimationProduct = this.toggleAnimationProduct.bind(this);
   }
 
   toggleAnimationProduct() {
     const { toggleAnimProductFunc } = this.props.BikeStore;
     toggleAnimProductFunc();
-    /*alert(uiProductAnim);*/
-    // <button onClick={this.toggleAnimationProduct}>Launch Animation</button>
   }
 
   render() {
@@ -36,11 +31,10 @@ export default class BikeMainComp extends Component {
         <BikeDisplayContainer>
           <BikeSelectorComp />
           <BikeProductContainer>
-            {ProductList.map((el, index) => <BikeProductThumbComp key={index} propsObject={el} onMouseEnter={uiProductAnim} />)}
+            {ProductList.map((el, index) => <BikeProductThumbComp key={index} propsObject={el} onMouseEnter={uiProductAnim} /> )}
           </BikeProductContainer>
         </BikeDisplayContainer>
       </Container>
     )
   }
 }
-/* {ProductList.filter((el) => el !== "Route Performance" ).map((el, index) => <BikeProductThumbComp key={index} propsObject={el} onMouseEnter={uiProductAnim} />)}*/

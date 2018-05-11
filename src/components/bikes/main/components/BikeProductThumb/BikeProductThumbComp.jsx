@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, TitleProduct, ImgContainer, ImgProduct, PriceProduct, ColorGroup, ColorItem } from './BikeProductThumbCompStyle';
+import { Link } from 'react-router-dom';
 
 function importAll(r) {
   let images = {};
@@ -10,6 +11,7 @@ function importAll(r) {
 const images = importAll(require.context('../../../../../assets/img/products/', false, /\.(png|jpe?g|svg)$/));
 
 const BikeProductThumbComp = ({propsObject, onMouseEnter}) => (
+  <Link to="/product/" style={{ textDecoration: 'none' }}>
   <Container>
     <ImgContainer in={onMouseEnter}>
       <ImgProduct src={images[propsObject.imgSrc]} alt={propsObject.imgAlt} />
@@ -20,6 +22,7 @@ const BikeProductThumbComp = ({propsObject, onMouseEnter}) => (
     <TitleProduct unmountOnExit in={onMouseEnter} timeout={1000}>{propsObject.Title}</TitleProduct>
     <PriceProduct>{propsObject.Price}</PriceProduct>
   </Container>
+  </Link>
 );
 
 BikeProductThumbComp.propTypes = {

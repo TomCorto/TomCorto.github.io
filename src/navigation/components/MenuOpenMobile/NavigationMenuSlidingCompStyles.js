@@ -17,7 +17,7 @@ export const MenuContainer = transition.div.attrs({
   }
   &:enter-active {
     transform: translateX(0);
-    transition: transform 350ms linear;
+    transition: transform 300ms linear;
   }
   &:exit {
     transform: translateX(0);

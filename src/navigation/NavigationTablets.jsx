@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import NavigationTabletsComp from './components/MenuMobile/NavigationTabletsComp';
-import SearchDesktop from './components/SearchDesktop/SearchDesktopComp';
 
 
 @inject('NavigationStore')
@@ -14,7 +13,7 @@ export default class NavigationTablets extends Component {
   }
 
   toggleSearchBar() {
-    const { toggleSearch} = this.props.NavigationStore;
+    const { toggleSearch } = this.props.NavigationStore;
     toggleSearch();
   }
 

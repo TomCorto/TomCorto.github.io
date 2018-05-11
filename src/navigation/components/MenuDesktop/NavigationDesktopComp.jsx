@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import logoDark from '../../../assets/icons/wilier-logo-dark.png';
 import searchIcon from '../../../assets/icons/icons-search-dark-md.png';
 import shoppingCardIcon from '../../../assets/icons/icons-shopping-cart-dark-lg.png';
-import { MenuStyled, ImgStyled, MenuListItems, MenuSearchLogo, MenuShoppingCartLogo, MenuSearchShoppingGroup,toggleMenuDesktop, MenuSpanItems } from './NavigationDesktopCompStyles';
+import { Container, ImgStyled, MenuListItems, MenuSearchLogo, MenuShoppingCartLogo, MenuSearchShoppingGroup, MenuSpanItems } from './NavigationDesktopCompStyles';
 
 const Link = ({ className, imgSrc }) => (
   <NavLink className={className} to={'/home'}>
@@ -23,7 +23,7 @@ const MenuLogo = styled(Link)`
 `;
 
 const NavigationDesktopComp = ({props, onHoverBikes, onClick}) => (
-  <MenuStyled>
+  <Container>
     <MenuLogo imgSrc={logoDark} />
     <MenuListItems>
     <MenuSpanItems onMouseEnter={onHoverBikes}>Vélos</MenuSpanItems>
@@ -35,19 +35,13 @@ const NavigationDesktopComp = ({props, onHoverBikes, onClick}) => (
       <MenuSearchLogo src={searchIcon} alt={"Search Logo"} onClick={onClick}/>
       <MenuShoppingCartLogo src={shoppingCardIcon} alt={"Shopping Card Logo"} />
     </MenuSearchShoppingGroup>
-  </MenuStyled>
+  </Container>
 );
 
 NavigationDesktopComp.propTypes = {
   props: PropTypes.object.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  onHoverBikes: PropTypes.func.isRequired
 }
 
 export default NavigationDesktopComp;
-
-// <NavLink to={el.route} key={index}>{el.text}</NavLink>
-//
-/*    {props.map((el, index) =>
-      <MenuSpanItems key={index}>{el.text}</MenuSpanItems>
-    )}
-*/

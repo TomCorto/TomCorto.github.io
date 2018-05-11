@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react';
 import styled from 'styled-components';
 import FooterComp from './components/FooterComp/FooterComp';
 
-const FooterStyled = styled.footer`
+const Container = styled.footer`
   position: relative;
   width: 100%;
   margin: 0;
@@ -14,16 +14,12 @@ const FooterStyled = styled.footer`
 @inject('NavigationStore')
 @observer
 export default class Footer extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     const { FooterItemsList, WindowWidthProps } = this.props.NavigationStore;
     return(
-      <FooterStyled>
+      <Container>
         <FooterComp propListItem={FooterItemsList} displaySubscribeComp={WindowWidthProps}/>
-      </FooterStyled>
+      </Container>
     )
   }
 }

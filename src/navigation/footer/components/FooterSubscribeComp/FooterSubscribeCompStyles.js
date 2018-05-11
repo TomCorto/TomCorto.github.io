@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import transition from 'styled-transition-group';
+
 
 export const Container = styled.form`
   height: 40px;
@@ -15,23 +15,6 @@ export const LabelStyled = styled.label`
   align-items: center;
 `
 
-export const InputStyled = styled.input`
-  width: 160px;
-  height: 40px;
-  border: none;
-  margin: 0;
-  padding: 7px 0 7px 12px;
-  box-sizing: border-box;
-  border-radius: 2px 0 0 2px;
-  background: rgb(215, 215, 215);
-  font-family: var(--ft-source-pro);
-  font-weight: var(--ft-weight-reg);
-  font-size: 14px;
-  ${ButtonStyled}:hover {
-    background: rgb(236, 236, 236);
-    transition: background 150ms ease-in;
-  }
-`
 
 export const ButtonStyled = styled.button`
   margin: 0;
@@ -51,6 +34,24 @@ export const ButtonStyled = styled.button`
 
   &:hover {
     background: rgba(105, 105, 105, 1);
+    transition: background 150ms ease-in;
+  }
+`
+
+export const InputStyled = styled.input`
+  width: 160px;
+  height: 40px;
+  border: none;
+  margin: 0;
+  padding: 7px 0 7px 12px;
+  box-sizing: border-box;
+  border-radius: 2px 0 0 2px;
+  background: rgb(215, 215, 215);
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-reg);
+  font-size: 14px;
+  ${ButtonStyled}:hover {
+    background: rgb(236, 236, 236);
     transition: background 150ms ease-in;
   }
 `

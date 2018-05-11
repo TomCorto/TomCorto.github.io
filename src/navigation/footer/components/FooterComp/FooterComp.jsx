@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Container, Logo, FooterGroupItems, FooterItemsList, FooterItems } from './FooterCompStyles';
 import imgLogo from '../../../../assets/icons/wilier-logo-light.png';
@@ -23,7 +23,7 @@ const SubscribeCompStyled = styled(SubscribeComp)`
 `
 
 
-const FooterComp = ({propListItem, displaySubscribeComp}) => (
+const FooterComp = ({ propListItem }) => (
   <Container>
     <LinkItems />
     <SubscribeCompStyled />
@@ -38,5 +38,9 @@ const FooterComp = ({propListItem, displaySubscribeComp}) => (
     </FooterGroupItems>
   </Container>
 );
+
+FooterComp.propTypes = {
+  propListItem: PropTypes.object.isRequired
+}
 
 export default FooterComp;

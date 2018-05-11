@@ -10,7 +10,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 1px solid black;
+  color: var(--color-primary-grey);
+  text-decoration: none;
 `
 
 export const TitleProduct = styled.h5`
@@ -29,18 +30,6 @@ export const ImgContainer = styled.div`
   padding: 0;
   height: auto;
   width: auto;
-  border: 1px solid black;
-  /*
-  &:enter { transform: scale(1); }
-  &:enter-active {
-    transform: scale(0.8);
-    transition: transform 150ms ease-in;
-  }
-  &:exit { transform: scale(0.8); }
-  &:exit-active {
-    transform: scale(1);
-    transition: transform 150ms ease-in;
-  }*/
 `
 
 export const ImgProduct = styled.img`

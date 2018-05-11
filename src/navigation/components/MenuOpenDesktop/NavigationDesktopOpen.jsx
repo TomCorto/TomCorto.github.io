@@ -12,7 +12,7 @@ export default class NavigationDesktopOpen extends Component {
   }
 
   toggleMenu() {
-    const { toggleMenuDesktop, MenuToggleDesktop } = this.props.NavigationStore;
+    const { toggleMenuDesktop } = this.props.NavigationStore;
     toggleMenuDesktop();
   }
 

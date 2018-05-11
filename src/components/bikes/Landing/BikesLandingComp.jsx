@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { Container, H2Styled, ButtonBikeFinder, ButtonBikeLink } from './BikesLandingStyles';
 
+
 @inject('BikeStore')
 @observer
 export default class BikeLandingComp extends Component {

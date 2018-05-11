@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BarComp from '../components/product/BarComp/BarComp';
 
 export default class ProductPage extends Component {
   constructor() {
@@ -10,7 +11,9 @@ export default class ProductPage extends Component {
 
   render() {
     return(
-      <div>{this.state.msg}</div>
+      <div>
+        <BarComp />
+      </div>
     )
   }
 }

@@ -6,7 +6,6 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  //background-color: rgba(150, 20, 150, 0.4);
   @media all and (max-width: 480px) { justify-content: center; align-items: center;
     width: 100%;
     overflow: hidden;
@@ -29,7 +28,6 @@ export const BikeDisplayContainer = styled.div`
   width: 100%;
   overflow: visible !important;
   border: 1px solid pink;
-  //background-color: rgba(170, 4, 249, 0.7);
   @media all and (max-width: 480px) { grid-column-gap: 10%; justify-items: center; width: 90%; }
   @media all and (min-width: 480px) { grid-column-gap: 10%; justify-items: center; width: 90%; }
   @media all and (min-width: 768px) { grid-column-gap: 10%; justify-items: center; width: 90%; }
