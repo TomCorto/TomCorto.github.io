@@ -93,20 +93,6 @@ export const IconsCTA = styled.img`
   margin: 0 0.5em 0 0;
 `
 
-export const PriceStyled = styled.h6`
-  left: 2.5em;
-  position: absolute;
-  font-family: var(--ft-source-pro);
-  font-size: 1.5rem;
-  font-weight: var(--ft-weight-reg);
-  color: var(--color-primary-grey);
-  @media all and (max-width: 1024px) { display: none; }
-  @media all and (min-width: 1024px) {top: 27em; }
-  @media all and (min-width: 1280px) { top: 27em; }
-  @media all and (min-width: 1366px) { top: 27em; }
-  @media all and (min-width: 1440px) { top: 27em; }
-`
-
 export const LogoBike = styled.img`
   max-width: 100%;
   height: auto;

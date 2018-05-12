@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import BarComp from '../components/product/navigation/BarComp';
 import ProductComp from '../components/product/product/ProductComp';
+import InfoBarComp from '../components/product/infobar/InfoBarComp';
 
 
 const Container = styled.section`
@@ -25,6 +26,7 @@ export default class ProductPage extends Component {
       <Container>
         <BarComp />
         <ProductComp />
+        <InfoBarComp />
       </Container>
     )
   }
