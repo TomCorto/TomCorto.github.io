@@ -4,7 +4,7 @@ import BarComp from '../components/product/navigation/BarComp';
 import ProductComp from '../components/product/product/ProductComp';
 import InfoBarComp from '../components/product/infobar/InfoBarComp';
 import DescriptionComp from '../components/product/description/DescriptionComp';
-
+import SliderImgComp from '../components/product/slider/SliderImgComp';
 
 const Container = styled.section`
   overflow: hidden;
@@ -29,6 +29,7 @@ export default class ProductPage extends Component {
         <ProductComp />
         <InfoBarComp />
         <DescriptionComp />
+        <SliderImgComp />
       </Container>
     )
   }
