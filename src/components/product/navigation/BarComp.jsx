@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 //import { Link } from 'react-router-dom';
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import FontAwesome from 'react-fontawesome';
 import { Container, ProductRange, ProductLocalNavigation, NavigationItems, ProductRangeText, ProductRangeIcon } from './BarCompStyles';
+import RangeComp from './components/range/RangeComp';
+
 
 @inject('ProductStore')
 @observer
 export default class BarComp extends Component {
   constructor(props) {
     super(props);
+    this.toggleRange = this.toggleRange.bind(this);
+  }
+
+  toggleRange() {
+    const { displayRange } = this.props.ProductStore;
+    displayRange();
   }
 
   render() {
-    const { msgTest } = this.props.ProductStore;
+    const { barCompObject, toggleBool } = this.props.ProductStore;
     return (
       <Container>
-        <ProductRange>
-          <ProductRangeText>Autres Gammes Velos</ProductRangeText>
+        <ProductRange onMouseOver={this.toggleRange}>
+          <ProductRangeText>{barCompObject.rangeText}</ProductRangeText>
           <ProductRangeIcon>
             <FontAwesome
               name='angle-down'
@@ -33,6 +41,7 @@ export default class BarComp extends Component {
           <NavigationItems><a onClick={() => scroll.scrollTo(100)}>Géométrie Cadre</a></NavigationItems>
           <NavigationItems><a onClick={() => scroll.scrollTo(100)}>Comparer</a></NavigationItems>
         </ProductLocalNavigation>
+        { barCompObject.toggleBool ? <RangeComp /> : null }
       </Container>
     )
   }

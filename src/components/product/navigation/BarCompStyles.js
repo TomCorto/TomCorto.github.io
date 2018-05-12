@@ -6,9 +6,12 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 35px;
   width: 100%;
+  user-select: none;
   background: #F6F6F6;
+  @media all and (min-width: 480px) { display: none; }
+  @media all and (min-width: 768px) { top: 3em; height: 3em; display: flex; }
+  @media all and (min-width: 1024px) { top: 3.75em; height: 2.5em; }
 `
 
 export const ProductRange = styled.div`
@@ -17,6 +20,7 @@ export const ProductRange = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  z-index: 1010;
 `
 
 export const ProductRangeText = styled.h5`
@@ -31,6 +35,7 @@ export const ProductLocalNavigation = styled.div`
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
+  z-index: 1010;
 `
 
 export const ProductRangeIcon = styled.div`
@@ -50,9 +55,11 @@ export const NavigationItems = styled.span`
   color: var(--color-primary-grey);
   font-weight: 400;
   font-size: 1rem;
-  margin-right: 1.5em;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
+
+  @media all and (min-width: 768px ) { margin-right: 3em; }
+  @media all and (min-width: 1024px) { margin-right: 1.5em; }
 `

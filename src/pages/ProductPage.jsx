@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import BarComp from '../components/product/BarComp/BarComp';
+import styled from 'styled-components';
+import BarComp from '../components/product/navigation/BarComp';
+import ProductComp from '../components/product/product/ProductComp';
+
+
+const Container = styled.section`
+  overflow: hidden;
+  top: 0;
+  margin: 0;
+  padding: 0;
+
+`
 
 export default class ProductPage extends Component {
   constructor() {
@@ -11,9 +22,10 @@ export default class ProductPage extends Component {
 
   render() {
     return(
-      <div>
+      <Container>
         <BarComp />
-      </div>
+        <ProductComp />
+      </Container>
     )
   }
 }
