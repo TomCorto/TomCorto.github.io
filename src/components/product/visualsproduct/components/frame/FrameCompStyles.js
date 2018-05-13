@@ -40,7 +40,6 @@ export const Container = styled.section`
 `
 
 export const TextGroup = styled.div`
-  border: 1px solid blue;
   user-select: none;
   @media all and (max-width: 768px) { grid-area: 1 / 1 / 2 / -1; width: 80%; }
   @media all and (min-width: 768px) { grid-area: 1 / 1 / 2 / -1; width: 80%; }

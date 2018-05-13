@@ -13,7 +13,7 @@ export const Container = styled.section`
 export const Text = styled.p`
   font-family: var(--ft-semi-pro);
   font-weight: var(--ft-weight-reg);
-  color: var(--color-primary-grey);
+  color: var(--color-primary-white);
   text-align: center;
   @media all and (max-width: 1024px) { font-size: 1rem; max-width: 75vw; }
   @media all and (min-width: 1024px) { font-size: 1rem; max-width: 68vw; }
