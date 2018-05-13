@@ -15,6 +15,6 @@ export const Text = styled.p`
   font-weight: var(--ft-weight-reg);
   color: var(--color-primary-grey);
   text-align: center;
-  @media all and (max-width: 1024px) { max-width: 75vw; }
-  @media all and (min-width: 1024px) { max-width: 68vw; }
+  @media all and (max-width: 1024px) { font-size: 1rem; max-width: 75vw; }
+  @media all and (min-width: 1024px) { font-size: 1rem; max-width: 68vw; }
 `

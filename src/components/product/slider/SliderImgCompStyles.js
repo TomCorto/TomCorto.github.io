@@ -17,6 +17,7 @@ export const ImgStyled = styled.img`
   background-image: url(${imgSrc1});
   background-repeat: no-repeat;
   background-size: contain;
+  border-radius: 3px;
   @media all and (max-width: 1024px) { max-height: 244px; }
   @media all and (min-width: 1024px) { height: 305px; }
   @media all and (min-width: 1280px) { height: 382px; }
