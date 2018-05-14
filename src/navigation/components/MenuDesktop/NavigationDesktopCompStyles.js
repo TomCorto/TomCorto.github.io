@@ -62,6 +62,7 @@ export const MenuSearchLogo = styled.img`
   position: relative;
   cursor: pointer;
   background: white;
+  user-select: none;
   @media (max-width: : 1024px) { display: none; }
   @media (min-width: 1024px) { margin-right: 2.5vw; }
   @media (min-width: 1280px) { margin-right: 2.7vw; }

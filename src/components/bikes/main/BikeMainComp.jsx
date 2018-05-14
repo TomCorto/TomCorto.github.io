@@ -33,19 +33,16 @@ export default class BikeMainComp extends Component {
   handleScroll(event) {
     const { toggleMenuScroll, ScrollListener } = this.props.NavigationStore;
 
-
     this.setState({ offsetValue: window.pageYOffset });
 
     if (this.state.offsetValue >= 179 && this.state.countLaunch == 0) {
       this.setState({ toggleLaunch: !this.state.toggleLaunch });
       toggleMenuScroll();
       this.setState({ countLaunch: this.state.countLaunch + 1 });
-      //alert(this.state.toggleLaunch + " " + this.state.countLaunch + " " + ScrollListener);
     }else if (this.state.offsetValue <= 180 && this.state.countLaunch >= 1){
       toggleMenuScroll();
       this.setState({ toggleLaunch: !this.state.toggleLaunch });
       this.setState({ countLaunch: this.state.countLaunch - 1 });
-      //alert(this.state.toggleLaunch + " " + this.state.countLaunch + " " + ScrollListener);
     }
   }
 
