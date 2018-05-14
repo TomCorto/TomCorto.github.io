@@ -6,6 +6,7 @@ import InfoBarComp from '../components/product/infobar/InfoBarComp';
 import DescriptionComp from '../components/product/description/DescriptionComp';
 import SliderImgComp from '../components/product/slider/SliderImgComp';
 import VisualComp from '../components/product/visualsproduct/VisualComp';
+import CharacteristicsComp from '../components/product/characteristics/CharacteristicsComp';
 
 const Container = styled.section`
   overflow: hidden;
@@ -32,6 +33,7 @@ export default class ProductPage extends Component {
         <DescriptionComp />
         <SliderImgComp />
         <VisualComp />
+        <CharacteristicsComp />
       </Container>
     )
   }
