@@ -31,8 +31,30 @@ class ProductStore {
   ];
   @observable geometryObject = { title: 'Géométrie cadre', text: "La géométrie du cadre est un critère fondamental lorsqu’il est question de vélos d’endurance. Pour garantir à l’utilisateur du Cento10NDR un niveau de confort optimal pendant la course, il faut envisager de nouvelles proportions entre les tubes du cadre. Nous avons une position légèrement plus courte (le reach est moindre si on la compare à celle des vélos à géométries racing traditionnelles) et plus haute (un stack plus grand par rapport aux géométries racing). Cette combinaison de reach et de stack nous permet d’avoir une position confortable. Combien de fois avons-nous vu des cyclistes pédaler sur des vélos exclusivement faits pour la course avec plusieurs centimètres d’entretoises au niveau du tube de direction ? Maintenant avec le Cento10NDR l’aspect général du vélo sera harmonieux, proportionné, équilibré et en même temps taillé pour la course. Le graphique Reach & Stack montre la position correcte des 6 tailles du Cento10NDR (ligne bleue) par rapport aux autres cadres Wilier Triestina développés ces dernières années."};
 
+  @observable sizeComponent = {
+    imgObject: {imgSrc: 'product-geometrie-frame.jpg', imgAlt: ''},
+    buttonText: 'Trouvez votre taille',
+    displaySize: false,
+    headerTitle: 'Dimensions',
+    geometryObject: {
+      thObject: ['Taille', 'c/c', 'L', 'H', 'A', 'H1', 'L1', 'A1', 'Reach', 'Stack'],
+      thMeasure: ['', 'cm', 'cm', 'cm', '°', 'cm', 'cm', '°', 'mm', 'mm'],
+      tdArrayXS: ['XS', '40,5', '51,7', '46,0', '74,5', '11,7', '40,6', '71,0', '369', '527'],
+      tdArrayS: ['XS', '40,5', '53,2', '46,0', '74,0', '13,6', '40,6', '71,5', '374', '546'],
+      tdArrayM: ['M', '43,5', '54,7', '46,0', '73,5', '15,7', '40,8', '72,0', '379', '566'],
+      tdArrayL: ['L', '45,5', '55,8', '46,0', '73,5', '17,7', '40,8', '72,5', '384', '586'],
+      tdArrayXL: ['XL', '50,5', '57,4', '46,0', '73,0', '19,6', '41,1', '72,5', '389', '604'],
+      tdArrayXXL: ['XXL', '53,5', '59,2', '46,0', '72,5', '21,7', '41,1', '72,5', '395', '625']
+    }
+   };
+
   @action.bound displayRange() {
     this.barCompObject.toggleBool = !this.barCompObject.toggleBool;
+  }
+
+  @action.bound displayProductSize() {
+    this.sizeComponent.displaySize = !this.sizeComponent.displaySize;
+    alert(this.sizeComponent.displaySize);
   }
 }
 

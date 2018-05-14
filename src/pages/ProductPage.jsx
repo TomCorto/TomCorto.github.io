@@ -8,6 +8,7 @@ import SliderImgComp from '../components/product/slider/SliderImgComp';
 import VisualComp from '../components/product/visualsproduct/VisualComp';
 import CharacteristicsComp from '../components/product/characteristics/CharacteristicsComp';
 import FrameComp from '../components/product/frame/FrameComp';
+import SizeComp from '../components/product/size/SizeComp';
 
 const Container = styled.section`
   overflow: hidden;
@@ -36,6 +37,7 @@ export default class ProductPage extends Component {
         <VisualComp />
         <CharacteristicsComp />
         <FrameComp />
+        <SizeComp />
       </Container>
     )
   }
