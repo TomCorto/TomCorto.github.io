@@ -4,10 +4,9 @@ import iconsArrows from '../../../assets/icons/icons-down-arrow.png';
 export const Container = styled.section`
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr;
   background: var(--color-primary-grey);
   @media all and (max-width: 768px) { display: none }
   @media all and (min-width: 768px) { height: 3.875em; padding: 0.4em 5em 0.4em; }
@@ -17,13 +16,15 @@ export const Container = styled.section`
 `
 
 export const ProductPriceComp = styled.div`
+  grid-area: 1 / 1 / -1 / 2;
   margin: 0;
   padding: 0;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: flex-start;
-  height: 100%;
+  height: 3.875em;
+  width: 10em;
   color: var(--color-primary-white);
 `
 
@@ -52,6 +53,8 @@ export const PriceStyled = styled.h3`
 `
 
 export const SizeGroup = styled.div`
+  grid-area: 1 / 2 / -1 / 3;
+  height: 3.875em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -60,6 +63,59 @@ export const SizeGroup = styled.div`
   user-select: none;
   @media all and (min-width: 768px) { margin: 0 auto; }
   @media all and (min-width: 1024px) { margin-left: 6vw; }
+`
+
+export const ColorsGroup = styled.div`
+  grid-area: 1 / 3 / -1 / 5;
+  margin: 0 0 0 1em;
+  height: 3.875em;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  justify-content: start;
+  align-items: center;
+  grid-column-gap: 4px;
+`
+
+export const ColorsOvalGroup = styled.div`
+  grid-area: 1 / 2 / 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: 1fr;
+  grid-column-gap: 4px;
+  justify-items: start;
+  align-items: center;
+  height: auto;
+  width: auto;
+  margin: 0;
+  padding: 0;
+`
+
+export const ColorsOvalImg = styled.img`
+&:first-child {
+  border: 1px solid white;
+  border-radius: 100px;
+}
+`
+
+export const ColorsLabel = styled.p`
+  grid-area: 2 / 2 / -1 / -1;
+  align-self: start;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-lt);
+  color: var(--color-primary-white);
+  font-size: 0.75rem;
+  width: 8em;
+`
+
+export const ColorsLabels = styled.h5`
+  grid-area: 1 / 1 / -1 / 2;
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-semi);
+  color: var(--color-primary-white);
+  font-size: 1rem;
 `
 
 export const LabelSize = styled.label`
@@ -94,6 +150,8 @@ export const SelectSize = styled.select`
 `
 
 export const InfoGroupStyled = styled.div`
+  grid-area: 1 / 11 / -1 / -1;
+  height: 3.75em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
