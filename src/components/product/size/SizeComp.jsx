@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react';
 import { Container, ImgFrame, ImgGrid, TableGrid, ButtonGrid } from './SizeCompStyles'
 import TableComp from './components/table/TableComp';
 import ButtonComp from './components/button/ButtonComp';
+import SizeFinderComp from './components/findersize/SizeFinderComp';
 
 
 function importAll(r) { // @importAll Dynamic Import image
@@ -27,7 +28,7 @@ export default class SizeComp extends Component {
   render() {
     const images = importAll(require.context('../../../assets/img/', false, /\.(png|jpe?g|svg)$/));
     const { sizeComponent } = this.props.ProductStore;
-    //alert(sizeComponent.geometryObject[1]);
+
     return (
     <Container>
       <ImgGrid>
@@ -38,6 +39,7 @@ export default class SizeComp extends Component {
       </TableGrid>
       <ButtonGrid>
         <ButtonComp propsText={sizeComponent.buttonText} onClick={this.displaySize} />
+        { sizeComponent.displaySize ? <SizeFinderComp /> : null }
       </ButtonGrid>
     </Container>
     )

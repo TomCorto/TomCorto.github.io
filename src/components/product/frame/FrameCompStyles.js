@@ -8,8 +8,8 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  @media all and (min-width: 1024px) { margin: 10vh auto 10vh; }
-  @media all and (min-width: 1280px) { margin: 10vh auto 10vh; }
+  @media all and (min-width: 1024px) { margin: 6vh auto 3vh; }
+  @media all and (min-width: 1280px) { margin: 6vh auto 3vh; }
 `
 
 const TextComp = ({ className, children }) => (
@@ -19,4 +19,5 @@ const TextComp = ({ className, children }) => (
 );
 
 export const TextCompStyled = styled(TextComp)`
+  line-height: 24px;
 `
