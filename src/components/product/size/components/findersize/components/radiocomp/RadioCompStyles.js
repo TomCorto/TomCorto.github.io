@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const InputGroupset = styled.div`
   height: auto;
   width: 258px;
-  border-radius: 3px;
-  
+  border-radius: 3px;  
 `
 
 export const Label = styled.label`

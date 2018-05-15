@@ -13,6 +13,15 @@ export const Container = styled.section`
   }
 `
 
+export const HeaderGroup = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid black;
+`
+
+
 export const HeaderRed = styled.h5`
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-semi);
@@ -21,15 +30,34 @@ export const HeaderRed = styled.h5`
   margin: 0 0 1.5em 0;
 `
 
+export const CloseGroup = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--ft-semi-pro);
+  color: var(--primary-grey);
+  cursor: pointer;
+`
+
+
+
+export const CrossIcons = styled.img`
+  height: 18px;
+  width: 19px;
+`
+
+
+
 export const FormGroup = styled.form`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
   grid-column-gap: 8px;
   grid-column-row: 8px;
   width: auto;
   border: 1px solid red;
-`
+`;
 
 const RadioCompGender = ({ className, labelProps }) => (
   <RadioComp className={className} labelProps={labelProps} />
@@ -37,6 +65,7 @@ const RadioCompGender = ({ className, labelProps }) => (
 export const RadioCompGenderStyled = styled(RadioCompGender)`
   grid-area: 1 / 1 / 2 / -1;
   border: 1px solid blue;
+  background: blue;
 `
 
 
@@ -59,7 +88,7 @@ const InputGroupSetTextChest = ({ className, labelProps, placeholderProps }) => 
   <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
 );
 export const InputGroupSetTextChestStyled = styled(InputGroupSetTextChest)`
-  grid-area: 
+  grid-area:
 `
 
 const InputGroupSetTextLegs = ({ className, labelProps, placeholderProps }) => (

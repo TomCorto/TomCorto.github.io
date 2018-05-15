@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import { Container, HeaderRed, FormGroup, Label, Input, Span, InputGroup, InputGroupset, InputGroupSetTextHeightStyled, InputGroupSetTextWeightStyled, RadioCompGenderStyled, InputGroupSetTextChestStyled, InputGroupSetTextLegsStyled, InputGroupSetTextShoulderStyled, InputGroupSetTextArmsStyled } from './SizeFinderCompStyles';
+import { Container, HeaderRed, FormGroup, Label, Input, Span, InputGroup, InputGroupset, InputGroupSetTextHeightStyled, InputGroupSetTextWeightStyled, RadioCompGenderStyled, InputGroupSetTextChestStyled, InputGroupSetTextLegsStyled, InputGroupSetTextShoulderStyled, InputGroupSetTextArmsStyled, HeaderGroup, CloseGroup, CrossIcons } from './SizeFinderCompStyles';
 import InputGroupSetText from './components/input/InputGroupSetText';
 /*import CheckboxComp from './components/checkbox/CheckboxComp';*/
 import RadioComp from './components/radiocomp/RadioComp';
+import imgCross from '../../../../../assets/icons/icons-cross.png';
 
 
 @inject('ProductStore')
@@ -14,17 +15,29 @@ export default class SizeFinderComp extends Component {
     this.state = {
       chkbox: false
     }
-    this.handleChangeChk = this.handleChangeChk.bind(this);
+		this.handleChangeChk = this.handleChangeChk.bind(this);
+		this.closeWindow = this.closeWindow.bind(this);
   }
 
   handleChangeChk() {
     console.log("test");
-  }
+	}
+
+	closeWindow() {
+	  const { displayProductSize } = this.props.ProductStore;
+  	displayProductSize();
+	}
 
   render() {
     return (
       <Container>
-       <HeaderRed>Trouver votre taille</HeaderRed>
+        <HeaderGroup>
+          <HeaderRed>Trouver votre taille</HeaderRed>
+          <CloseGroup onClick={this.closeWindow}>
+						<span>Fermer</span>
+            <CrossIcons src={imgCross} alt={"Icons"} />
+          </CloseGroup>
+        </HeaderGroup>
         <FormGroup>
           <RadioCompGenderStyled labelProps={"Genre"} />
           <InputGroupSetTextHeightStyled labelProps={"Taille"} placeholderProps={"150 - 200"} />
