@@ -10,8 +10,8 @@ export const Label = styled.label`
   color: var(--color-primary-red);
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-semi);
-  font-size: 1.5rem;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 `
 
 export const InputGroup = styled.div`
@@ -35,10 +35,7 @@ export const Input = styled.input`
   font-family: var(--ft-semi-pro);
   color: rgb(60, 60, 60);
   font-weight: var(--ft-weight-semi);
-  font-size: 1.1rem;
-  &:focus {
-    /*box-shadow: 2px 2px 4px rgb(87, 110, 227);*/
-  }
+  font-size: 1rem;
   &:placeholder {
     padding-left: 12px;
     color: rgba(175, 175, 175, 0.2);

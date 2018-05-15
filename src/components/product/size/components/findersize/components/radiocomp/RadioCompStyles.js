@@ -3,21 +3,22 @@ import styled from 'styled-components';
 export const InputGroupset = styled.div`
   height: auto;
   width: 258px;
-  border-radius: 3px;  
+  border-radius: 3px;
 `
 
 export const Label = styled.label`
   color: var(--color-primary-red);
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-semi);
-  font-size: 1.5rem;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+
 `
 
 export const RadioGroup = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
   height: auto;
   width: 190px;
   padding: 0 1em 0;
@@ -30,7 +31,7 @@ export const LabelRadio = styled.label`
   color: var(--color-primary-grey);
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-semi);
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 32px;
 `
 

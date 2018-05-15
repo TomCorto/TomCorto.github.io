@@ -9,7 +9,7 @@ export const Container = styled.section`
   @media all and (min-width: 1024px) {
     width: 768px;
     height: 390px;
-    padding: 0.5em 48px 24px;
+    padding: 1em 3em 0;
   }
 `
 
@@ -17,17 +17,19 @@ export const HeaderGroup = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   border: 1px solid black;
+  margin: 0 0 0 0
 `
 
 
 export const HeaderRed = styled.h5`
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-semi);
-  font-size: 2.25rem;
+  font-size: 2rem;
   color: var(--color-primary-red);
-  margin: 0 0 1.5em 0;
+  margin: 0;
+  padding: 0;
 `
 
 export const CloseGroup = styled.div`
@@ -41,12 +43,10 @@ export const CloseGroup = styled.div`
 `
 
 
-
 export const CrossIcons = styled.img`
   height: 18px;
   width: 19px;
 `
-
 
 
 export const FormGroup = styled.form`
@@ -56,17 +56,29 @@ export const FormGroup = styled.form`
   grid-column-gap: 8px;
   grid-column-row: 8px;
   width: auto;
-  border: 1px solid red;
-`;
+  margin: 1.5em 0 0 0;
+`
+
+export const FormSubGroup = styled.div`
+  width: auto;
+  grid-area: 2 / 1 / -1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  justify-items: center;
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  margin: 1em 0 0 0;
+`
+
 
 const RadioCompGender = ({ className, labelProps }) => (
   <RadioComp className={className} labelProps={labelProps} />
 );
 export const RadioCompGenderStyled = styled(RadioCompGender)`
-  grid-area: 1 / 1 / 2 / -1;
-  border: 1px solid blue;
+  grid-area: 1 / 1 / 2 / 4;
   background: blue;
-`
+`;
 
 
 const InputGroupSetTextHeight = ({ className, labelProps, placeholderProps }) => (
@@ -80,7 +92,7 @@ const InputGroupSetTextWeight = ({ className, labelProps, placeholderProps }) =>
   <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
 );
 export const InputGroupSetTextWeightStyled = styled(InputGroupSetTextWeight)`
-
+  grid-area: 3 / 1 / -1 / 2;
 `
 
 
@@ -88,7 +100,7 @@ const InputGroupSetTextChest = ({ className, labelProps, placeholderProps }) => 
   <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
 );
 export const InputGroupSetTextChestStyled = styled(InputGroupSetTextChest)`
-  grid-area:
+
 `
 
 const InputGroupSetTextLegs = ({ className, labelProps, placeholderProps }) => (

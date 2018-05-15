@@ -37,9 +37,9 @@ export default class SizeComp extends Component {
       <TableGrid>
         <TableComp arrayObject={sizeComponent.geometryObject} headerProps={sizeComponent.headerTitle}/>
       </TableGrid>
-      <ButtonGrid>
-        <ButtonComp propsText={sizeComponent.buttonText} onClick={this.displaySize} />
-        { sizeComponent.displaySize ? <SizeFinderComp /> : null }
+			<ButtonGrid>
+			{ sizeComponent.displaySize ? null : < ButtonComp propsText = {sizeComponent.buttonText} onClick = {this.displaySize} /> }
+      { sizeComponent.displaySize ? <SizeFinderComp /> : null }
       </ButtonGrid>
     </Container>
     )
