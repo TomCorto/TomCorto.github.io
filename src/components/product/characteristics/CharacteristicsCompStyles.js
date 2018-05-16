@@ -11,7 +11,6 @@ export const Container = styled.section`
   width: 100%;
   color: red;
   position: relative;
-  /*margin: 0 auto;*/
 
   @media all and (min-width: 480px) { margin-bottom: 0.5em; }
   @media all and (min-width: 480px) { margin-bottom: 0.5em; }
@@ -34,8 +33,7 @@ export const HeaderRedStyled = styled(HeaderCustom)`
 `
 
 export const TableGroup = styled.div` /* Container */
-
-  width: 400px;
+  width: auto;
   @media all and (min-width: 768px) {
     height: auto;
     display: grid;

@@ -11,7 +11,7 @@ export const Container = styled.section`
   grid-column-gap: 12px;
   height: auto;
   width: 100%;
-  background: #000000;
+  background-color: #000000;
   @media all and (max-width: 1024px) { grid-template-columns: 1fr; grid-template-rows: repeat(3, auto); padding: 5vh 0 5vh; grid-row-gap: 1.5em; }
   @media all and (min-width: 1024px) { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, auto); padding: 5vh 0 5vh; }
   @media all and (min-width: 1440px) { padding: 6vh 0 6vh; }

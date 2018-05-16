@@ -27,7 +27,7 @@ class ProductStore {
     {imgSrc: 'icons-product-wheel.png', imgAlt: 'Icon Wheel', specsSpan: 'Roues', specsTitleText: 'Shimano WHRS500', subBool: false, subSpan: '', subText: ''},
     {imgSrc: 'icons-product-tyres.png', imgAlt: 'Icons Tyres', specsSpan: 'Pneus', specsTitleText: 'Vittoria Rubino Pro 4', subBool: false, subSpan: '', subText: ''},
     {imgSrc: 'icons-product-seat.png', imgAlt: 'Icon Seat', specsSpan: 'Selle', specsTitleText: 'Shimano Ultegra R8000', subBool: false, subSpan: '', subText: ''},
-    {imgSrc: 'icons-product-seat-crank.png', imgAlt: 'Icon Cassette', specsSpan: 'Tige de selle', specsTitleText: 'Selle Italia Novus', subBool: false, subSpan: '', subText: ''}
+    { imgSrc: 'icons-product-seat-crank.png', imgAlt: 'Icon Cassette', specsSpan: 'Tige de selle', specsTitleText: 'Ritchey Pro carbon 27,2 x 350 mm', subBool: false, subSpan: '', subText: ''}
   ];
   @observable geometryObject = { title: 'Géométrie cadre', text: "La géométrie du cadre est un critère fondamental lorsqu’il est question de vélos d’endurance. Pour garantir à l’utilisateur du Cento10NDR un niveau de confort optimal pendant la course, il faut envisager de nouvelles proportions entre les tubes du cadre. Nous avons une position légèrement plus courte (le reach est moindre si on la compare à celle des vélos à géométries racing traditionnelles) et plus haute (un stack plus grand par rapport aux géométries racing). Cette combinaison de reach et de stack nous permet d’avoir une position confortable. Combien de fois avons-nous vu des cyclistes pédaler sur des vélos exclusivement faits pour la course avec plusieurs centimètres d’entretoises au niveau du tube de direction ? Maintenant avec le Cento10NDR l’aspect général du vélo sera harmonieux, proportionné, équilibré et en même temps taillé pour la course. Le graphique Reach & Stack montre la position correcte des 6 tailles du Cento10NDR (ligne bleue) par rapport aux autres cadres Wilier Triestina développés ces dernières années."};
 
@@ -35,6 +35,8 @@ class ProductStore {
     imgObject: {imgSrc: 'product-geometrie-frame.jpg', imgAlt: ''},
     buttonText: 'Trouvez votre taille',
     displaySize: false,
+    displaySizeResult: false,
+    displaySizeColorsBackground: true,
     headerTitle: 'Dimensions',
     geometryObject: {
       thObject: ['Taille', 'c/c', 'L', 'H', 'A', 'H1', 'L1', 'A1', 'Reach', 'Stack'],
@@ -54,6 +56,12 @@ class ProductStore {
 
   @action.bound displayProductSize() {
     this.sizeComponent.displaySize = !this.sizeComponent.displaySize;
+    this.sizeComponent.displaySizeResult = !this.sizeComponent.displaySizeResult;
+  }
+
+  @action.bound displaySizeResultFunc() {
+    this.sizeComponent.displaySizeResult = !this.sizeComponent.displaySizeResult;
+    this.sizeComponent.displaySizeColorsBackground = !this.sizeComponent.displaySizeColorsBackground;
   }
 }
 

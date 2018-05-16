@@ -6,7 +6,8 @@ import RadioComp from './components/radiocomp/RadioComp';
 import ButtonComp from '../button/ButtonComp';
 
 export const Container = transition.section`
-  background: var(--color-primary-white);
+  background: ${props => props.backgroundColorProps ? "#FFFFFF" : "#D0021B"};
+  transition: background 150ms ease-in;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -40,19 +41,20 @@ export const HeaderGroup = styled.div`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: flex-end;
   margin: 0 auto;
+  border: 1px solid blue;
 `
-
 
 export const HeaderRed = styled.h5`
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-semi);
   font-size: 2rem;
-  color: var(--color-primary-red);
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
+  color: ${props => props.colorProps ? "#DE0019" : "#FFFFFF"};
+  transition: color 150ms ease-in;
 `
 
 export const CloseGroup = styled.div`
@@ -61,17 +63,17 @@ export const CloseGroup = styled.div`
   justify-content: center;
   align-items: center;
   font-family: var(--ft-semi-pro);
-  color: var(--primary-grey);
   cursor: pointer;
-  & > span {
-    margin-right: 1em;
-    font-family: var(--ft-source-pro);
-    font-weight: var(--ft-weight-reg);
-    font-size: 1rem;
-    color: var(--colors-primary-grey);
-  }
 `
 
+export const SpanClosed = styled.span`
+  margin-right: 1em;
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-reg);
+  font-size: 1rem;
+  color: ${props => props.colorProps ? "#4E4E4E" : "#FFFFFF"};
+  transition: color 150ms ease;
+`
 
 export const CrossIcons = styled.img`
   height: 18px;
@@ -94,12 +96,12 @@ export const FormGroup = transition.form`
   }
   &:enter-active {
     opacity: 1;
-    transition: all 5000ms ease-in;
+    transition: all 300ms ease-in 500ms;
   }
   &:exit { opacity: 1; }
   &:exit-active {
     opacity: 0.01;
-    transition: opacity 5000ms ease-in;
+    transition: opacity 250ms ease-in 100ms;
   }
 `
 
@@ -173,4 +175,31 @@ const ButtonCTA = ({ className, propsText, onClick, colorProps }) => (
 );
 export const ButtonStyled = styled(ButtonCTA)`
   margin: 10em 0 0 0;
-`;
+`
+
+export const ResultGroup = transition.div`
+  height: auto;
+  width: auto;
+`
+
+export const HeaderResult = transition.h5`
+  margin: 0;
+  padding: 0;
+  color: var(--color-primary-white);
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-reg);
+  font-size: 3.5rem;
+    // Animation //
+  &:enter {
+    opacity: 0.01;
+  }
+  &:enter-active {
+    opacity: 1;
+    transition: all 350ms linear;
+  }
+  &:exit { opacity: 1; }
+  &:exit-active {
+    opacity: 0;
+    transition: all 400ms ease-in;
+  }
+`

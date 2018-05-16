@@ -15,7 +15,10 @@ import {
   CloseGroup,
   CrossIcons,
   FormSubGroup,
-  ButtonStyled
+  ButtonStyled,
+  SpanClosed,
+  HeaderResult,
+  ResultGroup
 } from "./SizeFinderCompStyles";
 
 import imgCross from '../../../../../assets/icons/icons-cross.png';
@@ -45,21 +48,27 @@ export default class SizeFinderComp extends Component {
 	}
 
 	sizeFinderFunc() {
-		alert('Your size was M');
+		const { displaySizeResultFunc, sizeComponent } = this.props.ProductStore;
+		displaySizeResultFunc();
 	}
 
   render() {
 		const { sizeComponent } = this.props.ProductStore;
-		return (
-			<Container unmountOnExit in={sizeComponent.displaySize} timeout={500}>
+		return <Container unmountOnExit in={sizeComponent.displaySize} timeout={500} backgroundColorProps={sizeComponent.displaySizeColorsBackground}>
         <HeaderGroup>
-          <HeaderRed>Trouver votre taille</HeaderRed>
+          <HeaderRed colorProps={sizeComponent.displaySizeColorsBackground}>
+            Trouvez votre taille
+          </HeaderRed>
           <CloseGroup onClick={this.closeWindow}>
-            <span>Fermer</span>
+            <SpanClosed
+              colorProps={sizeComponent.displaySizeColorsBackground}
+            >
+              Fermer
+            </SpanClosed>
             <CrossIcons src={imgCross} alt={"Icons"} />
           </CloseGroup>
         </HeaderGroup>
-        <FormGroup unmountOnExit in={sizeComponent.displaySize} timeout={2000}>
+        <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
           <RadioCompGenderStyled labelProps={"Genre"} />
           <FormSubGroup>
             <InputGroupSetTextHeightStyled labelProps={"Taille"} placeholderProps={"150 - 200"} />
@@ -70,8 +79,10 @@ export default class SizeFinderComp extends Component {
             <InputGroupSetTextArmsStyled labelProps={"Longueur de bras"} placeholderProps={"50 - 70"} />
           </FormSubGroup>
         </FormGroup>
-        <ButtonStyled propsText={"Trouver votre vélo"} onClick={this.sizeFinderFunc} colorProps={false} />
-			</Container>
-		);
+				<ResultGroup>
+        	<HeaderResult unmountOnExit in={!sizeComponent.displaySizeResult} timeout={300}>Taille M</HeaderResult>
+				</ResultGroup>
+        <ButtonStyled propsText={sizeComponent.displaySizeResult ? "Trouver votre vélo" : "Commander"} onClick={this.sizeFinderFunc} colorProps={!sizeComponent.displaySizeColorsBackground} />
+      </Container>;
   }
 }
