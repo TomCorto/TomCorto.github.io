@@ -35,11 +35,11 @@ export const TableGrid = styled.div`
 `
 
 export const ButtonGrid = styled.div`
+  overflow: hidden;
   justify-self: center;
   @media all and (max-width: 1024px) { grid-area: 4 / 1 / -1 / -1; }
   @media all and (min-width: 1024px) { grid-area: 2 / 1 / 2 / -1; }
 `
-
 
 
 const ButtonFinder = ({ className, propsText, onClick, colorProps }) => (

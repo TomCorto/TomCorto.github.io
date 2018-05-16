@@ -5,10 +5,7 @@ import InputGroupSetText from './components/input/InputGroupSetText';
 import RadioComp from './components/radiocomp/RadioComp';
 import ButtonComp from '../button/ButtonComp';
 
-export const Container = transition.section.attrs({
-   unmountOnExit: true,
-  timeout: 1000
-})`
+export const Container = transition.section`
   background: var(--color-primary-white);
   display: flex;
   flex-flow: column nowrap;
@@ -22,15 +19,20 @@ export const Container = transition.section.attrs({
     padding: 2em 3em 2em;
   }
   // Animation //
-  &:enter { opacity: 0.01; }
+  &:enter {
+    opacity: 0.01;
+    transform:translateY(-50%);
+  }
   &:enter-active {
     opacity: 1;
-    transition: opacity 1000ms ease-in;
+    transform:translateY(0%);
+    transition: all 350ms linear;
   }
   &:exit { opacity: 1; }
   &:exit-active {
-    opacity: 0.01;
-    transition: opacity 800ms ease-in;
+    opacity: 0;
+    transform:translateY(-100%);
+    transition: all 400ms ease-in;
   }
 `
 
@@ -77,7 +79,7 @@ export const CrossIcons = styled.img`
 `
 
 
-export const FormGroup = styled.form`
+export const FormGroup = transition.form`
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(3, auto);
@@ -85,6 +87,20 @@ export const FormGroup = styled.form`
   grid-column-row: 8px;
   width: 100%;
   margin: 1.5em 0 0 0;
+
+  // Animation //
+  &:enter {
+    opacity: 0.01;
+  }
+  &:enter-active {
+    opacity: 1;
+    transition: all 5000ms ease-in;
+  }
+  &:exit { opacity: 1; }
+  &:exit-active {
+    opacity: 0.01;
+    transition: opacity 5000ms ease-in;
+  }
 `
 
 export const FormSubGroup = styled.div`
@@ -157,4 +173,4 @@ const ButtonCTA = ({ className, propsText, onClick, colorProps }) => (
 );
 export const ButtonStyled = styled(ButtonCTA)`
   margin: 10em 0 0 0;
-`
+`;

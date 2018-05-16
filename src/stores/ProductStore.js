@@ -34,7 +34,7 @@ class ProductStore {
   @observable sizeComponent = {
     imgObject: {imgSrc: 'product-geometrie-frame.jpg', imgAlt: ''},
     buttonText: 'Trouvez votre taille',
-    displaySize: true,
+    displaySize: false,
     headerTitle: 'Dimensions',
     geometryObject: {
       thObject: ['Taille', 'c/c', 'L', 'H', 'A', 'H1', 'L1', 'A1', 'Reach', 'Stack'],

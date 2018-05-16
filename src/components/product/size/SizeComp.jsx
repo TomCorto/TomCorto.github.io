@@ -29,19 +29,19 @@ export default class SizeComp extends Component {
     const images = importAll(require.context('../../../assets/img/', false, /\.(png|jpe?g|svg)$/));
     const { sizeComponent } = this.props.ProductStore;
 
-    return (
-			<Container>
-      <ImgGrid>
-        <ImgFrame src={images[sizeComponent.imgObject.imgSrc]} alt={sizeComponent.imgObject.imgAlt} />
-      </ImgGrid>
-      <TableGrid>
-        <TableComp arrayObject={sizeComponent.geometryObject} headerProps={sizeComponent.headerTitle}/>
-      </TableGrid>
-			<ButtonGrid>
-			{ sizeComponent.displaySize ? null : <ButtonComp propsText={sizeComponent.buttonText} onClick={this.displaySize} colorProps={true} /> }
-			<SizeFinderComp />
-      </ButtonGrid>
-    </Container>
-    )
+    return <Container>
+        <ImgGrid>
+          <ImgFrame src={images[sizeComponent.imgObject.imgSrc]} alt={sizeComponent.imgObject.imgAlt} />
+        </ImgGrid>
+        <TableGrid>
+          <TableComp arrayObject={sizeComponent.geometryObject} headerProps={sizeComponent.headerTitle} />
+        </TableGrid>
+        <ButtonGrid>
+					<ButtonComp animLaunch={sizeComponent.displaySize} onClick={this.displaySize} colorProps={true} propsText={"Trouve ta taille"} />
+          <SizeFinderComp />
+        </ButtonGrid>
+      </Container>;
   }
 }
+
+//{sizeComponent.displaySize ? null : <ButtonComp unmountOnExit in={sizeComponent.displaySize} timeout={2000} onClick={this.displaySize} colorProps={true} /> }
