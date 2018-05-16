@@ -30,7 +30,7 @@ export default class SizeComp extends Component {
     const { sizeComponent } = this.props.ProductStore;
 
     return (
-    <Container>
+			<Container>
       <ImgGrid>
         <ImgFrame src={images[sizeComponent.imgObject.imgSrc]} alt={sizeComponent.imgObject.imgAlt} />
       </ImgGrid>
@@ -39,7 +39,7 @@ export default class SizeComp extends Component {
       </TableGrid>
 			<ButtonGrid>
 			{ sizeComponent.displaySize ? null : <ButtonComp propsText={sizeComponent.buttonText} onClick={this.displaySize} colorProps={true} /> }
-      { sizeComponent.displaySize ? <SizeFinderComp /> : null }
+			<SizeFinderComp />
       </ButtonGrid>
     </Container>
     )

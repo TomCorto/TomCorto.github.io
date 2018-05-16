@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import transition from 'styled-transition-group';
 import InputGroupSetText from './components/input/InputGroupSetText';
 import RadioComp from './components/radiocomp/RadioComp';
 import ButtonComp from '../button/ButtonComp';
 
-export const Container = styled.section`
+export const Container = transition.section.attrs({
+   unmountOnExit: true,
+  timeout: 1000
+})`
   background: var(--color-primary-white);
   display: flex;
   flex-flow: column nowrap;
@@ -16,6 +20,17 @@ export const Container = styled.section`
     width: 768px;
     height: auto;
     padding: 2em 3em 2em;
+  }
+  // Animation //
+  &:enter { opacity: 0.01; }
+  &:enter-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+  }
+  &:exit { opacity: 1; }
+  &:exit-active {
+    opacity: 0.01;
+    transition: opacity 800ms ease-in;
   }
 `
 

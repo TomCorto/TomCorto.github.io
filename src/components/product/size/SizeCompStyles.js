@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import transition from 'styled-transition-group';
 import React from 'react';
 import TableComp from './components/table/TableComp';
 import ButtonComp from './components/button/ButtonComp';
@@ -38,3 +39,10 @@ export const ButtonGrid = styled.div`
   @media all and (max-width: 1024px) { grid-area: 4 / 1 / -1 / -1; }
   @media all and (min-width: 1024px) { grid-area: 2 / 1 / 2 / -1; }
 `
+
+
+
+const ButtonFinder = ({ className, propsText, onClick, colorProps }) => (
+  <ButtonComp className={className} propsText={propsText} onClick={onClick} colorProps={colorProps} />
+)
+export const ButtonStyled = styled(ButtonFinder)``
