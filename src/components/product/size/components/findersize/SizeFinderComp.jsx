@@ -1,31 +1,25 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import {
-	Container,
-	HeaderRed,
-	FormGroup,
-	Label,
-	Input,
-	Span,
-	InputGroup,
-	InputGroupset,
-	InputGroupSetTextHeightStyled,
-	InputGroupSetTextWeightStyled,
-	RadioCompGenderStyled,
-	InputGroupSetTextChestStyled,
-	InputGroupSetTextLegsStyled,
-	InputGroupSetTextShoulderStyled,
-	InputGroupSetTextArmsStyled,
-	HeaderGroup,
-	CloseGroup,
-	CrossIcons,
-	FormSubGroup
-} from './SizeFinderCompStyles';
+  Container,
+  HeaderRed,
+  FormGroup,
+  InputGroupSetTextHeightStyled,
+  InputGroupSetTextWeightStyled,
+  RadioCompGenderStyled,
+  InputGroupSetTextChestStyled,
+  InputGroupSetTextLegsStyled,
+  InputGroupSetTextShoulderStyled,
+  InputGroupSetTextArmsStyled,
+  HeaderGroup,
+  CloseGroup,
+  CrossIcons,
+  FormSubGroup,
+  ButtonStyled
+} from "./SizeFinderCompStyles";
 
-import InputGroupSetText from './components/input/InputGroupSetText';
-/*import CheckboxComp from './components/checkbox/CheckboxComp';*/
-import RadioComp from './components/radiocomp/RadioComp';
 import imgCross from '../../../../../assets/icons/icons-cross.png';
+import ButtonComp from '../button/ButtonComp';
 
 
 @inject('ProductStore')
@@ -38,6 +32,7 @@ export default class SizeFinderComp extends Component {
     }
 		this.handleChangeChk = this.handleChangeChk.bind(this);
 		this.closeWindow = this.closeWindow.bind(this);
+		this.sizeFinderFunc = this.sizeFinderFunc.bind(this);
   }
 
   handleChangeChk() {
@@ -49,28 +44,31 @@ export default class SizeFinderComp extends Component {
   	displayProductSize();
 	}
 
+	sizeFinderFunc() {
+		alert('Your size was M');
+	}
+
   render() {
-    return (
-      <Container>
+    return <Container>
         <HeaderGroup>
           <HeaderRed>Trouver votre taille</HeaderRed>
           <CloseGroup onClick={this.closeWindow}>
-						<span>Fermer</span>
+            <span>Fermer</span>
             <CrossIcons src={imgCross} alt={"Icons"} />
           </CloseGroup>
         </HeaderGroup>
         <FormGroup>
-					<RadioCompGenderStyled labelProps={"Genre"} />
-					<FormSubGroup>
-						<InputGroupSetTextHeightStyled labelProps={"Taille"} placeholderProps={"150 - 200"} />
-          	<InputGroupSetTextWeightStyled labelProps={"Poids"} placeholderProps={"45 - 100"} />
-          	<InputGroupSetTextChestStyled labelProps={"Longueur du torse"} placeholderProps={"50 - 70"} />
-          	<InputGroupSetTextLegsStyled labelProps={"Entre-jambe"} placeholderProps={"50 - 70"} />
-          	<InputGroupSetTextShoulderStyled labelProps={"Largeur d'épaules"} placeholderProps={"50 - 70"} />
-          	<InputGroupSetTextArmsStyled labelProps={"Longueur de bras"} placeholderProps={"50 - 70"} />
-					</FormSubGroup>
+          <RadioCompGenderStyled labelProps={"Genre"} />
+          <FormSubGroup>
+            <InputGroupSetTextHeightStyled labelProps={"Taille"} placeholderProps={"150 - 200"} />
+            <InputGroupSetTextWeightStyled labelProps={"Poids"} placeholderProps={"45 - 100"} />
+            <InputGroupSetTextChestStyled labelProps={"Longueur du torse"} placeholderProps={"50 - 70"} />
+            <InputGroupSetTextLegsStyled labelProps={"Entre-jambe"} placeholderProps={"50 - 70"} />
+            <InputGroupSetTextShoulderStyled labelProps={"Largeur d'épaules"} placeholderProps={"50 - 70"} />
+            <InputGroupSetTextArmsStyled labelProps={"Longueur de bras"} placeholderProps={"50 - 70"} />
+          </FormSubGroup>
         </FormGroup>
-      </Container>
-    )
+        <ButtonStyled propsText={"Trouver votre vélo"} onClick={this.sizeFinderFunc} colorProps={false} />
+      </Container>;
   }
 }

@@ -15,6 +15,12 @@ export const Label = styled.label`
 
 `
 
+export const Fieldset = styled.fieldset`
+  border: none;
+  margin: 0;
+  padding: 0;
+`
+
 export const RadioGroup = styled.div`
   display: flex;
   flex-flow: row nowrap;

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container } from './ButtonCompStyles';
 
-const ButtonComp = ({ propsText, onClick }) => (
-  <Container onClick={onClick} >
+const ButtonComp = ({ propsText, onClick, colorProps }) => (
+  <Container onClick={onClick} colorProps={colorProps} >
     {propsText}
   </Container>
 );

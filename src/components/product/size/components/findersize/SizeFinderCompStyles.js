@@ -2,24 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import InputGroupSetText from './components/input/InputGroupSetText';
 import RadioComp from './components/radiocomp/RadioComp';
+import ButtonComp from '../button/ButtonComp';
 
 export const Container = styled.section`
   background: var(--color-primary-white);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
 
   @media all and (min-width: 1024px) {
     width: 768px;
-    height: 390px;
-    padding: 1em 3em 0;
+    height: auto;
+    padding: 2em 3em 2em;
   }
 `
 
 export const HeaderGroup = styled.div`
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: center;
-  border: 1px solid black;
-  margin: 0 0 0 0
+  align-items: flex-start;
+  margin: 0 auto;
 `
 
 
@@ -40,6 +46,13 @@ export const CloseGroup = styled.div`
   font-family: var(--ft-semi-pro);
   color: var(--primary-grey);
   cursor: pointer;
+  & > span {
+    margin-right: 1em;
+    font-family: var(--ft-source-pro);
+    font-weight: var(--ft-weight-reg);
+    font-size: 1rem;
+    color: var(--colors-primary-grey);
+  }
 `
 
 
@@ -55,7 +68,7 @@ export const FormGroup = styled.form`
   grid-template-rows: repeat(3, auto);
   grid-column-gap: 8px;
   grid-column-row: 8px;
-  width: auto;
+  width: 100%;
   margin: 1.5em 0 0 0;
 `
 
@@ -122,4 +135,11 @@ const InputGroupSetTextArms = ({ className, labelProps, placeholderProps }) => (
 );
 export const InputGroupSetTextArmsStyled = styled(InputGroupSetTextArms)`
 
+`
+
+const ButtonCTA = ({ className, propsText, onClick, colorProps }) => (
+  <ButtonComp className={className} propsText={propsText} onClick={onClick} colorProps={colorProps} />
+);
+export const ButtonStyled = styled(ButtonCTA)`
+  margin: 10em 0 0 0;
 `
