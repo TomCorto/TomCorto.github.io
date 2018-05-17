@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   margin: 0;
+  padding: 0;
 
   @media all and (min-width: 480px) {
     display: grid;
@@ -22,10 +23,11 @@ export const Container = styled.section`
     grid-template-rows: 1fr 1fr;
     justify-items: center;
     align-items: center;
-    margin: 6vh 0 6vh;
-    background: silver;
+    margin: 4em 0 4em;
+    padding: 0;
+    background: var(--color-primary-white);
     width: 100%;
-    height: auto;
+    height: 400px;
   }
   @media all and (min-width: 1024px) {
     margin: 8vh 0 8vh;
@@ -34,12 +36,14 @@ export const Container = styled.section`
     grid-template-rows: auto;
     justify-items: center;
     align-items: center;
-    background: pink;
+    height: auto;
   }
   @media all and (min-width: 1280px) { margin: 8vh 0 8vh; }
 `
 
 export const TextGroup = styled.div`
+  margin: 0;
+  padding: 0;
   user-select: none;
   @media all and (max-width: 768px) { grid-area: 1 / 1 / 2 / -1; width: 80%; }
   @media all and (min-width: 768px) { grid-area: 1 / 1 / 2 / -1; width: 80%; }
@@ -74,10 +78,9 @@ export const TextMain = styled.p`
 `
 
 export const ImageFrame = styled.img`
+  border: 1px solid black;
   grid-area: 1 / 2 / 1 / -1;
-  /*z-index: 10000;*/
   height: auto;
-  border: 1px solid red;
   @media all and (max-width: 480px) { grid-area: 2 / 1 / -1 / -1; max-width: 80%;}
   @media all and (min-width: 480px) { grid-area: 2 / 1 / -1 / -1; max-width: 100%;}
   @media all and (min-width: 768px) { grid-area: 1 / 2 / 1 / -1; max-width: 80%;}
