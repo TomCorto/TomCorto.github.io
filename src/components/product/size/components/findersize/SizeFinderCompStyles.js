@@ -7,7 +7,7 @@ import ButtonComp from '../button/ButtonComp';
 import ButtonSizeCTA from './components/button/ButtonSizeCTA.jsx';
 import SvgBody from './components/svgbody/SvgBody';
 
-export const Container = transition.section`
+export const Container = transition.section` /* Container General */
   /*background: ${props => props.backgroundColorProps ? "#FFFFFF" : "#D0021B"};*/
   transition: background 150ms ease-in;
   display: grid;
@@ -51,7 +51,7 @@ export const LeftSide = styled.div` /* Left Side Container */
   align-items: center;
 `
 
-export const HeaderGroup = styled.div` /* Step 1 & Step 2 & Step 3 - Container Title Group */
+export const HeaderGroup = styled.div` /* @HeaderGroup - Step 1 & Step 2 & Step 3 - Container Title Group */
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -61,8 +61,7 @@ export const HeaderGroup = styled.div` /* Step 1 & Step 2 & Step 3 - Container T
   text-align: center;
 `
 
-
-export const TitleHeader = styled.h2` /* Step 1 & Step 2 & Step 3 - Title Header */
+export const TitleHeader = styled.h2` /* @TitleHeader - Step 1 & Step 2 & Step 3 - Title Header */
   margin: 0;
   padding: 0;
   font-family: var(--ft-source-pro);
@@ -71,7 +70,7 @@ export const TitleHeader = styled.h2` /* Step 1 & Step 2 & Step 3 - Title Header
   color: ${ props => props.colorProps };
 `
 
-export const TextSub = styled.p`
+export const TextSub = styled.p` /* @TextSub -  */
   margin: 0.5em 0 0 0;
   padding: 0;
   font-family: var(--ft-source-pro);
@@ -80,7 +79,7 @@ export const TextSub = styled.p`
   color: ${props => props.colorProps};
 `
 
-export const FormGroup = styled.form`
+export const FormGroup = styled.form` /* @FormGroup - Form Container */
   margin: 2em 0 2em 0;
   padding: 0;
   display: grid;
@@ -95,20 +94,53 @@ export const FormGroup = styled.form`
   }
 `
 
-
-export const ImgProduct = styled.img`
+export const ImgProduct = styled.img` /* @ImgProduct - Image Product step 3 */
   margin: 2.25rem 0 0 0;
   width: 230px;
 `
 
-export const ModelProduct = styled.p`
+export const ModelProduct = styled.p` /* @ModelProduct - Model Title Product  */
+  margin: 0;
+  padding: 0;
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-semi);
   font-size: 1.5rem;
   color: var(--color-primary-grey);
+  text-align: center;
 `
 
+export const SpecsContainer = styled.div` /* @SpecsContainer - Container Specs Result */
+  margin: 0.5em 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+`
 
+export const SpecsGroup = styled.div` /* @SpecsGroup - Group Specificities */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+`
+
+export const SpecsTitle = styled.h6` /* @SpecsTitle - Title Specs */
+  margin: 0;
+  padding: 0;
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-semi);
+  color: var(--color-primary-red);
+  font-size: 1rem;
+`
+const SpecsDescriptionRoot = SpecsTitle.withComponent('p');
+export const SpecsDescription = SpecsDescriptionRoot.extend`/* @SpecsDescription - Sub-title texte */
+  color: var(--color-primary-grey);
+  font-size: 1rem;
+  font-weight: var(--ft-weight-reg);
+`
 
 const ButtonSizeCTARoot = ({ className, colorProps, textProps, onClick }) => ( /* Step 3 - CTA Checkout */
   <ButtonSizeCTA className={className} colorProps={colorProps} textProps={textProps} onClick={onClick} />

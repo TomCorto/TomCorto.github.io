@@ -53,6 +53,7 @@ class ProductStore {
         header: { title: 'Guide Taille Cadre', subText: 'Notre système de calcul de mensuration permet de mesurer la taille de vélo idéale pour vous.'},
       },
       rightSide: {
+        stepStatus: {stepOne: true, stepTwo: false, stepThree: false},
         header: { title: 'Mensuration' },
         buttonText: '',
         measureMetrics: {
@@ -62,7 +63,7 @@ class ProductStore {
                 {span: 'Weight', text: '73 kg'}
             ]
         },
-        stepStatus: {stepOne: true, stepTwo: false, stepThree: false}
+        measureResult: [{title: 'Taille Cadre', specs: 'M'}, {title: 'Hauteur Selle', specs: '78 cm'}]
       }
     }
    };

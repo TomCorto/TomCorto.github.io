@@ -27,7 +27,11 @@ import {
   MensurationSpan,
   SvgBodyStyled,
   ImgProduct,
-  ModelProduct
+  ModelProduct,
+  SpecsContainer,
+  SpecsGroup,
+  SpecsTitle,
+  SpecsDescription
 } from "./SizeFinderCompStyles";
 import imgCross from '../../../../../assets/icons/icons-cross.png';
 import imgSrcHeight from '../../../../../assets/img/sizefind-body_height.png';
@@ -106,22 +110,29 @@ export default class SizeFinderComp extends Component {
                 <InputGroupSetTextWeightStyled labelProps={"Poids"} placeholderProps={"45 - 100"} />
               </FormGroup>
           : null }
-        {sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === true
-          ? <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
+        {sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === true ? /* Step 1 */
+        <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
             <InputGroupSetTextChestStyled labelProps={"Longueur du torse"} placeholderProps={"50 - 70"} />
             <InputGroupSetTextLegsStyled labelProps={"Entre-jambe"} placeholderProps={"50 - 70"} />
             <InputGroupSetTextShoulderStyled labelProps={"Largeur d'épaules"} placeholderProps={"50 - 70"} />
             <InputGroupSetTextArmsStyled labelProps={"Longueur de bras"} placeholderProps={"50 - 70"} />
           </FormGroup>
           : null }
-          { sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ?
+          { sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ? /* Step 2 */
           <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
-                 <ImgProduct src={images['product-Cento10NDR-R1.jpg']} />
-          <ModelProduct>Cento 10 NDR</ModelProduct>
+            <ImgProduct src={images['product-Cento10NDR-R1.jpg']} />
+            <ModelProduct>Cento 10 NDR</ModelProduct>
+            <SpecsContainer>
+              {sizeComponent.sizeFinder.rightSide.measureResult.map((el, index) =>
+                <SpecsGroup key={index}>
+                  <SpecsTitle>{el.title}</SpecsTitle>
+                  <SpecsDescription>{el.specs}</SpecsDescription>
+                </SpecsGroup>
+              )}
+            </SpecsContainer>
           </FormGroup>
-
           : null }
-        {sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ? 
+        {sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ? /* Step 3 - Button */
         <ButtonSizeCTAStyled textProps={"Commander"} colorProps={"#D0021B"} onClick={this.checkOutFunc} /> 
         : <ButtonSizeCTAStyled textProps={sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === false ? "Étape 1 / 2" : "Définir ma taille"} colorProps={"#D0021B"} onClick={this.sizeStepOne} /> }
         </LeftSide>
