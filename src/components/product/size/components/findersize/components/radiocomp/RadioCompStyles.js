@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const InputGroupset = styled.div`
   height: auto;
-  width: 258px;
+  width: 230px;
   border-radius: 3px;
 `
 

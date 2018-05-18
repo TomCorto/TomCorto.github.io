@@ -37,7 +37,8 @@ export const BreadCrumbText = styled.h5`
   font-family: var(--ft-source-pro);
   color: var(--color-primary-grey);
   font-weight: 400;
-  font-size: 1rem;
+  @media all and (min-width: 768px) { font-size: 0.6rem; }
+  @media all and (min-width: 1024px) { font-size: 1rem; }
   &:hover {
     text-decoration: underline;
     transition: text-decoration 100ms ease-in;

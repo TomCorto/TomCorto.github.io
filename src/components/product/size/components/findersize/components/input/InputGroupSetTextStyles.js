@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const InputGroupset = styled.div`
+  margin: 0;
+  padding: 0;
   height: auto;
   width: 230px;
   border-radius: 3px;

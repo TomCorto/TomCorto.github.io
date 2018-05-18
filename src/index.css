@@ -21,7 +21,8 @@
   --ft-source-pro: 'Source Sans Pro', sans-serif;
   --ft-weight-lt: 300;
   --ft-weight-reg: 400;
-  --ft-weight-semi: 500;
+	--ft-weight-semi: 500;
+	--ft-weight-bold: 600;
   --ft-style-itl: italic;
 
   /* Media queries */
