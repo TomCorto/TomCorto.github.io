@@ -47,6 +47,23 @@ class ProductStore {
       tdArrayL: ['L', '45,5', '55,8', '46,0', '73,5', '17,7', '40,8', '72,5', '384', '586'],
       tdArrayXL: ['XL', '50,5', '57,4', '46,0', '73,0', '19,6', '41,1', '72,5', '389', '604'],
       tdArrayXXL: ['XXL', '53,5', '59,2', '46,0', '72,5', '21,7', '41,1', '72,5', '395', '625']
+    },
+    sizeFinder: {
+      leftSide: {
+        header: { title: 'Guide Taille Cadre', subText: 'Notre système de calcul de mensuration permet de mesurer la taille de vélo idéale pour vous.'},
+      },
+      rightSide: {
+        header: { title: 'Mensuration' },
+        buttonText: '',
+        measureMetrics: {
+            mensuration: [
+                {span: 'Genre', text: 'Homme'},
+                {span: 'Height', text: '183 cm'},
+                {span: 'Weight', text: '73 kg'}
+            ]
+        },
+        stepStatus: {stepOne: true, stepTwo: false, stepThree: false}
+      }
     }
    };
 
@@ -60,8 +77,13 @@ class ProductStore {
   }
 
   @action.bound displaySizeResultFunc() {
-    this.sizeComponent.displaySizeResult = !this.sizeComponent.displaySizeResult;
-    this.sizeComponent.displaySizeColorsBackground = !this.sizeComponent.displaySizeColorsBackground;
+    this.sizeComponent.sizeFinder.rightSide.stepStatus.stepThree = !this.sizeComponent.sizeFinder.rightSide.stepStatus.stepThree;
+    this.sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo = !this.sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo;
+  }
+
+  @action.bound statusStepFunc() {
+    this.sizeComponent.sizeFinder.rightSide.stepStatus.stepOne = !this.sizeComponent.sizeFinder.rightSide.stepStatus.stepOne;
+    this.sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo = !this.sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo;
   }
 }
 

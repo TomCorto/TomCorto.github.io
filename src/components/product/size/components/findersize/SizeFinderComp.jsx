@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import {
   Container,
-  HeaderRed,
   FormGroup,
   InputGroupSetTextHeightStyled,
   InputGroupSetTextWeightStyled,
@@ -14,7 +13,6 @@ import {
   HeaderGroup,
   CloseGroup,
   CrossIcons,
-  FormSubGroup,
   ButtonStyled,
   SpanClosed,
   HeaderResult,
@@ -23,13 +21,18 @@ import {
   RightSide,
   TitleHeader,
   TextSub,
-  ButtonSizeCTAStyled
+  ButtonSizeCTAStyled,
+  MensurationGroup,
+  Mensuration,
+  MensurationSpan,
+  SvgBodyStyled,
+  ImgProduct,
+  ModelProduct
 } from "./SizeFinderCompStyles";
-
 import imgCross from '../../../../../assets/icons/icons-cross.png';
+import imgSrcHeight from '../../../../../assets/img/sizefind-body_height.png';
 import ButtonComp from '../button/ButtonComp';
 import ButtonSizeCTA from './components/button/ButtonSizeCTA';
-
 
 @inject('ProductStore')
 @observer
@@ -37,11 +40,21 @@ export default class SizeFinderComp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chkbox: false
+      chkbox: false,
+      value: ''
     }
 		this.handleChangeChk = this.handleChangeChk.bind(this);
 		this.closeWindow = this.closeWindow.bind(this);
-		this.sizeFinderFunc = this.sizeFinderFunc.bind(this);
+    this.sizeFinderFunc = this.sizeFinderFunc.bind(this);
+    this.sizeStepOne = this.sizeStepOne.bind(this);
+    this.onChangeHeight = this.onChangeHeight.bind(this);
+    this.checkOutFunc = this.checkOutFunc.bind(this);
+  }
+
+  importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
   }
 
   handleChangeChk() {
@@ -56,62 +69,92 @@ export default class SizeFinderComp extends Component {
 	sizeFinderFunc() {
 		const { displaySizeResultFunc, sizeComponent } = this.props.ProductStore;
 		displaySizeResultFunc();
-	}
+  }
+
+  sizeStepOne() { // @sizeStepOne Changing State form
+    const { sizeComponent, statusStepFunc, displaySizeResultFunc } = this.props.ProductStore;
+    if (sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === true) { // Display State 2
+      displaySizeResultFunc();
+    }else { // Display State 1
+      statusStepFunc();
+    }
+  }
+
+  checkOutFunc() {
+    alert('Checkout');
+  }
+
+  onChangeHeight(event) {
+    console.log(event.target.value);
+  }
 
   render() {
+    const images = this.importAll(require.context('../../../../../assets/img/', false, /\.(png|jpe?g|svg)$/));
 		const { sizeComponent } = this.props.ProductStore;
 		return <Container unmountOnExit in={sizeComponent.displaySize} timeout={500}>
         <LeftSide>
           <HeaderGroup>
-            <TitleHeader colorProps={"#FF0000"}>
-              Guide Taille Cadre
-            </TitleHeader>
-            <TextSub>
-              Notre système de calcul de mensuration permet de mesurer la
-              taille de vélo idéale pour vous.
-            </TextSub>
+            <TitleHeader colorProps={"#FF0000"}>{sizeComponent.sizeFinder.leftSide.header.title}</TitleHeader>
+            { sizeComponent.sizeFinder.rightSide.stepStatus.stepOne === true
+              ? <TextSub>{sizeComponent.sizeFinder.leftSide.header.subText}</TextSub>
+              : null }
           </HeaderGroup>
-          <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
-            <RadioCompGenderStyled labelProps={"Genre"} />
-            <InputGroupSetTextHeightStyled labelProps={"Taille"} placeholderProps={"150 - 200"} />
-            <InputGroupSetTextWeightStyled labelProps={"Poids"} placeholderProps={"45 - 100"} />
+          {sizeComponent.sizeFinder.rightSide.stepStatus.stepOne === true
+            ? <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
+                <RadioCompGenderStyled labelProps={sizeComponent.sizeFinder.rightSide.measureMetrics.genre} />
+                <InputGroupSetTextHeightStyled labelProps={"Taille"} placeholderProps={"150 - 200"} onChange={this.onChangeHeight} value={this.state.value} />
+                <InputGroupSetTextWeightStyled labelProps={"Poids"} placeholderProps={"45 - 100"} />
+              </FormGroup>
+          : null }
+        {sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === true
+          ? <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
+            <InputGroupSetTextChestStyled labelProps={"Longueur du torse"} placeholderProps={"50 - 70"} />
+            <InputGroupSetTextLegsStyled labelProps={"Entre-jambe"} placeholderProps={"50 - 70"} />
+            <InputGroupSetTextShoulderStyled labelProps={"Largeur d'épaules"} placeholderProps={"50 - 70"} />
+            <InputGroupSetTextArmsStyled labelProps={"Longueur de bras"} placeholderProps={"50 - 70"} />
           </FormGroup>
-					<ButtonSizeCTAStyled textProps={"Étape 1 / 2"} colorProps={"#D0021B"} />
+          : null }
+          { sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ?
+          <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
+                 <ImgProduct src={images['product-Cento10NDR-R1.jpg']} />
+          <ModelProduct>Cento 10 NDR</ModelProduct>
+          </FormGroup>
+
+          : null }
+        {sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ? 
+        <ButtonSizeCTAStyled textProps={"Commander"} colorProps={"#D0021B"} onClick={this.checkOutFunc} /> 
+        : <ButtonSizeCTAStyled textProps={sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === false ? "Étape 1 / 2" : "Définir ma taille"} colorProps={"#D0021B"} onClick={this.sizeStepOne} /> }
         </LeftSide>
-        <RightSide>b</RightSide>
+        <RightSide>
+          <HeaderGroup>
+            <TitleHeader colorProps={"#FFFFFF"}>Mesures</TitleHeader>
+            <CloseGroup>
+              Fermer
+            </CloseGroup>
+          </HeaderGroup>
+          <MensurationGroup>
+            {sizeComponent.sizeFinder.rightSide.measureMetrics.mensuration.map((el, index) =>
+              <Mensuration>
+                <MensurationSpan>{el.span}</MensurationSpan> {el.text}
+              </Mensuration>
+            )}
+          </MensurationGroup>
+        <SvgBodyStyled srcProps={imgSrcHeight} />
+        </RightSide>
       </Container>;
   }
 }
 
 
-/*
-						<HeaderGroup>
-						<TitleHeader>Guide Taille Cadre</TitleHeader>
-						<TextSub>
-							Notre système de calcul de mensuration permet de mesurer la
-							taille de vélo idéale pour vous.
-							</TextSub>
-					</HeaderGroup>
-*/
 
 /* Formulaire Première partie
 <HeaderGroup>
-          <HeaderRed colorProps={sizeComponent.displaySizeColorsBackground}>
-            Trouvez votre taille
-          </HeaderRed>
           <CloseGroup onClick={this.closeWindow}>
             <SpanClosed colorProps={sizeComponent.displaySizeColorsBackground}>Fermer
             </SpanClosed>
             <CrossIcons src={imgCross} alt={"Icons"} />
           </CloseGroup>
         </HeaderGroup>
-        <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
-          <RadioCompGenderStyled labelProps={"Genre"} />
-          <FormSubGroup>
-            <InputGroupSetTextHeightStyled labelProps={"Taille"} placeholderProps={"150 - 200"} />
-            <InputGroupSetTextWeightStyled labelProps={"Poids"} placeholderProps={"45 - 100"} />
-          </FormSubGroup>
-        </FormGroup>
 				<ResultGroup>
         	<HeaderResult unmountOnExit in={!sizeComponent.displaySizeResult} timeout={300}>Taille M</HeaderResult>
 				</ResultGroup>

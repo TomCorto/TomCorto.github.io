@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import arrowsIcons from "../../../../../../../assets/icons/icons-buttons.png";
 import { Container, ArrowImg } from "./ButtonSizeCTAStyles";
 
-const ButtonSizeCTA = ({ textProps, arrowsBool }) => (
-  <Container>
+const ButtonSizeCTA = ({ textProps, arrowsBool, onClick }) => (
+  <Container type="button" onClick={onClick}>
     {textProps} <ArrowImg src={arrowsIcons} />
   </Container>
 );

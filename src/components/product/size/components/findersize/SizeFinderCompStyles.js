@@ -5,6 +5,7 @@ import InputGroupSetText from './components/input/InputGroupSetText';
 import RadioComp from './components/radiocomp/RadioComp';
 import ButtonComp from '../button/ButtonComp';
 import ButtonSizeCTA from './components/button/ButtonSizeCTA.jsx';
+import SvgBody from './components/svgbody/SvgBody';
 
 export const Container = transition.section`
   /*background: ${props => props.backgroundColorProps ? "#FFFFFF" : "#D0021B"};*/
@@ -37,7 +38,7 @@ export const Container = transition.section`
   }
 `
 
-export const LeftSide = styled.div`
+export const LeftSide = styled.div` /* Left Side Container */
   grid-area: 1 / 1 / -1 / 2;
   background-color: var(--color-primary-white);
   height: 100%;
@@ -50,15 +51,7 @@ export const LeftSide = styled.div`
   align-items: center;
 `
 
-export const RightSide = styled.div`
-  grid-area: 1 / 2 / 1 / -1;
-  background: red;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-`;
-
-export const HeaderGroup = styled.div`
+export const HeaderGroup = styled.div` /* Step 1 & Step 2 & Step 3 - Container Title Group */
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -66,10 +59,10 @@ export const HeaderGroup = styled.div`
   margin: 0;
   width: 323px;
   text-align: center;
-`;
+`
 
 
-export const TitleHeader = styled.h2`
+export const TitleHeader = styled.h2` /* Step 1 & Step 2 & Step 3 - Title Header */
   margin: 0;
   padding: 0;
   font-family: var(--ft-source-pro);
@@ -102,35 +95,69 @@ export const FormGroup = styled.form`
   }
 `
 
-const ButtonSizeCTARoot = ({ className, colorProps, textProps }) => (
-  <ButtonSizeCTA className={className} colorProps={colorProps} textProps={textProps} />
+
+export const ImgProduct = styled.img`
+  margin: 2.25rem 0 0 0;
+  width: 230px;
+`
+
+export const ModelProduct = styled.p`
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-semi);
+  font-size: 1.5rem;
+  color: var(--color-primary-grey);
+`
+
+
+
+const ButtonSizeCTARoot = ({ className, colorProps, textProps, onClick }) => ( /* Step 3 - CTA Checkout */
+  <ButtonSizeCTA className={className} colorProps={colorProps} textProps={textProps} onClick={onClick} />
 )
 export const ButtonSizeCTAStyled = styled(ButtonSizeCTARoot)`
   margin-top: 64px;
 `
 
-
-
-/*
-export const HeaderGroup = styled.div`
+export const RightSide = styled.div`
+  grid-area: 1 / 2 / 1 / -1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.5em 0 1.5em;
+  background: #D0021B;
+  height: 100%;
   width: 100%;
+  margin: 0;
+`;
+
+export const MensurationGroup = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
-  align-items: flex-end;
-  margin: 0 auto;
-  border: 1px solid blue;
-`*/
-
-export const HeaderRed = styled.h5`
-  font-family: var(--ft-source-pro);
-  font-weight: var(--ft-weight-semi);
-  font-size: 2rem;
-  margin: 0 auto;
-  padding: 0;
-  color: ${props => props.colorProps ? "#DE0019" : "#FFFFFF"};
-  transition: color 150ms ease-in;
+  justify-content: space-between;
+  align-items: center;
 `
+
+export const Mensuration = styled.p`
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-lt);
+  font-size: 1rem;
+  color: var(--color-primary-white);
+  margin: 0 1em 0 0;
+  &:last-child {
+    margin: 0;
+  }
+`
+
+const MensurationExtend = Mensuration.withComponent('span');
+export const MensurationSpan = MensurationExtend.extend`
+  font-weight: var(--ft-weight-reg);
+`
+
+const SvgBodyImport = ({ className, srcProps }) => (
+  <SvgBody srcProps={srcProps} className={className} />
+);
+export const SvgBodyStyled = styled(SvgBodyImport)``
+
 
 export const CloseGroup = styled.div`
   display: flex;
@@ -155,47 +182,6 @@ export const CrossIcons = styled.img`
   width: 19px;
 `
 
-
-
-
-/*
-export const FormGroup = transition.form`
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(3, auto);
-  grid-column-gap: 8px;
-  grid-column-row: 8px;
-  width: 100%;
-  margin: 1.5em 0 0 0;
-
-  // Animation //
-  &:enter {
-    opacity: 0.01;
-  }
-  &:enter-active {
-    opacity: 1;
-    transition: all 300ms ease-in 500ms;
-  }
-  &:exit { opacity: 1; }
-  &:exit-active {
-    opacity: 0.01;
-    transition: opacity 250ms ease-in 100ms;
-  }
-`*/
-/*
-export const FormSubGroup = styled.div`
-  width: auto;
-  grid-area: 2 / 1 / -1 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(3, auto);
-  justify-items: center;
-  grid-row-gap: 24px;
-  grid-column-gap: 24px;
-  margin: 1em 0 0 0;
-`*/
-
-
 const RadioCompGender = ({ className, labelProps }) => (
   <RadioComp className={className} labelProps={labelProps} />
 );
@@ -205,8 +191,8 @@ export const RadioCompGenderStyled = styled(RadioCompGender)`
 `;
 
 
-const InputGroupSetTextHeight = ({ className, labelProps, placeholderProps }) => (
-  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
+const InputGroupSetTextHeight = ({ className, labelProps, placeholderProps, value, onChange }) => (
+  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} value={value} onChange={onChange} />
 );
 export const InputGroupSetTextHeightStyled = styled(InputGroupSetTextHeight)`
   /*grid-area: 2 / 1 / 3 / 2;*/
@@ -215,37 +201,37 @@ export const InputGroupSetTextHeightStyled = styled(InputGroupSetTextHeight)`
   border: 1px solid blue;
 `
 
-const InputGroupSetTextWeight = ({ className, labelProps, placeholderProps }) => (
-  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
+const InputGroupSetTextWeight = ({ className, labelProps, placeholderProps, value, onChange }) => (
+  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} value={value} onChange={onChange} />
 );
 export const InputGroupSetTextWeightStyled = styled(InputGroupSetTextWeight)`
   /*grid-area: 3 / 1 / -1 / 2;*/
 `
 
 
-const InputGroupSetTextChest = ({ className, labelProps, placeholderProps }) => (
-  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
+const InputGroupSetTextChest = ({ className, labelProps, placeholderProps, value, onChange }) => (
+  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} value={value} onChange={onChange} />
 );
 export const InputGroupSetTextChestStyled = styled(InputGroupSetTextChest)`
 
 `
 
-const InputGroupSetTextLegs = ({ className, labelProps, placeholderProps }) => (
-  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
+const InputGroupSetTextLegs = ({ className, labelProps, placeholderProps, value, onChange }) => (
+  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} value={value} onChange={onChange} />
 );
 export const InputGroupSetTextLegsStyled = styled(InputGroupSetTextLegs)`
 
 `
 
-const InputGroupSetTextShoulder = ({ className, labelProps, placeholderProps }) => (
-  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
+const InputGroupSetTextShoulder = ({ className, labelProps, placeholderProps, value, onChange }) => (
+  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} value={value} onChange={onChange} />
 );
 export const InputGroupSetTextShoulderStyled = styled(InputGroupSetTextShoulder)`
 
 `
 
-const InputGroupSetTextArms = ({ className, labelProps, placeholderProps }) => (
-  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} />
+const InputGroupSetTextArms = ({ className, labelProps, placeholderProps, value, onChange }) => (
+  <InputGroupSetText labelProps={labelProps} placeholderProps={placeholderProps} value={value} onChange={onChange} />
 );
 export const InputGroupSetTextArmsStyled = styled(InputGroupSetTextArms)`
 

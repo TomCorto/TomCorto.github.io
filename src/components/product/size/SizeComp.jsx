@@ -45,3 +45,9 @@ export default class SizeComp extends Component {
 }
 // displaySizeColorsBackground
 //{sizeComponent.displaySize ? null : <ButtonComp unmountOnExit in={sizeComponent.displaySize} timeout={2000} onClick={this.displaySize} colorProps={true} /> }
+
+
+/*
+ <ButtonComp animLaunch={sizeComponent.displaySize} onClick={this.displaySize} colorProps={true} propsText={"Trouve ta taille"} />
+          <SizeFinderComp />
+*/

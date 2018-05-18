@@ -70,3 +70,8 @@ export default class ProductPage extends Component {
     )
   }
 }
+
+/*
+
+        <SizeComp />
+*/
