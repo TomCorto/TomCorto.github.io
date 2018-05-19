@@ -6,6 +6,7 @@ import RadioComp from './components/radiocomp/RadioComp';
 import ButtonComp from '../button/ButtonComp';
 import ButtonSizeCTA from './components/button/ButtonSizeCTA.jsx';
 import SvgBody from './components/svgbody/SvgBody';
+import RightSide from './container/rightside/RightSide';
 
 export const Container = transition.section` /* Container General */
   /*background: ${props => props.backgroundColorProps ? "#FFFFFF" : "#D0021B"};*/
@@ -188,8 +189,8 @@ const ButtonSizeCTARoot = ({ className, colorProps, textProps, onClick }) => ( /
 export const ButtonSizeCTAStyled = styled(ButtonSizeCTARoot)`
   margin-top: 64px;
 `
-
-export const RightSide = styled.div`
+/*
+export const RightSide = styled.div` 
   grid-area: 1 / 2 / 1 / -1;
   display: flex;
   flex-flow: column nowrap;
@@ -200,16 +201,24 @@ export const RightSide = styled.div`
   height: 100%;
   width: 100%;
   margin: 0;
-`;
+`;*/
 
-export const MensurationGroup = styled.div`
+const RightSideRoot = ({ className }) => (
+  <RightSide className={className} />
+)
+export const RightSideStyled = styled(RightSideRoot)`
+  grid-area: 1 / 2 / 1 / -1;
+`
+
+
+export const MensurationGroup = styled.div`/* À supprimer */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
 `
 
-export const Mensuration = styled.p`
+export const Mensuration = styled.p` /* À supprimer */
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-lt);
   font-size: 1rem;
@@ -220,8 +229,8 @@ export const Mensuration = styled.p`
   }
 `
 
-const MensurationExtend = Mensuration.withComponent('span');
-export const MensurationSpan = MensurationExtend.extend`
+const MensurationExtend = Mensuration.withComponent('span'); /* À supprimer */
+export const MensurationSpan = MensurationExtend.extend` /* À supprimer */
   font-weight: var(--ft-weight-reg);
 `
 
@@ -231,7 +240,7 @@ const SvgBodyImport = ({ className, srcProps }) => (
 export const SvgBodyStyled = styled(SvgBodyImport)``
 
 
-export const CloseGroup = styled.div`
+export const CloseGroup = styled.div` /* À supprimer */
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;

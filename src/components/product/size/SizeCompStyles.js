@@ -23,7 +23,6 @@ export const ImgFrame = styled.img`
 export const ImgGrid = styled.div`
   @media all and (max-width: 1024px) { grid-area: 1 / 1 / 2 / -1; }
   @media all and (min-width: 1024px) { grid-area: 1 / 1 / 1 / 2; }
-  justify-self: center;
   /*border:1px solid yellow;*/
 `
 
