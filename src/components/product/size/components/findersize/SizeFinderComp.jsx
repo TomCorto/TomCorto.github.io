@@ -31,12 +31,16 @@ import {
   SpecsContainer,
   SpecsGroup,
   SpecsTitle,
-  SpecsDescription
+  SpecsDescription,
+  ReturnGroup,
+  ReturnIcons,
+  ReturnText
 } from "./SizeFinderCompStyles";
 import imgCross from '../../../../../assets/icons/icons-cross.png';
 import imgSrcHeight from '../../../../../assets/img/sizefind-body_height.png';
 import ButtonComp from '../button/ButtonComp';
 import ButtonSizeCTA from './components/button/ButtonSizeCTA';
+import svgIconsReturn from '../../../../../assets/svg/icons-arrows-left-return.svg';
 
 @inject('ProductStore')
 @observer
@@ -53,6 +57,7 @@ export default class SizeFinderComp extends Component {
     this.sizeStepOne = this.sizeStepOne.bind(this);
     this.onChangeHeight = this.onChangeHeight.bind(this);
     this.checkOutFunc = this.checkOutFunc.bind(this);
+    this.backButtonFunc = this.backButtonFunc.bind(this);
   }
 
   importAll(r) {
@@ -75,8 +80,9 @@ export default class SizeFinderComp extends Component {
 		displaySizeResultFunc();
   }
 
+
   sizeStepOne() { // @sizeStepOne Changing State form
-    const { sizeComponent, statusStepFunc, displaySizeResultFunc } = this.props.ProductStore;
+    const { sizeComponent, statusStepFunc, displaySizeResultFunc, statusStepBackFunc } = this.props.ProductStore;
     if (sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === true) { // Display State 2
       displaySizeResultFunc();
     }else { // Display State 1
@@ -84,8 +90,17 @@ export default class SizeFinderComp extends Component {
     }
   }
 
+  backButtonFunc() {
+    const { sizeComponent, statusStepFunc, displaySizeResultFunc, statusStepBackFunc } = this.props.ProductStore;
+    if (sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === true) {
+      statusStepFunc();
+    } else if (sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true) {
+      displaySizeResultFunc();
+    }
+  }
+
   checkOutFunc() {
-    alert('Checkout');
+    /*alert('Checkout');*/
   }
 
   onChangeHeight(event) {
@@ -98,6 +113,14 @@ export default class SizeFinderComp extends Component {
 		return <Container unmountOnExit in={sizeComponent.displaySize} timeout={500}>
         <LeftSide>
           <HeaderGroup>
+          {sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo || sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ?
+            <ReturnGroup onClick={this.backButtonFunc}>
+              <ReturnIcons src={svgIconsReturn} alt="" />
+              <ReturnText>Retour</ReturnText>
+            </ReturnGroup>
+            : <ReturnGroup>
+            </ReturnGroup>
+            }
             <TitleHeader colorProps={"#FF0000"}>{sizeComponent.sizeFinder.leftSide.header.title}</TitleHeader>
             { sizeComponent.sizeFinder.rightSide.stepStatus.stepOne === true
               ? <TextSub>{sizeComponent.sizeFinder.leftSide.header.subText}</TextSub>
@@ -105,7 +128,7 @@ export default class SizeFinderComp extends Component {
           </HeaderGroup>
           {sizeComponent.sizeFinder.rightSide.stepStatus.stepOne === true
             ? <FormGroup unmountOnExit in={sizeComponent.displaySizeResult} timeout={500}>
-                <RadioCompGenderStyled labelProps={sizeComponent.sizeFinder.rightSide.measureMetrics.genre} />
+            <RadioCompGenderStyled labelProps={sizeComponent.sizeFinder.rightSide.measureMetrics.mensuration[0].span} />
                 <InputGroupSetTextHeightStyled labelProps={"Taille"} placeholderProps={"150 - 200"} onChange={this.onChangeHeight} value={this.state.value} />
                 <InputGroupSetTextWeightStyled labelProps={"Poids"} placeholderProps={"45 - 100"} />
               </FormGroup>

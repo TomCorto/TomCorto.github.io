@@ -51,6 +51,7 @@ class ProductStore {
     sizeFinder: {
       leftSide: {
         header: { title: 'Guide Taille Cadre', subText: 'Notre système de calcul de mensuration permet de mesurer la taille de vélo idéale pour vous.'},
+        displayReturnButton: {status: false, count: 1},
       },
       rightSide: {
         stepStatus: {stepOne: true, stepTwo: false, stepThree: false},
@@ -82,9 +83,13 @@ class ProductStore {
     this.sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo = !this.sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo;
   }
 
-  @action.bound statusStepFunc() {
+  @action.bound statusStepFunc() { /* @statusStepFunc - Change Status  */
     this.sizeComponent.sizeFinder.rightSide.stepStatus.stepOne = !this.sizeComponent.sizeFinder.rightSide.stepStatus.stepOne;
     this.sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo = !this.sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo;
+  }
+
+  @action.bound statusStepBackFunc() {
+    this.sizeComponent.sizeFinder.leftSide.displayReturnButton.status = !this.sizeComponent.sizeFinder.leftSide.displayReturnButton.status;
   }
 }
 
