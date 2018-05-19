@@ -6,6 +6,7 @@ import RadioComp from './components/radiocomp/RadioComp';
 import ButtonComp from '../button/ButtonComp';
 import ButtonSizeCTA from './components/button/ButtonSizeCTA.jsx';
 import SvgBody from './components/svgbody/SvgBody';
+import LeftSide from './container/leftside/LeftSide';
 import RightSide from './container/rightside/RightSide';
 
 export const Container = transition.section` /* Container General */
@@ -38,8 +39,8 @@ export const Container = transition.section` /* Container General */
     transition: all 400ms ease-in;*/
   }
 `
-
-export const LeftSide = styled.div` /* Left Side Container */
+/*
+export const LeftSide = styled.div`
   grid-area: 1 / 1 / -1 / 2;
   background-color: var(--color-primary-white);
   height: 100%;
@@ -50,7 +51,7 @@ export const LeftSide = styled.div` /* Left Side Container */
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-`
+`*/
 
 export const HeaderGroup = styled.div` /* @HeaderGroup - Step 1 & Step 2 & Step 3 - Container Title Group */
   display: grid;
@@ -203,12 +204,21 @@ export const RightSide = styled.div`
   margin: 0;
 `;*/
 
+const LeftSideRoot = ({ className }) => (
+  <LeftSide className={className} />
+);
+export const LeftSideStyled = styled(LeftSideRoot)`
+  grid-area: 1 / 1 / -1 / 2;
+`
+
+
 const RightSideRoot = ({ className }) => (
   <RightSide className={className} />
 )
 export const RightSideStyled = styled(RightSideRoot)`
   grid-area: 1 / 2 / 1 / -1;
 `
+
 
 
 export const MensurationGroup = styled.div`/* À supprimer */

@@ -1,19 +1,44 @@
 import styled from 'styled-components';
+import React from 'react';
+import { TitleHeader } from '../../SizeFinderCompStyles';
 
-export const Container = styled.div`
+export const Container = styled.div` /* @Container - Container Group */
   grid-area: 1 / 2 / 1 / -1;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  padding: 1.5em 0 1.5em;
   background: #D0021B;
   height: 100%;
   width: 100%;
   margin: 0;
+  padding: 1.5em 0 1.5em;
 `;
 
-export const CloseGroup = styled.div`
+export const HeaderGroupStyled = styled.div` /* @HeaderGroupStyled - Header Container Group Styled */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  justify-items: center;
+  width: 100%;
+`
+
+export const TitleHeaderStyled = styled.h2` /* @TitleHeaderStyled - Title Styled */
+  grid-column-start: 2;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-bold);
+  font-size: 2rem;
+  color: ${ props => props.colorProps };
+`
+
+export const CloseGroup = styled.div` /* @CloseGroup - Container Close Button */
+  color: ${props => props.colorProps ? 'white': '#D0021B'};
+  align-self: start;
+  margin-left: auto;
+  height: 100%;
+  margin: 0 0 0 auto;
+  padding: 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -22,18 +47,41 @@ export const CloseGroup = styled.div`
   cursor: pointer;
 `
 
-export const SpanClosed = styled.span`
-  margin-right: 1em;
+export const SpanText = styled.span` /* @SpanText - Text Span  Close Button */
   font-family: var(--ft-source-pro);
   font-weight: var(--ft-weight-reg);
   font-size: 1rem;
-  color: ${props => props.colorProps ? "#4E4E4E" : "#FFFFFF"};
-  transition: color 150ms ease;
+  color: var(--color-primary-white);
 `
 
-export const CrossIcons = styled.img`
+export const SpanIcon = styled.span` /* @SpanIcon - Icon Styled Pure Css */
+  position: relative;
+  display: inline-block;
+  width: 18px;
   height: 18px;
-  width: 19px;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: var(--color-primary-white);
+    transform: rotate(45deg);
+    height: 2px;
+    margin-top: -2px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: var(--color-primary-white);
+    transform: rotate(-45deg);
+    height: 2px;
+    margin-top: -2px;
+  }
 `
 
 export const MensurationGroup = styled.div`
