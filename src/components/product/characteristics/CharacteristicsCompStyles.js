@@ -53,7 +53,7 @@ export const TableGroup = styled.div` /* Container */
     align-items: center;
   }
   @media all and (min-width: 1280px) { width: 1156px; }
-  @media all and (min-width: 1440px) {  width: 1156px; }
+  @media all and (min-width: 1440px) {  width: auto; }
 `
 
 export const ItemsGroup = styled.div`
