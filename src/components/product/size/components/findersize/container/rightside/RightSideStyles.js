@@ -47,14 +47,9 @@ export const CloseGroup = styled.div` /* @CloseGroup - Container Close Button */
   cursor: pointer;
 `
 
-export const SpanText = styled.span` /* @SpanText - Text Span  Close Button */
-  font-family: var(--ft-source-pro);
-  font-weight: var(--ft-weight-reg);
-  font-size: 1rem;
-  color: var(--color-primary-white);
-`
 
 export const SpanIcon = styled.span` /* @SpanIcon - Icon Styled Pure Css */
+  margin:0 1em 0 0.5em;
   position: relative;
   display: inline-block;
   width: 18px;
@@ -84,11 +79,27 @@ export const SpanIcon = styled.span` /* @SpanIcon - Icon Styled Pure Css */
   }
 `
 
+export const SpanText = styled.span` /* @SpanText - Text Span  Close Button */
+  font-family: var(--ft-source-pro);
+  font-weight: var(--ft-weight-reg);
+  font-size: 1rem;
+  color: var(--color-primary-white);
+  display: none;
+  opacity: 0;
+  transition: display 400ms ease-in;
+  ${CloseGroup}:hover & {
+    display: flex;
+    opacity: 1;
+    transition: display 400ms ease-in;
+  }
+`
+
 export const MensurationGroup = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  margin: 1em 0 0 2em;
 `
 
 export const Mensuration = styled.p`
@@ -132,12 +143,11 @@ export const MeasureChartGroup = styled.div`
 
 export const SvgGroup = styled.div`
   grid-area: 1 / 2 / -1 / -1;
-  background: blue;
   width: 247px;
   height: 100%;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-around;
+  align-items: center;
 `

@@ -7,7 +7,7 @@ export const Container = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
-    margin: 0 0 1em 1em;
+    margin: 0 0 1em 2em;
     padding: 0;
 `
 
