@@ -104,7 +104,7 @@ export default class LeftSide extends Component {
                 {sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ? <StepThree /> : null}
                 {sizeComponent.sizeFinder.rightSide.stepStatus.stepThree === true ? /* Step 3 - Button */
                     <ButtonSizeCTAStyled textProps={"Commander"} colorProps={"#D0021B"} onClick={this.checkOutFunc} />
-                    : <ButtonSizeCTAStyled textProps={sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === false ? "Étape 1 / 2" : "Définir ma taille"} colorProps={"#D0021B"} onClick={this.sizeStepOne} />}
+                    : <ButtonSizeCTAStyled textProps={sizeComponent.sizeFinder.rightSide.stepStatus.stepTwo === false ? "Commencer" : "Définir ma taille"} colorProps={"#D0021B"} onClick={this.sizeStepOne} />}
             </Container>
         );
     }

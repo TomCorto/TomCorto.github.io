@@ -10,13 +10,16 @@ import {
     TitleHeaderStyled,
     SpanText,
     SpanIcon,
+    SizeChartGroup,
+    MeasureChartGroup,
     SvgGroup
 } from './RightSideStyles';
 import SvgBodyComp from './components/SvgBodyComp/SvgBodyComp';
 import SvgLinesComp from './components/SvgLines/SvgLinesComp';
+import SizeIndicatorComp from './components/SizeIndicatorComp/SizeIndicatorComp';
 
 
-@inject('ProductStore')
+@inject('ProductStore', 'ProductUI')
 @observer
 export default class RightSide extends Component {
     constructor() {
@@ -31,6 +34,7 @@ export default class RightSide extends Component {
 
     render() {
         const { sizeComponent } = this.props.ProductStore;
+        const { bodySvgIndicator } = this.props.ProductUI;
         return (
             <Container> {/* Right Side */}
                 <HeaderGroupStyled>
@@ -47,10 +51,17 @@ export default class RightSide extends Component {
                         </Mensuration>
                     )}
                 </MensurationGroup>
-                <SvgGroup>
-                    <SvgLinesComp />
-                    <SvgBodyComp />
-                </SvgGroup>
+                <SizeChartGroup>
+                    <MeasureChartGroup>
+                        {bodySvgIndicator.map((el, index) =>
+                            <SizeIndicatorComp key={index} dimensionProps={el} />
+                        )}
+                    </MeasureChartGroup>
+                    <SvgGroup>
+                        <SvgLinesComp marginLeft={"170px"} />
+                        <SvgBodyComp />
+                    </SvgGroup>
+                </SizeChartGroup>
             </Container>
         );
     }

@@ -107,12 +107,37 @@ export const MensurationSpan = MensurationExtend.extend`
   font-weight: var(--ft-weight-reg);
 `
 
-export const SvgGroup = styled.div`
+export const SizeChartGroup = styled.div`
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
   width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+`
+
+export const MeasureChartGroup = styled.div`
+  grid-area: 1 / 1 / -1 / 2;
+  padding: 0 0 0 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 50%;
+`
+
+export const SvgGroup = styled.div`
+  grid-area: 1 / 2 / -1 / -1;
+  background: blue;
+  width: 247px;
   height: 100%;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
 `
