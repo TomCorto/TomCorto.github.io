@@ -106,8 +106,13 @@ const MensurationExtend = Mensuration.withComponent('span');
 export const MensurationSpan = MensurationExtend.extend`
   font-weight: var(--ft-weight-reg);
 `
-/*
-const SvgBodyImport = ({ className, srcProps }) => (
-  <SvgBody srcProps={srcProps} className={className} />
-);
-export const SvgBodyStyled = styled(SvgBodyImport)``*/
+
+export const SvgGroup = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-start;
+`

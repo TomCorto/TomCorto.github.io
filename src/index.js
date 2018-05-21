@@ -20,6 +20,7 @@ import NavigationStore from './stores/NavigationStore';
 import HomeStore from './stores/HomeStore';
 import BikeStore from './stores/BikeStore';
 import ProductStore from './stores/ProductStore';
+import ProductUI from './stores//ProductUI';
 
 // Routes
 import HomePage from './pages/HomePage';
@@ -36,7 +37,8 @@ const stores = {
   NavigationStore,
   HomeStore,
   BikeStore,
-  ProductStore
+  ProductStore,
+  ProductUI
 }
 
 const ApplicationDivStyled = styled.div`

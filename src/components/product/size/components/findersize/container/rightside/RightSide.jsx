@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { inject, observer } from 'mobx-react';
-import FontAwesome from 'react-fontawesome';
 import {
     Container,
     CloseGroup,
     MensurationGroup,
     Mensuration,
     MensurationSpan,
-    SvgBodyStyled,
     HeaderGroupStyled,
     TitleHeaderStyled,
     SpanText,
-    SpanIcon
+    SpanIcon,
+    SvgGroup
 } from './RightSideStyles';
-import { HeaderGroup, TitleHeader } from '../../SizeFinderCompStyles';
+import SvgBodyComp from './components/SvgBodyComp/SvgBodyComp';
+import SvgLinesComp from './components/SvgLines/SvgLinesComp';
 
 
 @inject('ProductStore')
@@ -27,7 +25,7 @@ export default class RightSide extends Component {
     }
 
     closeFunc() {
-        const { sizeComponent, displayProductSize } = this.props.ProductStore;
+        const { displayProductSize } = this.props.ProductStore;
         displayProductSize();
     }
 
@@ -49,11 +47,11 @@ export default class RightSide extends Component {
                         </Mensuration>
                     )}
                 </MensurationGroup>
+                <SvgGroup>
+                    <SvgLinesComp />
+                    <SvgBodyComp />
+                </SvgGroup>
             </Container>
         );
     }
 };
-
-/* Attention au body
-<SvgBodyStyled srcProps={imgSrcHeight} />
-*/
