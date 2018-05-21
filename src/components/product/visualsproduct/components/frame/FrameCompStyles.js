@@ -78,7 +78,6 @@ export const TextMain = styled.p`
 `
 
 export const ImageFrame = styled.img`
-  border: 1px solid black;
   grid-area: 1 / 2 / 1 / -1;
   height: auto;
   @media all and (max-width: 480px) { grid-area: 2 / 1 / -1 / -1; max-width: 80%;}

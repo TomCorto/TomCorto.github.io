@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import React from 'react';
+
 
 export const Container = styled.section`
   margin: 0;
   background: black;
 
-@media all and (min-width: 480px) {
+@media all and (max-width: 768px) {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
@@ -12,9 +14,9 @@ export const Container = styled.section`
   align-items: center;
   grid-row-gap: 1.5em;
   margin: 5vh 0 5vh;
+  padding: 10vh 0 10vh;
   padding: 0;
   width: 100%;
-  margin: 1rem 0 0;
 }
 @media all and (min-width: 768px) {
   display: grid;
@@ -23,6 +25,7 @@ export const Container = styled.section`
   justify-items: center;
   align-items: center;
   margin: 6vh 0 6vh;
+  padding: 10vh 0 10vh;
   width: 100%;
   height: auto;
 }
@@ -34,7 +37,7 @@ export const Container = styled.section`
   justify-items: center;
   align-items: center;
 }
-@media all and (min-width: 1280px) { margin: 8vh 0 8vh; }
+@media all and (min-width: 1280px) { margin: 8vh 0 8vh; padding: 12vh 0 12vh; }
 `
 
 export const Text = styled.p`
@@ -59,3 +62,16 @@ export const SpecsContainer1 = styled.div`
 `
 
 export const SpecsContainer2 = SpecsContainer1.extend``
+
+const TextGroup = ({ className, children }) => (
+  <Text className={className}>{children}</Text>
+);
+
+export const TextGroupStyled = styled(TextGroup)`
+  user-select: none;
+  @media all and (min-width: 480px) { grid-area: 1 / 1 / 2 / -1; width: 80%; line-height: 24px; }
+  @media all and (min-width: 768px) { grid-area: 1 / 1 / 2 / -1; width: 80%; line-height: 24px; }
+  @media all and (min-width: 1024px) { grid-area: 1 / 1 / 2 / 2; width: 80%; line-height: 24px; }
+  @media all and (min-width: 1280px) {  width: 80%; line-height: 24px; }
+  @media all and (min-width: 1440px) { width: 70%; line-height: 24px; }
+`
