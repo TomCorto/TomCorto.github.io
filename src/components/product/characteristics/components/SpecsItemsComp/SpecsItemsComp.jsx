@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import { SpecsItems, ImgItems, SpecsGroup, SpecsSpan, SpecsTitle, SpecsSub } from './SpecsItemsCompStyles';
-import imgSrc from '../../../../assets/icons/icons-product-frame.png';
+
 
 function importAll(r) {
   let images = {};
@@ -10,7 +10,7 @@ function importAll(r) {
   return images;
 }
 
-const images = importAll(require.context('../../../../assets/icons', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../../../../../assets/icons', false, /\.(png|jpe?g|svg)$/));
 
 const SpecsItemsComp = ({ propsObject }) => (
   <SpecsItems>

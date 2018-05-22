@@ -10,7 +10,7 @@ export const SpecsItems = styled.div`
   justify-items: start;
   align-items: center;
   height: auto;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   &:last-child {
     margin-bottom: 0;
   }

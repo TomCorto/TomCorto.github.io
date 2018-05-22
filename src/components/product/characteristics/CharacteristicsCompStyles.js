@@ -32,15 +32,10 @@ export const HeaderRedStyled = styled(HeaderCustom)`
   @media all and (min-width: 1280px) { margin-bottom: 1em; }
 `
 
-export const TableGroup = styled.div` /* Container */
+export const TableGroupDesktop = styled.div` /* Container */
   width: auto;
-  @media all and (min-width: 768px) {
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    justify-items: center;
-    align-items: center;
+  @media all and (max-width: 1024px) {
+    display: none;
   }
   @media all and (min-width: 1024px) {
     height: auto;
@@ -56,6 +51,35 @@ export const TableGroup = styled.div` /* Container */
   @media all and (min-width: 1440px) {  width: auto; }
 `
 
+export const TableGroupTablet = styled.div`
+  width: auto;
+  @media all and (max-width: 768px) { display: none; }
+  @media all and (min-width: 768px) {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+  @media all and (min-width: 1024px) {display: none; }
+`
+
+export const TableGroupMobile = styled.div`
+  width: auto;
+  @media all and (max-width: 768px) {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+  @media all and (min-width: 768px) { display: none; }
+  @media all and (min-width: 1024px) {display: none; }
+`
+
+
 export const ItemsGroup = styled.div`
   position: relative;
   display: flex;
@@ -67,20 +91,32 @@ export const ItemsGroup = styled.div`
   margin: 0;
   padding: 0;
 
+  @media all and (max-width: 768px) {
+    &:first-child {margin: 0; padding: 4em 0 0 0; }
+    /*margin: 0; padding: 2em 0 2em 0;*/
+    & > * { padding: 2em 0 2em 0; }
+  }
+
+  @media all and (min-width: 768px) {
+    &:nth-of-type(1) { border-right: 1px solid black; padding: 0 1em 0 0; }
+    &:nth-of-type(2) { padding: 0 0 0 4em; }
+  }
+
   @media all and (min-width: 1024px) {
-    &:first-child { border-right: 1px solid black; }
-    &:last-child { border-left: 1px solid black; }
+    &:nth-of-type(1) { margin: 0 0 0 1.5em; padding: 0; border-right: 1px solid black; }
+    &:nth-of-type(2) { padding: 0 0 0 3em; }
+    &:last-child { border-left: 1px solid black; padding: 0 0 0 1.1em; }
   }
 
   @media all and (min-width: 1280px) {
-    &:first-child { }
-    &:nth-of-type(2) { padding-left: 2em; }
-    &:last-child { padding-left: 1.5em; }
+    &:nth-of-type(1) { padding: 0; }
+    &:nth-of-type(2) { padding: 0 1.2em 0 5em; }
+    &:last-child { padding: 0 0 0 3em; }
   }
   @media all and (min-width: 1440px) {
-    &:first-child { }
-    &:nth-of-type(2) { padding-left: 4em; }
-    &:last-child { padding-left: 3em; }
+    &:nth-of-type(1) { padding: 0; }
+    &:nth-of-type(2) { padding: 0 1.2em 0 5em; }
+    &:last-child { padding: 0 0 0 3em; }
   }
 `
 
