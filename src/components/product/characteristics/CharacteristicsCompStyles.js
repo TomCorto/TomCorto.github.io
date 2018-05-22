@@ -11,12 +11,10 @@ export const Container = styled.section`
   width: 100%;
   color: red;
   position: relative;
-
-  @media all and (min-width: 480px) { margin-bottom: 0.5em; }
-  @media all and (min-width: 480px) { margin-bottom: 0.5em; }
-  @media all and (min-width: 768px) { margin-bottom: 0.5em; }
-  @media all and (min-width: 1024px) { margin-bottom: 0.5em; }
-  @media all and (min-width: 1280px) { margin-bottom: 1em; }
+  @media all and (max-width: 768px) { margin-bottom: 2.5em; }
+  @media all and (min-width: 768px) { margin-bottom: 3em; }
+  @media all and (min-width: 1024px) { margin-bottom: 4em; }
+  @media all and (min-width: 1280px) { margin-bottom: 4em; }
 `
 
 const HeaderCustom = ({ className, children}) => (
@@ -93,7 +91,6 @@ export const ItemsGroup = styled.div`
 
   @media all and (max-width: 768px) {
     &:first-child {margin: 0; padding: 4em 0 0 0; }
-    /*margin: 0; padding: 2em 0 2em 0;*/
     & > * { padding: 2em 0 2em 0; }
   }
 
