@@ -9,13 +9,12 @@ export const Container = styled.section`
   background: var(--color-primary-white);
   line-height: 24px;
   @media all and (max-width: 1024px) { padding: 2em 0 2em; }
-  @media all and (min-width: 1024px) { padding: 2.5em 0 2.5em; }
+  @media all and (min-width: 1024px) { padding: 5em 0 5em; }
 `
 export const Text = styled.p`
   font-family: var(--ft-semi-pro);
-  font-weight: var(--ft-weight-reg);
   color: var(--color-primary-grey);
   text-align: center;
-  @media all and (max-width: 1024px) { font-size: 1rem; max-width: 75vw; }
-  @media all and (min-width: 1024px) { font-size: 1rem; max-width: 68vw; }
+  @media all and (max-width: 1024px) { font-size: 1rem; font-weight: var(--ft-weight-reg); max-width: 75vw; }
+  @media all and (min-width: 1024px) { font-size: 1.5rem; font-weight: var(--ft-weight-lt); max-width: 68vw; }
 `
