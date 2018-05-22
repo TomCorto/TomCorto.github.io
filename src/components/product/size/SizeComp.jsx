@@ -5,6 +5,8 @@ import TableComp from './components/table/TableComp';
 import ButtonComp from './components/button/ButtonComp';
 import SizeFinderComp from './components/findersize/SizeFinderComp';
 
+import { Element, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 function importAll(r) { // @importAll Dynamic Import image
 let images = {};
@@ -29,7 +31,8 @@ export default class SizeComp extends Component {
     const images = importAll(require.context('../../../assets/img/', false, /\.(png|jpe?g|svg)$/));
     const { sizeComponent } = this.props.ProductStore;
 
-		return <Container>
+		return <Element name="DimensionElement">
+       <Container>
         <ImgGrid>
           <ImgFrame src={images[sizeComponent.imgObject.imgSrc]} alt={sizeComponent.imgObject.imgAlt} />
         </ImgGrid>
@@ -40,7 +43,8 @@ export default class SizeComp extends Component {
           <ButtonComp animLaunch={sizeComponent.displaySize} onClick={this.displaySize} colorProps={true} propsText={"Trouve ta taille"} />
           <SizeFinderComp />
         </ButtonGrid>
-      </Container>;
+      </Container>
+    </Element>;
   }
 }
 // displaySizeColorsBackground
