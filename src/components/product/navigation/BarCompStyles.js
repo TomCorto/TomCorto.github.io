@@ -19,7 +19,6 @@ export const Container = styled.div`
     top: ${props => props.toggleMenu ? '3.75em' : '3em'} ;
     height: 2.5em;
   }
-
 `
 
 export const BreadcrumbGroup = styled.div`

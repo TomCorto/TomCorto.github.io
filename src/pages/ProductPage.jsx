@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import BarComp from '../components/product/navigation/BarComp';
 import ProductComp from '../components/product/product/ProductComp';
 import InfoBarComp from '../components/product/infobar/InfoBarComp';
+import InfobarMobile from '../components/product/infobar/InfobarMobile/InfobarMobile';
 import DescriptionComp from '../components/product/description/DescriptionComp';
 import SliderImgComp from '../components/product/slider/SliderImgComp';
 import VisualComp from '../components/product/visualsproduct/VisualComp';
@@ -58,6 +59,7 @@ export default class ProductPage extends Component {
     return(
       <Container onScroll={this.handleScroll} >
         <BarComp />
+        <InfobarMobile />
         <ProductComp />
         <InfoBarComp />
         <DescriptionComp />
@@ -70,8 +72,3 @@ export default class ProductPage extends Component {
     )
   }
 }
-
-/*
-
-        <SizeComp />
-*/

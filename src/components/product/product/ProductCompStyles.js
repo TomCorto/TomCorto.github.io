@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
   overflow:hidden;
   z-index: 1000;
-  @media all and (min-width: 480px ) { margin-top: 2.25em; }
+  @media all and (min-width: 480px ) {  margin-top: 2.25em; }
   @media all and (min-width: 768px) { margin-top: 3em; }
   @media all and (min-width: 1024px) { margin-top: 2.25em; padding: 1em 2em 1em; }
 `
@@ -36,7 +36,7 @@ export const ButtonGroup = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   @media all and (max-width: 1024px) { display: none; }
-  @media all and (min-width: 1024px) { top: 28em; right: 2%; font-size: 1rem; display: flex; padding: 0.8em 1.4em 0.8em; }
+  @media all and (min-width: 1024px) { top: 26em; right: 2%; font-size: 1rem; display: flex; padding: 0.8em 1.4em 0.8em; }
   @media all and (min-width: 1280px) { top: 30em; right: 2%; font-size: 1rem; display: flex; padding: 0.8em 1.4em 0.8em; }
   @media all and (min-width: 1366px) { top: 32em; right: 2%; font-size: 1rem; display: flex; }
   @media all and (min-width: 1440px) { top: 33em; right: 2%; font-size: 1.1rem; display: flex; }

@@ -30,10 +30,11 @@ class ProductStore {
   @observable sizeComponent = {
     imgObject: {imgSrc: 'product-geometrie-frame.jpg', imgAlt: ''},
     buttonText: 'Trouvez votre taille',
-    displaySize: true,
+    displaySize: false,
     displaySizeResult: true,
     displaySizeColorsBackground: true,
     headerTitle: 'Dimensions',
+    infoProduct: {modelText: 'Cento 10 NDR', priceText: 'À partir de 4750 €'},
     geometryObject: {
       thObject: ['Taille', 'c/c', 'L', 'H', 'A', 'H1', 'L1', 'A1', 'Reach', 'Stack'],
       thMeasure: ['', 'cm', 'cm', 'cm', '°', 'cm', 'cm', '°', 'mm', 'mm'],

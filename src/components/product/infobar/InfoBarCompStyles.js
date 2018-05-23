@@ -10,8 +10,7 @@ export const Container = styled.section`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr;
   background: var(--color-primary-white);
-  @media all and (max-width: 768px) { display: none }
-  @media all and (min-width: 768px) { height: 3.875em; padding: 0.4em 5em 0.4em; }
+  @media all and (max-width: 1024px) { display: none }
   @media all and (min-width: 1024px) { height: 3.875em; padding: 0.4em 5em 0.4em; }
   @media all and (min-width: 1280px) { height: 3.875em; padding: 0.4em 5.5em 0.4em; }
   @media all and (min-width: 1440px) { height: 3.875em; padding: 0.4em 6em 0.4em; }
