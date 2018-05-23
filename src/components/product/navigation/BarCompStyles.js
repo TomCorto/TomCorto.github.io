@@ -2,14 +2,24 @@ import styled from 'styled-components';
 import transition from 'styled-transition-group';
 
 export const Container = styled.div`
-  position: fixed;
   z-index: 1000;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   user-select: none;
   background: #F6F6F6;
-  @media all and (min-width: 480px) { display: none; }
+  transition: top 150ms ease-in;
+  @media all and (max-width: 480px) {
+    top: 3em;
+    height: 2.5em;
+    display: flex;
+   }
+  @media all and (min-width: 480px) {
+    top: 3em;
+    height: 3em;
+    display: flex;
+   }
   @media all and (min-width: 768px) {
     top: 3em;
     height: 3em;
@@ -17,7 +27,8 @@ export const Container = styled.div`
   }
   @media all and (min-width: 1024px) {
     top: ${props => props.toggleMenu ? '3.75em' : '3em'} ;
-    height: 2.5em;
+    height: 3em;
+    transition: top 150ms ease-in;
   }
 `
 
@@ -28,15 +39,17 @@ export const BreadcrumbGroup = styled.div`
   align-items: center;
   cursor: pointer;
   z-index: 1010;
+  @media all and (max-width: 480px ) { margin-left: 1.2em; }
+  @media all and (min-width: 480px ) { margin-left: 1.5em; }
   @media all and (min-width: 768px ) { margin-left: 3em; }
-  @media all and (min-width: 1024px) { margin-left: 1.5em; }
+  @media all and (min-width: 1024px) { margin-left: 2em; }
 `
 
 export const BreadCrumbText = styled.h5`
   font-family: var(--ft-source-pro);
   color: var(--color-primary-grey);
   font-weight: 400;
-  @media all and (min-width: 768px) { font-size: 0.6rem; }
+  @media all and (min-width: 768px) { font-size: 1rem; }
   @media all and (min-width: 1024px) { font-size: 1rem; }
   &:hover {
     text-decoration: underline;
@@ -51,11 +64,12 @@ export const ProductBreadCrumbSeparator = styled.img`
 `
 
 export const ProductLocalNavigation = styled.div`
-  display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
   z-index: 1010;
+  @media all and (max-width: 1024px) { display: none; }
+  @media all and (min-width: 1024px) { display: flex; }
 `
 
 export const NavigationItems = styled.span`
@@ -69,6 +83,7 @@ export const NavigationItems = styled.span`
   &:hover {
     text-decoration: underline;
   }
-  @media all and (min-width: 768px ) { margin-right: 3em; }
+  @media all and (min-width: 480px ) { margin-right: 1.5em; }
+  @media all and (min-width: 768px ) { margin-right: 2em; }
   @media all and (min-width: 1024px) { margin-right: 1.5em; }
 `

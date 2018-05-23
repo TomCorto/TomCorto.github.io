@@ -17,7 +17,6 @@ const Container = styled.section`
   top: 0;
   margin: 0;
   padding: 0;
-  border: 1px solid red;
 `
 
 @inject('NavigationStore')

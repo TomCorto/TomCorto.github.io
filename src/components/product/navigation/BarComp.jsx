@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 //import { Link } from 'react-router-dom';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import FontAwesome from 'react-fontawesome';
 import { Container, BreadcrumbGroup, ProductLocalNavigation, NavigationItems, BreadCrumbText, ProductRangeIcon, ProductBreadCrumbSeparator } from './BarCompStyles';
 import RangeComp from './components/range/RangeComp';
@@ -13,14 +13,13 @@ import breadSeparator from '../../../assets/icons/icons-breadcrumb.png';
 export default class BarComp extends Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
     const { barCompObject, toggleBool } = this.props.ProductStore;
-    const { MenuToggleDesktop } = this.props.NavigationStore;
+    const { MenuToggleDesktop, ScrollListener } = this.props.NavigationStore;
     return (
-      <Container toggleMenu={MenuToggleDesktop}>
+      <Container toggleMenu={!ScrollListener}>
         <BreadcrumbGroup>
           <BreadCrumbText>Vélos</BreadCrumbText>
           <ProductBreadCrumbSeparator src={breadSeparator} />

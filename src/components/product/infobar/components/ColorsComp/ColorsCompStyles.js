@@ -19,14 +19,14 @@ export const TitleLabel = styled.h6`
     font-size: 1rem;
     margin: 0 0 0.2em 0;
     padding: 0;
-    @media all and (max-width: 768px) { display: none; }
+    @media all and (max-width: 480px) { display: none; }
 `
 
 export const NameColor = TitleLabel.extend`
     display: block;
     font-size: 0.75em;
     margin: 0 0 0.2em 0;
-    @media all and (max-width: 768px) { display: none; }
+    @media all and (max-width: 480px) { display: none; }
 `
 
 
