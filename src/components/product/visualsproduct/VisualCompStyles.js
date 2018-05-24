@@ -24,6 +24,7 @@ export const FrameStyled = styled.section`
 
 export const FrameImg = styled.img`
   width: 100%;
+  border: 1px solid black;
   @media all and (max-width: 1024px) { padding: 10vw 12vw 10vw }
   @media all and (min-width: 1024px) { padding: 10vw 12vw 10vw }
   @media all and (min-width: 1280px) { padding: 10vw 12vw 10vw }

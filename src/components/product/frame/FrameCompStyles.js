@@ -8,6 +8,9 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  @media all and (max-width: 480px) { margin: 4vh auto 3vh; }
+  @media all and (min-width: 480px) { margin: 4vh auto 3vh; }
+  @media all and (min-width: 768px) { margin: 4vh auto 3vh; }
   @media all and (min-width: 1024px) { margin: 6vh auto 3vh; }
   @media all and (min-width: 1280px) { margin: 6vh auto 3vh; }
 `

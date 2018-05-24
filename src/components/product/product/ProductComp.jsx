@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
-import { Container, ImgMainStyled, CustomizeCTA, ImgCustomStyled, ButtonCTA, IconsCTA, ButtonGroup } from './ProductCompStyles';
+import { Container, ImgMainStyled, CustomizeCTA, ImgCustomStyled, ButtonCTA, ButtonCTAStores, IconsCTA, IconsLocation, ButtonGroup } from './ProductCompStyles';
 import iconCustom from '../../../assets/icons/product-icons-customize.png';
 import iconCheckout from '../../../assets/icons/icon-shopping-cart-light-lg.png';
+import iconStores from '../../../assets/icons/icons-location.png';
+import CustomizeComp from '../customize/CustomizeComp';
 
 
 @inject('ProductStore')
@@ -35,6 +37,7 @@ export default class ProductComp extends Component {
         <ImgMainStyled src={images[productObject.imgMain.imgSrc]} alt={productObject.imgMain.imgAlt} />
         <ButtonGroup>
             <CustomizeCTA onClick={this.toggleAction} type="button"><ImgCustomStyled src={iconCustom} alt={"Icons Customize"}/>{productObject.buttonCustomText}</CustomizeCTA>
+            <ButtonCTAStores onClick={this.toggleAction} ><IconsLocation src={iconStores} alt={"Icons Stores Locator"}/>{productObject.buttonCTAStoreText}</ButtonCTAStores>
             <ButtonCTA onClick={this.toggleAction} ><IconsCTA src={iconCheckout} alt={"Icons Checkout"}/>{productObject.buttonCTAText}</ButtonCTA>
         </ButtonGroup>
       </Container>
