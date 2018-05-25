@@ -228,14 +228,14 @@ export const InfoGroupStyled = transition.div`
   }
   &:enter-active {
     opacity: 1;
-    transition: opacity 150ms ease-in 800ms;
+    transition: opacity 150ms ease-in 1150ms;
   }
   &:exit {
     opacity: 1;
   }
   &:exit-active {
     opacity: 0.01;
-    transition: opacity 150ms ease-in 800ms;
+    transition: opacity 150ms ease-in 1150ms;
   }
 `
 

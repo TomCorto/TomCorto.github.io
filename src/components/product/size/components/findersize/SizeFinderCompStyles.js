@@ -24,34 +24,24 @@ export const Container = transition.section` /* Container General */
 
   // Animation //
   &:enter {
-    /*opacity: 0.01;
-    transform:translateY(-50%);*/
+    display: grid;
+    opacity: 0;
+    transform:translateY(-50%);
   }
   &:enter-active {
-    /*opacity: 1;
+    display: grid;
+    opacity: 1;
     transform:translateY(0%);
-    transition: all 350ms linear;*/
+    transition: all 300ms linear 150ms;
   }
-  &:exit { opacity: 1; }
+  &:exit { display: none; opacity: 0; transform:translateY(-50%); }
   &:exit-active {
-    /*opacity: 0;
-    transform:translateY(-100%);
-    transition: all 400ms ease-in;*/
+    display: none;
+    opacity: 0;
+    transform:translateY(-50%);
+    transition: all 300ms ease-in 150ms;
   }
 `
-/*
-export const LeftSide = styled.div`
-  grid-area: 1 / 1 / -1 / 2;
-  background-color: var(--color-primary-white);
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0 0 2em 0;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-`*/
 
 export const HeaderGroup = styled.div` /* @HeaderGroup - Step 1 & Step 2 & Step 3 - Container Title Group */
   display: grid;

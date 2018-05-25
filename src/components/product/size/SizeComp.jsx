@@ -14,7 +14,7 @@ r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
 return images;
 }
 
-@inject('ProductStore')
+@inject('ProductStore', 'ProductUI')
 @observer
 export default class SizeComp extends Component {
   constructor() {
@@ -23,13 +23,15 @@ export default class SizeComp extends Component {
   }
 
   displaySize() {
-    const { displayProductSize } = this.props.ProductStore;
+    /*const { displayProductSize } = this.props.ProductStore;*/
+    const { displayProductSize } = this.props.ProductUI;
     displayProductSize();
   }
 
   render() {
     const images = importAll(require.context('../../../assets/img/', false, /\.(png|jpe?g|svg)$/));
     const { sizeComponent } = this.props.ProductStore;
+    const { ProductSizeAnimation } = this.props.ProductUI;
 
 		return <Element name="DimensionElement">
        <Container>
@@ -40,18 +42,10 @@ export default class SizeComp extends Component {
           <TableComp arrayObject={sizeComponent.geometryObject} headerProps={sizeComponent.headerTitle} />
         </TableGrid>
         <ButtonGrid>
-          <ButtonComp animLaunch={sizeComponent.displaySize} onClick={this.displaySize} colorProps={true} propsText={"Trouve ta taille"} />
+          <ButtonComp animLaunch={ProductSizeAnimation.toggleSizeComponent} onClick={this.displaySize} colorProps={true} propsText={"Trouve ta taille"} />
           <SizeFinderComp />
         </ButtonGrid>
       </Container>
     </Element>;
   }
 }
-// displaySizeColorsBackground
-//{sizeComponent.displaySize ? null : <ButtonComp unmountOnExit in={sizeComponent.displaySize} timeout={2000} onClick={this.displaySize} colorProps={true} /> }
-
-
-/*
- <ButtonComp animLaunch={sizeComponent.displaySize} onClick={this.displaySize} colorProps={true} propsText={"Trouve ta taille"} />
-          <SizeFinderComp />
-*/

@@ -72,7 +72,7 @@ export const ImgCustomStyled = styled.img`
   margin: 0 0.5em 0 0;
 `
 
-export const ButtonGroup = styled.div` /* @ButtonGroup - Button Group */
+export const ButtonGroup = transition.div` /* @ButtonGroup - Button Group */
   height: auto;
 
    @media all and (max-width: 480px) {
@@ -112,6 +112,22 @@ export const ButtonGroup = styled.div` /* @ButtonGroup - Button Group */
   @media all and (min-width: 1280px) { top: 30em; }
   @media all and (min-width: 1366px) { top: 32em; }
   @media all and (min-width: 1440px) { top: 33em; }
+
+   /* Animation */
+   &:enter {
+    opacity: 0;
+  }
+  &:enter-active {
+    opacity: 1;
+    transition: opacity 150ms ease-in 1100ms;
+  }
+  &:exit {
+    opacity: 1;
+  }
+  &:exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in 1100ms;
+  }
 `
 
 export const CustomizeCTA = styled.button` /* @CustomizeCTA - Button Personnalize display  >=  1024 */

@@ -32,7 +32,6 @@ export const THMeasure = TH.extend`
 `
 
 export const TR = styled.tr`
-  /*padding: 10px 0 10px;*/
   padding: 20px 1.75em 0.625em 0;
 `
 

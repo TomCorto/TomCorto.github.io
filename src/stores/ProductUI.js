@@ -23,9 +23,14 @@ class ProductUI {
     ]
 
     @observable ProductAnimation = { toggleImgProduct: true, toggleInfoBar: false };
+    @observable ProductSizeAnimation = { toggleSizeComponent: false };
 
     @action.bound displayImg() {
         this.ProductAnimation.toggleImgProduct = !this.ProductAnimation.toggleImgProduct;
+    }
+
+    @action.bound displayProductSize() {
+        this.ProductSizeAnimation.toggleSizeComponent = !this.ProductSizeAnimation.toggleSizeComponent;
     }
 }
 

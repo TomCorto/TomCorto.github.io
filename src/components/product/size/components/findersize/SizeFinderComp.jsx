@@ -44,7 +44,7 @@ import ButtonComp from '../button/ButtonComp';
 import ButtonSizeCTA from './components/button/ButtonSizeCTA';
 import svgIconsReturn from '../../../../../assets/svg/icons-arrows-left-return.svg';
 
-@inject('ProductStore')
+@inject('ProductStore', 'ProductUI')
 @observer
 export default class SizeFinderComp extends Component {
   constructor(props) {
@@ -56,11 +56,10 @@ export default class SizeFinderComp extends Component {
   }
 
   render() {
-    const { sizeComponent } = this.props.ProductStore;
-    return (<Container unmountOnExit in={sizeComponent.displaySize} timeout={500}>
+    const { ProductSizeAnimation } = this.props.ProductUI;
+    return <Container unmountOnExit in={ProductSizeAnimation.toggleSizeComponent}>
       <LeftSideStyled />
       <RightSideStyled />
     </Container>
-    );
   }
 }

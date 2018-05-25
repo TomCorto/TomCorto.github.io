@@ -28,7 +28,7 @@ export default class RightSide extends Component {
     }
 
     closeFunc() {
-        const { displayProductSize } = this.props.ProductStore;
+        const { displayProductSize } = this.props.ProductUI;
         displayProductSize();
     }
 

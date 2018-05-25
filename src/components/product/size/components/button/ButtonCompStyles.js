@@ -21,12 +21,12 @@ export const Container = transition.button`
   &:enter-active {
     display: flex;
     opacity: 1;
-    transition: all 1000ms ease-in;
+    transition: all 150ms ease-in;
   }
-  &:exit { opacity: 1; }
+  &:exit { opacity: 0.01; }
   &:exit-active {
     display: none;
     opacity: 0.01;
-    transition: all 1000ms ease-in;
+    transition: all 150ms ease-in;
   }
 `;

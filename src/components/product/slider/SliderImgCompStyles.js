@@ -7,9 +7,9 @@ export const Container = styled.section`
   grid-template-columns: repeat(2, auto);
   height: auto;
   @media all and (max-width: 1024px) { grid-column-gap: 8px; }
-  @media all and (min-width: 1024px) { grid-column-gap: 12px; }
-  @media all and (min-width: 1366px) { grid-column-gap: 14px; }
-  @media all and (min-width: 1440px) { grid-column-gap: 16px; }
+  @media all and (min-width: 1024px) { grid-column-gap: 8px; }
+  @media all and (min-width: 1366px) { grid-column-gap: 8px; }
+  @media all and (min-width: 1440px) { grid-column-gap: 8px; }
 `
 
 export const ImgStyled = styled.img`

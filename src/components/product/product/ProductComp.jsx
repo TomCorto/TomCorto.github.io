@@ -55,7 +55,7 @@ export default class ProductComp extends Component {
     return(
       <Container>
         <ImgMainStyled src={images[productObject.imgMain.imgSrc]} alt={productObject.imgMain.imgAlt} in={ProductAnimation.toggleImgProduct} />
-        <ButtonGroup>
+        <ButtonGroup in={ProductAnimation.toggleImgProduct}>
             <CustomizeCTA onClick={this.animationToggle} type="button"><ImgCustomStyled src={iconCustom} alt={"Icons Customize"}/>{productObject.buttonCustomText}</CustomizeCTA>
             <ButtonCTAStores onClick={this.toggleAction} ><IconsLocation src={iconStores} alt={"Icons Stores Locator"}/>{productObject.buttonCTAStoreText}</ButtonCTAStores>
             <ButtonCTA onClick={this.toggleAction} ><IconsCTA src={iconCheckout} alt={"Icons Checkout"}/>{productObject.buttonCTAText}</ButtonCTA>
