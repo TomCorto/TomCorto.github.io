@@ -24,8 +24,7 @@ import colorsIcons2 from '../../../assets/icons/colors-red-red.png';
 import colorsIcons3 from '../../../assets/icons/colors-black-black.png';
 
 
-
-@inject('ProductStore')
+@inject('ProductStore', 'ProductUI')
 @observer
 export default class InfoBarComp extends Component {
   constructor() {
@@ -43,22 +42,22 @@ export default class InfoBarComp extends Component {
 
   render() {
     const  { infoBarObject } = this.props.ProductStore;
+    const { ProductAnimation } = this.props.ProductUI;
     return (
-      <Container>
+      <Container in={ProductAnimation.toggleImgProduct}>
         <ProductPriceComp>
           <ModelStyled>{infoBarObject.modelText}</ModelStyled>
           <PriceStyled>{infoBarObject.priceText}</PriceStyled>
         </ProductPriceComp>
-        <ColorsGroup>
+        <ColorsGroup in={ProductAnimation.toggleImgProduct}>
           <ColorsLabels>Coloris</ColorsLabels>
           <ColorsOvalGroup>
             <ColorsOvalImg src={colorsIcons1} alt={"Icons"} />
             <ColorsOvalImg src={colorsIcons2} alt={"Icons"} />
             <ColorsOvalImg src={colorsIcons3} alt={"Icons"} />
           </ColorsOvalGroup>
-          {/*<ColorsLabel>Red Matt & Glossy</ColorsLabel>*/}
         </ColorsGroup>
-        <SizeGroup>
+        <SizeGroup in={ProductAnimation.toggleImgProduct}>
           <LabelSize>{infoBarObject.sizeLabel}</LabelSize>
           <SelectSize>
             <option value="xs">XS</option>
@@ -68,7 +67,7 @@ export default class InfoBarComp extends Component {
             <option value="xl">XL</option>
           </SelectSize>
         </SizeGroup>
-        <InfoGroupStyled onClick={this.scrollToBottom}>
+        <InfoGroupStyled in={ProductAnimation.toggleImgProduct} onClick={this.scrollToBottom}>
           <RuleSvgCompStyled />
           <InfoTextStyled>{infoBarObject.sizeText}</InfoTextStyled>
         </InfoGroupStyled>

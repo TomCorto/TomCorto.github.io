@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import transition from 'styled-transition-group';
 import iconsZoom from '../../../assets/icons/icons-zoom-plus.png';
 
 export const Container = styled.div`
@@ -39,7 +40,7 @@ export const Container = styled.div`
   }
 `
 
-export const ImgMainStyled = styled.img` /* @ImgMainStyled - Image Main Product */
+export const ImgMainStyled = transition.img` /* @ImgMainStyled - Image Main Product */
   margin: 0 auto;
   height: auto;
   position: relative;
@@ -49,6 +50,22 @@ export const ImgMainStyled = styled.img` /* @ImgMainStyled - Image Main Product 
   @media all and (min-width: 1280px) { max-width: 60%; }
   @media all and (min-width: 1366px) { max-width: 70%; }
   @media all and (min-width: 1440px) { max-width: 100%; }
+
+  /* Animation */
+   &:enter {
+    opacity: 0;
+  }
+  &:enter-active {
+    opacity: 1;
+    transition: opacity 150ms ease-in 100ms;
+  }
+  &:exit {
+    opacity: 1;
+  }
+  &:exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in 100ms;
+  }
 `
 
 export const ImgCustomStyled = styled.img`

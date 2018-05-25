@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import { Container, Text } from "./DescriptionCompStyles";
+import { Container, Title, Text } from "./DescriptionCompStyles";
 
-@inject('ProductStore')
+@inject('ProductStore', 'ProductUI')
 @observer
 export default class DescriptionComp extends Component {
   render() {
     const { descriptionObject } = this.props.ProductStore;
+    const { ProductAnimation } = this.props.ProductUI;
     return (
       <Container>
-        <Text>{descriptionObject.text}</Text>
+        <Title in={ProductAnimation.toggleImgProduct}>{descriptionObject.title}</Title>
+        <Text in={ProductAnimation.toggleImgProduct}>{descriptionObject.text}</Text>
       </Container>
     )
   }

@@ -21,6 +21,12 @@ class ProductUI {
         {indicator: 'c', text: 'Largeur d\'épaules'},
         {indicator: 'd', text: 'Longueur de bras'}
     ]
+
+    @observable ProductAnimation = { toggleImgProduct: true, toggleInfoBar: false };
+
+    @action.bound displayImg() {
+        this.ProductAnimation.toggleImgProduct = !this.ProductAnimation.toggleImgProduct;
+    }
 }
 
 export default new ProductUI();

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import transition from 'styled-transition-group';
 import React from 'react';
 import iconsArrows from '../../../assets/icons/icons-down-arrow.png';
 import RuleSvgComp from './components/RuleSVG/RuleSvgComp';
 
-export const Container = styled.section`
+export const Container = transition.section`
   margin: 0;
   padding: 0;
   display: grid;
@@ -14,6 +15,22 @@ export const Container = styled.section`
   @media all and (min-width: 1024px) { height: 3.875em; padding: 0.4em 5em 0.4em; }
   @media all and (min-width: 1280px) { height: 3.875em; padding: 0.4em 5.5em 0.4em; }
   @media all and (min-width: 1440px) { height: 3.875em; padding: 0.4em 6em 0.4em; }
+
+  /* Animation */
+   &:enter {
+    opacity: 0.01;
+  }
+  &:enter-active {
+    opacity: 1;
+    transition: opacity 150ms ease-in 300ms;
+  }
+  &:exit {
+    opacity: 1;
+  }
+  &:exit-active {
+    opacity: 0.01;
+    transition: opacity 150ms ease-in 300ms;
+  }
 `
 
 export const ProductPriceComp = styled.div`
@@ -55,7 +72,7 @@ export const PriceStyled = styled.h3`
   }
 `
 
-export const SizeGroup = styled.div`
+export const SizeGroup = transition.div`
   grid-area: 1 / 3 / -1 / 4;
   height: 3.875em;
   display: flex;
@@ -66,9 +83,25 @@ export const SizeGroup = styled.div`
   user-select: none;
   @media all and (min-width: 768px) { margin: 0 auto; }
   @media all and (min-width: 1024px) { margin-left: 2em; }
+
+   /* Animation */
+   &:enter {
+    opacity: 0.01;
+  }
+  &:enter-active {
+    opacity: 1;
+    transition: opacity 150ms ease-in 600ms;
+  }
+  &:exit {
+    opacity: 1;
+  }
+  &:exit-active {
+    opacity: 0.01;
+    transition: opacity 150ms ease-in 600ms;
+  }
 `
 
-export const ColorsGroup = styled.div`
+export const ColorsGroup = transition.div`
   grid-area: 1 / 2 / -1 / 3;
   margin: -0.3em 0 0 1.2em;
   height: 3.875em;
@@ -80,6 +113,22 @@ export const ColorsGroup = styled.div`
   justify-content: start;
   align-items: center;
   grid-column-gap: 4px;
+
+  /* Animation */
+   &:enter {
+    opacity: 0.01;
+  }
+  &:enter-active {
+    opacity: 1;
+    transition: opacity 150ms ease-in 500ms;
+  }
+  &:exit {
+    opacity: 1;
+  }
+  &:exit-active {
+    opacity: 0.01;
+    transition: opacity 150ms ease-in 500ms;
+  }
 `
 
 export const ColorsOvalGroup = styled.div`
@@ -164,7 +213,7 @@ export const SelectSize = styled.select`
   @media all and (min-width: 1024px) { margin-left: 0.5vw; }
 `
 
-export const InfoGroupStyled = styled.div`
+export const InfoGroupStyled = transition.div`
   grid-area: 1 / 11 / -1 / -1;
   height: auto;
   display: flex;
@@ -172,6 +221,22 @@ export const InfoGroupStyled = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-left: auto;
+
+  /* Animation */
+   &:enter {
+    opacity: 0.01;
+  }
+  &:enter-active {
+    opacity: 1;
+    transition: opacity 150ms ease-in 800ms;
+  }
+  &:exit {
+    opacity: 1;
+  }
+  &:exit-active {
+    opacity: 0.01;
+    transition: opacity 150ms ease-in 800ms;
+  }
 `
 
 export const InfoTextStyled = styled.h5`
