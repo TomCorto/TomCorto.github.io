@@ -63,7 +63,7 @@ ReactDOM.render(
           <Route exact path="/" render={() => (<Redirect to="/home" />)} />
           <Route path="*" component={ErrorPage} />
         </Switch>
-        <Footer />
+        <Footer/>
       </ApplicationDivStyled>
       </BrowserRouter>
     </Provider>
