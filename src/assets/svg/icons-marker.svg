@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="46px" viewBox="0 0 32 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>placeholder</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="SVG/Marker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="placeholder">
+            <path d="M27.3160523,4.71870263 C24.2938637,1.67595011 20.2754042,0 16.001619,0 C11.7269994,0 7.70937432,1.67595011 4.68718571,4.71870263 C-0.905782317,10.3488869 -1.60083563,20.9422357 3.1819322,27.3604105 L16.001619,46 L28.8021147,27.3864529 C33.6040737,20.9422357 32.9090204,10.3488869 27.3160523,4.71870263 Z" id="Shape" fill="#00ACAC" fill-rule="nonzero"></path>
+            <text id="A" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="18" font-weight="500" fill="#FFFFFF">
+                <tspan x="11.478" y="24">A</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

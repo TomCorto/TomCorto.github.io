@@ -21,6 +21,7 @@ import HomeStore from './stores/HomeStore';
 import BikeStore from './stores/BikeStore';
 import ProductStore from './stores/ProductStore';
 import ProductUI from './stores//ProductUI';
+import ShopStore from './stores/ShopStore';
 
 // Routes
 import HomePage from './pages/HomePage';
@@ -38,7 +39,8 @@ const stores = {
   HomeStore,
   BikeStore,
   ProductStore,
-  ProductUI
+  ProductUI,
+  ShopStore
 }
 
 const ApplicationDivStyled = styled.div`
