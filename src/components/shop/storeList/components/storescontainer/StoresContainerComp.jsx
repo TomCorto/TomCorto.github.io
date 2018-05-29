@@ -13,6 +13,7 @@ import {
     ScheduleTableTR,
     ScheduleItemsDay,
     AdressStore,
+    SpanStore,
     WebsiteLink,
     WebsiteGroup,
     WebsiteGroupMobile,
@@ -49,8 +50,10 @@ const StoresContainerComp = ({ objectProps }) => (
         <AdressGroup>
             <NameStore>{objectProps.AdressGroup.name}</NameStore>
             <AdressStore>
-                {objectProps.AdressGroup.adress}<br/>
-                {objectProps.AdressGroup.city}
+                <SpanStore>
+                    {objectProps.AdressGroup.adress}<br/>
+                    {objectProps.AdressGroup.city}
+                </SpanStore>
             </AdressStore>
             <WebsiteGroupMobile>
                 <CategoryTitle>Site Internet</CategoryTitle>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const SvgContainer = styled.svg`
-    /*@media all and (max-width: 480px) { margin-right: 0 0 0.5em 0; }*/
+    @media all and (max-width: 480px) { margin-right: 0 0 0.5em 0; }
     @media all and (max-width: 768px) { margin: 0 0.5em 0 0; }
     @media all and (min-width: 768px) { margin: 0 0.5em 0 0; }
     @media all and (min-width: 1024px) { margin: 0 1em 0 0; }

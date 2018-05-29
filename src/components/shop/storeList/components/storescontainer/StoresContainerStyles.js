@@ -74,7 +74,10 @@ export const AdressGroup = styled.div`
     align-items: flex-start;
     margin: 0;
     padding: 0;
-    @media all and (min-width: 480px) { grid-area: 2 / 1 / 3 / 2; }
+    @media all and (min-width: 480px) {
+        grid-area: 2 / 1 / 3 / 2;
+
+    }
     @media all and (min-width: 768px) { margin: 0 0 0 1em; display: flex; }
     @media all and (min-width: 1024px) { margin: 0 0 0 1.5em; }
     @media all and (min-width: 1280px) { margin: 0 0 0 2em; }
@@ -85,6 +88,10 @@ export const AdressStoreMobile = AdressGroup.extend`
     @media all and (min-width: 480px) { display: flex; }
 `
 
+export const SpanStore = styled.span`
+    font-size: 1rem;
+    line-height: 0.75rem;
+`
 
 export const NameStore = styled.h3`
     margin: 0;
@@ -154,7 +161,7 @@ export const WebsiteGroupMobile = WebsiteGroup.extend`
 `
 
 export const WebsiteLink = styled.a`
-    margin: 0.2em 0 0 0;
+    margin: 0;
     text-decoration: underline;
     font-size: 1rem;
     color: var(--color-primary-grey);
